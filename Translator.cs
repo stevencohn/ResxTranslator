@@ -101,7 +101,7 @@ namespace ResxTranslator
 		private const string DataDelimiter = "~~~~";
 
 		private const int WordsPerDay = 2000;
-		private const int BatchSize = 1024;
+		private const int BatchSize = 1; //1024;
 		private const int Delay = 500;
 
 		private HttpClient client = null;
@@ -123,7 +123,10 @@ namespace ResxTranslator
 				var data = CollectData(root);
 
 				strings = data.Count;
-				seconds = (data.Elements("value").Sum(e => e.Value.Length) / BatchSize) * (Delay / 1000);
+
+				seconds = BatchSize == 1
+					? (int)(data.Count * (Delay / 1000.0))
+					: (int)((data.Elements("value").Sum(e => e.Value.Length) / BatchSize) * (Delay / 1000.0));
 
 				return true;
 			}
@@ -251,7 +254,7 @@ namespace ResxTranslator
 
 
 				// build batch
-				while (i < data.Count && batch.Length < 1) //BatchSize)
+				while (i < data.Count && batch.Length < BatchSize)
 				{
 					var value = data[i].Element("value");
 					if (value == null)
