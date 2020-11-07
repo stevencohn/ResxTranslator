@@ -22,10 +22,10 @@ Translate an entire .resx file to one or more languages.
    pause for 10 seconds, 20, 30, 40, 50, and finally every 60 seconds for an hour before
    giving up.
 
-**Language Selections***
+#### Language Selections
 
 ![Translate Resx](Images/LanguagesScreen.png)
 
-**Working**
+#### Working
 
 ![Translate Resx](Images/TranslateResxScreen.png)
