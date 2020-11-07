@@ -132,11 +132,12 @@ namespace ResxTranslator
 				}
 			}
 
-			if (sender == inputBox)
+			if (sender == inputBox || sender == languageList)
 			{
 				if (Translator.Estimate(inputBox.Text, out strings, out var seconds))
 				{
-					var span = new TimeSpan(0, 0, seconds);
+					var langs = Math.Max(languageList.CheckedIndices.Count, 1);
+					var span = new TimeSpan(0, 0, seconds * langs);
 					estimationLabel.Text = strings == 0
 						? string.Empty
 						: $"{strings} strings. Estimated time to complete {span}";

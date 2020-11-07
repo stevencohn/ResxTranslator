@@ -102,7 +102,9 @@ namespace ResxTranslator
 
 		private const int WordsPerDay = 2000;
 		private const int BatchSize = 1; //1024;
-		private const int Delay = 500;
+
+		// one translation every 20 seconds :-(
+		private const int Delay = 30 * 1000;
 
 		private HttpClient client = null;
 
@@ -248,7 +250,9 @@ namespace ResxTranslator
 				 * 
 				 * NOTE, tried to batch up strings, up to 1K of chars, delimited by ~~~~
 				 * but the free Google Translator doesn't handle most languages correctly
-				 * so this is temporarily disabled by hard-codng the batch size to 1
+				 * so this is temporarily disabled by hard-codng the batch size to 1.
+				 * e.g. given a batch with 10 strings, Google may only return 7 of them
+				 * and it's unclear which 7 it will return?
 				 * 
 				 */
 
@@ -322,7 +326,10 @@ namespace ResxTranslator
 			string batch, string fromCode, string toCode, StatusCallback logger)
 		{
 			var retry = 0;
-			while (retry < 23)
+
+			// the reset window seems to be less than 24 hours but not sure how long...
+
+			while (retry < 24 * 3) // 1 day split up into 20 minute retries
 			{
 				try
 				{
@@ -331,10 +338,10 @@ namespace ResxTranslator
 				}
 				catch (HttpException exc)
 				{
-					logger(false, 0, $"Retry {retry}/23, waiting one hour; {exc.Message}");
+					logger(false, 0, $"Retry {retry}/23, waiting 20 minutes, starting at {DateTime.Now}; {exc.Message}");
 					retry++;
 
-					await Task.Delay(new TimeSpan(1, 0, 0));
+					await Task.Delay(new TimeSpan(0, 20, 0));
 				}
 			}
 
