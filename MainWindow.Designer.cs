@@ -31,6 +31,10 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.resxTab = new System.Windows.Forms.TabPage();
+			this.recommendationLabel = new System.Windows.Forms.Label();
+			this.delayBox = new System.Windows.Forms.NumericUpDown();
+			this.delayLabel = new System.Windows.Forms.Label();
+			this.cancelButton = new System.Windows.Forms.Button();
 			this.sheetPanel = new System.Windows.Forms.Panel();
 			this.logBox = new System.Windows.Forms.TextBox();
 			this.languageList = new System.Windows.Forms.ListView();
@@ -60,6 +64,7 @@
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.delayBox)).BeginInit();
 			this.sheetPanel.SuspendLayout();
 			this.textTab.SuspendLayout();
 			this.textCmdPanel.SuspendLayout();
@@ -67,15 +72,18 @@
 			// 
 			// tabs
 			// 
-			resources.ApplyResources(this.tabs, "tabs");
 			this.tabs.Controls.Add(this.resxTab);
 			this.tabs.Controls.Add(this.textTab);
+			resources.ApplyResources(this.tabs, "tabs");
 			this.tabs.Name = "tabs";
 			this.tabs.SelectedIndex = 0;
 			// 
 			// resxTab
 			// 
-			resources.ApplyResources(this.resxTab, "resxTab");
+			this.resxTab.Controls.Add(this.recommendationLabel);
+			this.resxTab.Controls.Add(this.delayBox);
+			this.resxTab.Controls.Add(this.delayLabel);
+			this.resxTab.Controls.Add(this.cancelButton);
 			this.resxTab.Controls.Add(this.sheetPanel);
 			this.resxTab.Controls.Add(this.estimationLabel);
 			this.resxTab.Controls.Add(this.statusLabel);
@@ -89,8 +97,47 @@
 			this.resxTab.Controls.Add(this.codeBox);
 			this.resxTab.Controls.Add(this.inputBox);
 			this.resxTab.Controls.Add(this.inputLabel);
+			resources.ApplyResources(this.resxTab, "resxTab");
 			this.resxTab.Name = "resxTab";
 			this.resxTab.UseVisualStyleBackColor = true;
+			// 
+			// recommendationLabel
+			// 
+			resources.ApplyResources(this.recommendationLabel, "recommendationLabel");
+			this.recommendationLabel.Name = "recommendationLabel";
+			// 
+			// delayBox
+			// 
+			resources.ApplyResources(this.delayBox, "delayBox");
+			this.delayBox.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+			this.delayBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.delayBox.Name = "delayBox";
+			this.delayBox.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+			this.delayBox.ValueChanged += new System.EventHandler(this.ChangedResxInput);
+			// 
+			// delayLabel
+			// 
+			resources.ApplyResources(this.delayLabel, "delayLabel");
+			this.delayLabel.Name = "delayLabel";
+			// 
+			// cancelButton
+			// 
+			resources.ApplyResources(this.cancelButton, "cancelButton");
+			this.cancelButton.Name = "cancelButton";
+			this.cancelButton.UseVisualStyleBackColor = true;
+			this.cancelButton.Click += new System.EventHandler(this.CancelTranslation);
 			// 
 			// sheetPanel
 			// 
@@ -106,9 +153,9 @@
 			// 
 			// languageList
 			// 
-			resources.ApplyResources(this.languageList, "languageList");
 			this.languageList.CheckBoxes = true;
 			this.languageList.HideSelection = false;
+			resources.ApplyResources(this.languageList, "languageList");
 			this.languageList.Name = "languageList";
 			this.languageList.UseCompatibleStateImageBehavior = false;
 			this.languageList.View = System.Windows.Forms.View.List;
@@ -186,11 +233,11 @@
 			// 
 			// textTab
 			// 
-			resources.ApplyResources(this.textTab, "textTab");
 			this.textTab.Controls.Add(this.textBox);
 			this.textTab.Controls.Add(this.resultsLabel);
 			this.textTab.Controls.Add(this.resultBox);
 			this.textTab.Controls.Add(this.textCmdPanel);
+			resources.ApplyResources(this.textTab, "textTab");
 			this.textTab.Name = "textTab";
 			this.textTab.UseVisualStyleBackColor = true;
 			// 
@@ -234,15 +281,15 @@
 			// 
 			// toCodeBox
 			// 
-			resources.ApplyResources(this.toCodeBox, "toCodeBox");
 			this.toCodeBox.FormattingEnabled = true;
+			resources.ApplyResources(this.toCodeBox, "toCodeBox");
 			this.toCodeBox.Name = "toCodeBox";
 			this.toCodeBox.SelectedIndexChanged += new System.EventHandler(this.ChangeTransInput);
 			// 
 			// fromCodeBox
 			// 
-			resources.ApplyResources(this.fromCodeBox, "fromCodeBox");
 			this.fromCodeBox.FormattingEnabled = true;
+			resources.ApplyResources(this.fromCodeBox, "fromCodeBox");
 			this.fromCodeBox.Name = "fromCodeBox";
 			this.fromCodeBox.SelectedIndexChanged += new System.EventHandler(this.ChangeTransInput);
 			// 
@@ -254,11 +301,6 @@
 			// openFileDialog
 			// 
 			this.openFileDialog.FileName = "openFileDialog1";
-			resources.ApplyResources(this.openFileDialog, "openFileDialog");
-			// 
-			// folderBrowserDialog
-			// 
-			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
 			// 
 			// MainWindow
 			// 
@@ -269,6 +311,7 @@
 			this.tabs.ResumeLayout(false);
 			this.resxTab.ResumeLayout(false);
 			this.resxTab.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.delayBox)).EndInit();
 			this.sheetPanel.ResumeLayout(false);
 			this.sheetPanel.PerformLayout();
 			this.textTab.ResumeLayout(false);
@@ -310,6 +353,10 @@
 		private System.Windows.Forms.Label estimationLabel;
 		private System.Windows.Forms.Panel sheetPanel;
 		private System.Windows.Forms.TextBox logBox;
+		private System.Windows.Forms.Button cancelButton;
+		private System.Windows.Forms.NumericUpDown delayBox;
+		private System.Windows.Forms.Label delayLabel;
+		private System.Windows.Forms.Label recommendationLabel;
 	}
 }
 

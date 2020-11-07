@@ -22,6 +22,7 @@ namespace ResxTranslator
 		private const string FilePattern = @"(?<file>.+)(\.(?<code>.+)){0,1}\.resx";
 
 		private int strings = 0;
+		private CancellationTokenSource cancellation;
 
 
 		public MainWindow()
@@ -33,6 +34,9 @@ namespace ResxTranslator
 			languageList.Dock = DockStyle.Fill;
 			logBox.Dock = DockStyle.Fill;
 			logBox.Visible = false;
+
+			cancelButton.Top = translateButton.Top;
+			cancelButton.Left = translateButton.Left;
 
 			openFileDialog.Filter = "Resx Files (*.resx)|*.resx";
 			openFileDialog.Title = "Choose source resx file";
@@ -132,15 +136,15 @@ namespace ResxTranslator
 				}
 			}
 
-			if (sender == inputBox || sender == languageList)
+			if (sender == inputBox || sender == languageList || sender == delayBox)
 			{
-				if (Translator.Estimate(inputBox.Text, out strings, out var seconds))
+				if (Translator.Estimate(inputBox.Text, out strings, (int)delayBox.Value, out var seconds))
 				{
 					var langs = Math.Max(languageList.CheckedIndices.Count, 1);
 					var span = new TimeSpan(0, 0, seconds * langs);
 					estimationLabel.Text = strings == 0
 						? string.Empty
-						: $"{strings} strings. Estimated time to complete {span}";
+						: $"{strings} strings. Estimated completion in {span}";
 				}
 			}
 
@@ -199,6 +203,9 @@ namespace ResxTranslator
 			logBox.Visible = true;
 			logBox.Clear();
 
+			translateButton.Visible = false;
+			cancelButton.Visible = true;
+
 			var inputPath = Path.GetFullPath(inputBox.Text);
 			var fromCode = Translator.Codes[codeBox.SelectedIndex];
 
@@ -219,6 +226,7 @@ namespace ResxTranslator
 			}
 
 			var translator = new Translator();
+			cancellation = new CancellationTokenSource();
 
 			foreach (var index in languageList.CheckedIndices)
 			{
@@ -232,7 +240,8 @@ namespace ResxTranslator
 
 				try
 				{
-					var success = await translator.TranslateResx(root, fromCode, toCode,
+					var success = await translator.TranslateResx(
+						root, fromCode, toCode, (int)delayBox.Value, cancellation,
 						(ok, count, message) =>
 						{
 							if (ok)
@@ -244,6 +253,11 @@ namespace ResxTranslator
 								logBox.AppendText(message + Environment.NewLine);
 							}
 						});
+
+					if (cancellation.IsCancellationRequested)
+					{
+						break;
+					}
 
 					if (success)
 					{
@@ -259,7 +273,25 @@ namespace ResxTranslator
 				}
 			}
 
-			statusLabel.Text = "Done";
+			cancelButton.Visible = false;
+			translateButton.Visible = true;
+
+			if (cancellation.IsCancellationRequested)
+			{
+				statusLabel.Text = "Cancelled";
+				progressBar.Value = progressBar.Maximum;
+			}
+			else
+			{
+				statusLabel.Text = "Done";
+			}
+
+			cancellation.Dispose();
+		}
+
+		private void CancelTranslation(object sender, EventArgs e)
+		{
+			cancellation.Cancel();
 		}
 	}
 }

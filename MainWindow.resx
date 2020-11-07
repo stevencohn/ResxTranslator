@@ -117,244 +117,257 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;fromCodeLabel.Name" xml:space="preserve">
-    <value>fromCodeLabel</value>
-  </data>
-  <data name="&gt;&gt;resultBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="outputLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="recommendationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;textBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>429, 15</value>
-  </data>
-  <data name="&gt;&gt;fromCodeBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="translationsLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="translateTextButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;translateButton.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="translateButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="languageList.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="progressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="recommendationLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="toCodeLabel.Text" xml:space="preserve">
-    <value>Translate to:</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="recommendationLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>273, 62</value>
   </data>
-  <data name="resultsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 311</value>
+  <data name="recommendationLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 20</value>
   </data>
-  <data name="&gt;&gt;textCmdPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="recommendationLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
-  <data name="&gt;&gt;translationsLabel.Parent" xml:space="preserve">
+  <data name="recommendationLabel.Text" xml:space="preserve">
+    <value>At least 20 seconds is recommended</value>
+  </data>
+  <data name="&gt;&gt;recommendationLabel.Name" xml:space="preserve">
+    <value>recommendationLabel</value>
+  </data>
+  <data name="&gt;&gt;recommendationLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;recommendationLabel.Parent" xml:space="preserve">
     <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;recommendationLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="delayBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 60</value>
+  </data>
+  <data name="delayBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 26</value>
+  </data>
+  <data name="delayBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;delayBox.Name" xml:space="preserve">
+    <value>delayBox</value>
+  </data>
+  <data name="&gt;&gt;delayBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;delayBox.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;delayBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="delayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="delayLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="delayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 62</value>
+  </data>
+  <data name="delayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="delayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="delayLabel.Text" xml:space="preserve">
+    <value>Seconds Delay:</value>
+  </data>
+  <data name="&gt;&gt;delayLabel.Name" xml:space="preserve">
+    <value>delayLabel</value>
+  </data>
+  <data name="&gt;&gt;delayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;delayLabel.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;delayLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cancelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="cancelButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cancelButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAixJREFUOE+Vks1rE0EYxvdfMGlDLR48VDx4KKgXoeCpUC9+IFhxt6bqwVxUbEVL
+        xRYqFNuq1KKk1A9QelAQTaEo6EXEbjZNTBs02qClS2k+mrTutkm7ybqbp7PZzSbbBMHDb5h553med3Z2
+        KAAWZGER8XfDCN+lEbjRDH/XEcwMXQI/+QLrqQ0iserNSV5OIzFxC1x7LabO7KgK69yLiGeCyLcF5LMC
+        +EcnwdK2qkYLdC1m3W4zpDCkJjtKZmYXOFfDNqMNXtc+eNsMDV2PsOdzIYRShe8IXHDoG0w9vr18CykW
+        ROjqHtPMXWlB6ncUy55rZiP24iGsxjZBCV/6SaLRiXFg5uEIJOkv5IQe4us4hlV+Bdod8Y9PlU6qneI9
+        Cyr+pNXoZEDbEXxwD1lZRS75C+vLItTcGvgxYi7XEaaHR0FFR1osxSKhp+NQVfKV+RyWxs9WmAv09IKK
+        uY9XbHCdJyAkJNJZgiwrUIQ5hLsbK3UD90GtfOwuK9rh62IgJiUomTgiA4fxdbAPG+ks1MwifvYeLNM6
+        EHr9AZQSn4LPadeLzt2Y/+SHnIlirr9Jr5E7mb59HWlxE2vcKLyMrmXPNyK58Ed/DNHnp0t/or0Bgc4D
+        +tzERv5GE3zn6vQ17cDss1f6O9AGNb2A8M39pZB/UgN/z+WC2QzQUMR5RIaayWurqWIyaKtDkNxJ0aNh
+        ToqIwTf4cecoWKbMSO9EoM+FJc5LJFa9ZfH/gNoC52604oOVNVUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="cancelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 690</value>
+  </data>
+  <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 3, 3</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 46</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="cancelButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="sheetPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;browseFolderButton.Name" xml:space="preserve">
-    <value>browseFolderButton</value>
+  <data name="&gt;&gt;logBox.Name" xml:space="preserve">
+    <value>logBox</value>
   </data>
-  <data name="browseFolderButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;logBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="logBox.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="browseFileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
-        MjHxIGmVAAABBElEQVQ4T6WRsRGDMAxFPQU7ULtiCNbwCmxAnYo7j5AiDRMwgHsq5qBU9KUYGzDkcine
-        nbH9voRsiOgviptHlmWhYRgE7wNN00TrugpF4YhznkIIvNRvBM3zTNiX9NfzcSIXjuAMsgToZc/7EADW
-        /jYkyluASkkWgtt1lGbg+DyFZQG5rAElvgbgd0BePSd20ve9hGmAzCCJ2sEV2klgGUEpgMFaBpq1fMby
-        VcsDtPKU8qaQ99XLYsSzHGexBdxX/8hcOXhDzmp1CcAwrqvnosqo7hyfxVdAK1odgzGXSNuQufo4jvsA
-        0HUdX3CSjgG1bUtN05Bloa5rEaqq2sTI7uN3yLwBpM724PGQQrAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="&gt;&gt;browseFileButton.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>15, 15, 15, 15</value>
-  </data>
-  <data name="resultBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="&gt;&gt;estimationLabel.Name" xml:space="preserve">
-    <value>estimationLabel</value>
-  </data>
-  <data name="&gt;&gt;progressBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="textCmdPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="estimationLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 20</value>
+  <data name="&gt;&gt;logBox.Parent" xml:space="preserve">
+    <value>sheetPanel</value>
   </data>
   <data name="&gt;&gt;logBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="translateButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>868, 691</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1078, 824</value>
-  </data>
-  <data name="textTab.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="translateButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 8, 3, 3</value>
+  <data name="&gt;&gt;languageList.Name" xml:space="preserve">
+    <value>languageList</value>
   </data>
   <data name="&gt;&gt;languageList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toCodeBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>532, 12</value>
+  <data name="&gt;&gt;languageList.Parent" xml:space="preserve">
+    <value>sheetPanel</value>
   </data>
-  <data name="inputLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;languageList.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="sheetPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 176</value>
+  </data>
+  <data name="sheetPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>796, 504</value>
+  </data>
+  <data name="sheetPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;sheetPanel.Name" xml:space="preserve">
+    <value>sheetPanel</value>
+  </data>
+  <data name="&gt;&gt;sheetPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sheetPanel.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;sheetPanel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="estimationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;toCodeBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;estimationLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Resx Robo Translator</value>
-  </data>
-  <data name="progressBar.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;translationsLabel.Name" xml:space="preserve">
-    <value>translationsLabel</value>
+  <data name="estimationLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 96</value>
   </data>
   <data name="estimationLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 0, 3, 20</value>
   </data>
-  <data name="outputLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 20</value>
+  <data name="estimationLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 20</value>
   </data>
-  <data name="&gt;&gt;translateTextButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="estimationLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
-  <data name="&gt;&gt;codeBox.Name" xml:space="preserve">
-    <value>codeBox</value>
+  <data name="estimationLabel.Text" xml:space="preserve">
+    <value>Estimation...</value>
   </data>
-  <data name="fromCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 15</value>
+  <data name="&gt;&gt;estimationLabel.Name" xml:space="preserve">
+    <value>estimationLabel</value>
+  </data>
+  <data name="&gt;&gt;estimationLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;estimationLabel.Parent" xml:space="preserve">
+    <value>resxTab</value>
   </data>
   <data name="&gt;&gt;estimationLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="outputBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="inputBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 26</value>
+  <data name="statusLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="statusLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="statusLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 691</value>
   </data>
-  <data name="&gt;&gt;textBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="statusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 20</value>
   </data>
-  <data name="&gt;&gt;textCmdPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="statusLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;resultsLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>Status...</value>
   </data>
-  <data name="&gt;&gt;tabs.Name" xml:space="preserve">
-    <value>tabs</value>
-  </data>
-  <data name="&gt;&gt;codeBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="browseFolderButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="browseFileButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="&gt;&gt;inputLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 89</value>
-  </data>
-  <data name="resultsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="resxTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
-  </data>
-  <data name="&gt;&gt;sheetPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="fromCodeBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 12</value>
-  </data>
-  <data name="&gt;&gt;openFileDialog.Name" xml:space="preserve">
-    <value>openFileDialog</value>
-  </data>
-  <data name="outputLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;statusLabel.Name" xml:space="preserve">
+    <value>statusLabel</value>
   </data>
   <data name="&gt;&gt;statusLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;resultsLabel.Name" xml:space="preserve">
-    <value>resultsLabel</value>
-  </data>
-  <data name="&gt;&gt;inputLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;outputLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;browseFileButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;statusLabel.Parent" xml:space="preserve">
     <value>resxTab</value>
   </data>
-  <data name="tabs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1048, 794</value>
+  <data name="&gt;&gt;statusLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;codeBox.Parent" xml:space="preserve">
-    <value>resxTab</value>
+  <data name="translateButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="textCmdPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 9, 0, 9</value>
+  <data name="translateButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;translateTextButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="outputBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 8</value>
+  <data name="translateButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="translateButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -380,131 +393,648 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="languageList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 38</value>
+  <data name="translateButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>868, 691</value>
   </data>
-  <data name="&gt;&gt;resultBox.Name" xml:space="preserve">
-    <value>resultBox</value>
+  <data name="translateButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 3, 3</value>
   </data>
-  <data name="outputBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 100</value>
+  <data name="translateButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 46</value>
   </data>
-  <data name="translateTextButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 6</value>
-  </data>
-  <data name="inputLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;outputBox.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="textTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1040, 761</value>
-  </data>
-  <data name="resxTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1040, 761</value>
-  </data>
-  <data name="&gt;&gt;outputLabel.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="translateButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="&gt;&gt;inputBox.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="estimationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 57</value>
-  </data>
-  <data name="&gt;&gt;statusLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;fromCodeBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;progressBar.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="&gt;&gt;toCodeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textTab.Name" xml:space="preserve">
-    <value>textTab</value>
-  </data>
-  <data name="fromCodeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="textCmdPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 60</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainWindow</value>
-  </data>
-  <data name="outputBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="sheetPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 137</value>
-  </data>
-  <data name="statusLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="translateButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 714</value>
-  </data>
-  <data name="&gt;&gt;translationsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;translateButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="translateButton.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;translateButton.Name" xml:space="preserve">
     <value>translateButton</value>
   </data>
-  <data name="resxTab.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;translateButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;openFileDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;translateButton.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;translateButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="progressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 714</value>
+  </data>
+  <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>693, 22</value>
+  </data>
+  <data name="progressBar.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
+    <value>progressBar</value>
+  </data>
+  <data name="&gt;&gt;progressBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressBar.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="translationsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="translationsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 176</value>
+  </data>
+  <data name="translationsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 20</value>
+  </data>
+  <data name="translationsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="translationsLabel.Text" xml:space="preserve">
+    <value>Translations:</value>
+  </data>
+  <data name="&gt;&gt;translationsLabel.Name" xml:space="preserve">
+    <value>translationsLabel</value>
+  </data>
+  <data name="&gt;&gt;translationsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;translationsLabel.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;translationsLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="browseFolderButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="browseFolderButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="browseFolderButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
+        MjHxIGmVAAABBElEQVQ4T6WRsRGDMAxFPQU7ULtiCNbwCmxAnYo7j5AiDRMwgHsq5qBU9KUYGzDkcine
+        nbH9voRsiOgviptHlmWhYRgE7wNN00TrugpF4YhznkIIvNRvBM3zTNiX9NfzcSIXjuAMsgToZc/7EADW
+        /jYkyluASkkWgtt1lGbg+DyFZQG5rAElvgbgd0BePSd20ve9hGmAzCCJ2sEV2klgGUEpgMFaBpq1fMby
+        VcsDtPKU8qaQ99XLYsSzHGexBdxX/8hcOXhDzmp1CcAwrqvnosqo7hyfxVdAK1odgzGXSNuQufo4jvsA
+        0HUdX3CSjgG1bUtN05Bloa5rEaqq2sTI7uN3yLwBpM724PGQQrAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="browseFolderButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>958, 135</value>
+  </data>
+  <data name="browseFolderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 34</value>
+  </data>
+  <data name="browseFolderButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;browseFolderButton.Name" xml:space="preserve">
+    <value>browseFolderButton</value>
+  </data>
+  <data name="&gt;&gt;browseFolderButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;browseFolderButton.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;browseFolderButton.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="outputBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="outputBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 139</value>
+  </data>
+  <data name="outputBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 8</value>
+  </data>
+  <data name="outputBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>793, 26</value>
+  </data>
+  <data name="outputBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;outputBox.Name" xml:space="preserve">
+    <value>outputBox</value>
+  </data>
+  <data name="&gt;&gt;outputBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;outputBox.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;outputBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="outputLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="outputLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 142</value>
+  </data>
+  <data name="outputLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 20</value>
+  </data>
+  <data name="outputLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="outputLabel.Text" xml:space="preserve">
+    <value>Output directory:</value>
+  </data>
+  <data name="&gt;&gt;outputLabel.Name" xml:space="preserve">
+    <value>outputLabel</value>
+  </data>
+  <data name="&gt;&gt;outputLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;outputLabel.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;outputLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="browseFileButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="browseFileButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="browseFileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
+        MjHxIGmVAAABBElEQVQ4T6WRsRGDMAxFPQU7ULtiCNbwCmxAnYo7j5AiDRMwgHsq5qBU9KUYGzDkcine
+        nbH9voRsiOgviptHlmWhYRgE7wNN00TrugpF4YhznkIIvNRvBM3zTNiX9NfzcSIXjuAMsgToZc/7EADW
+        /jYkyluASkkWgtt1lGbg+DyFZQG5rAElvgbgd0BePSd20ve9hGmAzCCJ2sEV2klgGUEpgMFaBpq1fMby
+        VcsDtPKU8qaQ99XLYsSzHGexBdxX/8hcOXhDzmp1CcAwrqvnosqo7hyfxVdAK1odgzGXSNuQufo4jvsA
+        0HUdX3CSjgG1bUtN05Bloa5rEaqq2sTI7uN3yLwBpM724PGQQrAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="browseFileButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>958, 18</value>
+  </data>
+  <data name="browseFileButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 34</value>
+  </data>
+  <data name="browseFileButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;browseFileButton.Name" xml:space="preserve">
+    <value>browseFileButton</value>
+  </data>
+  <data name="&gt;&gt;browseFileButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;browseFileButton.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;browseFileButton.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="codeBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="codeBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 23</value>
+  </data>
+  <data name="codeBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 28</value>
   </data>
   <data name="codeBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="estimationLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;codeBox.Name" xml:space="preserve">
+    <value>codeBox</value>
+  </data>
+  <data name="&gt;&gt;codeBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;codeBox.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;codeBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="inputBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="inputBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 23</value>
+  </data>
+  <data name="inputBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 8</value>
+  </data>
+  <data name="inputBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>536, 26</value>
+  </data>
+  <data name="inputBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;inputBox.Name" xml:space="preserve">
+    <value>inputBox</value>
+  </data>
+  <data name="&gt;&gt;inputBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inputBox.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;inputBox.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="inputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>938, 582</value>
+  <data name="inputLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 26</value>
   </data>
-  <data name="logBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 322</value>
+  <data name="inputLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 20</value>
+  </data>
+  <data name="inputLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="inputLabel.Text" xml:space="preserve">
+    <value>Source Resx:</value>
+  </data>
+  <data name="&gt;&gt;inputLabel.Name" xml:space="preserve">
+    <value>inputLabel</value>
+  </data>
+  <data name="&gt;&gt;inputLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;inputLabel.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;inputLabel.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="resxTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
+  <data name="resxTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
+  <data name="resxTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1040, 761</value>
+  </data>
+  <data name="resxTab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="resxTab.Text" xml:space="preserve">
     <value>Translate Resx File</value>
   </data>
+  <data name="&gt;&gt;resxTab.Name" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;resxTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;resxTab.Parent" xml:space="preserve">
+    <value>tabs</value>
+  </data>
+  <data name="&gt;&gt;resxTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textBox.Name" xml:space="preserve">
+    <value>textBox</value>
+  </data>
+  <data name="&gt;&gt;textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox.Parent" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;resultsLabel.Name" xml:space="preserve">
+    <value>resultsLabel</value>
+  </data>
+  <data name="&gt;&gt;resultsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;resultsLabel.Parent" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;resultsLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;resultBox.Name" xml:space="preserve">
+    <value>resultBox</value>
+  </data>
+  <data name="&gt;&gt;resultBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;resultBox.Parent" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;resultBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;textCmdPanel.Name" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;textCmdPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textCmdPanel.Parent" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;textCmdPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="textTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
   <data name="textTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>20, 20, 20, 20</value>
   </data>
-  <data name="&gt;&gt;logBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="textTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1040, 761</value>
+  </data>
+  <data name="textTab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="textTab.Text" xml:space="preserve">
+    <value>Translate Text</value>
+  </data>
+  <data name="&gt;&gt;textTab.Name" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;textTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textTab.Parent" xml:space="preserve">
+    <value>tabs</value>
+  </data>
+  <data name="&gt;&gt;textTab.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="tabs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1048, 794</value>
+  </data>
+  <data name="tabs.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabs.Name" xml:space="preserve">
+    <value>tabs</value>
+  </data>
+  <data name="&gt;&gt;tabs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabs.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="logBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 38</value>
+  </data>
+  <data name="logBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="logBox.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Both</value>
   </data>
-  <data name="sheetPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="logBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>355, 322</value>
   </data>
-  <data name="&gt;&gt;toCodeBox.Name" xml:space="preserve">
-    <value>toCodeBox</value>
+  <data name="logBox.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="logBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;logBox.Name" xml:space="preserve">
+    <value>logBox</value>
+  </data>
+  <data name="&gt;&gt;logBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;logBox.Parent" xml:space="preserve">
+    <value>sheetPanel</value>
+  </data>
+  <data name="&gt;&gt;logBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="languageList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 38</value>
+  </data>
+  <data name="languageList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 322</value>
+  </data>
+  <data name="languageList.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;languageList.Name" xml:space="preserve">
+    <value>languageList</value>
+  </data>
+  <data name="&gt;&gt;languageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;languageList.Parent" xml:space="preserve">
+    <value>sheetPanel</value>
+  </data>
+  <data name="&gt;&gt;languageList.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="textBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 89</value>
+  </data>
+  <data name="textBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 20</value>
+  </data>
+  <data name="textBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>994, 202</value>
+  </data>
+  <data name="textBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textBox.Name" xml:space="preserve">
+    <value>textBox</value>
+  </data>
+  <data name="&gt;&gt;textBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox.Parent" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;textBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="resultsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="resultsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="resultsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 311</value>
+  </data>
+  <data name="resultsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 20</value>
+  </data>
+  <data name="resultsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="resultsLabel.Text" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="&gt;&gt;resultsLabel.Name" xml:space="preserve">
+    <value>resultsLabel</value>
+  </data>
+  <data name="&gt;&gt;resultsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;resultsLabel.Parent" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;resultsLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="resultBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="resultBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 331</value>
   </data>
-  <data name="textBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="resultBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="resultBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="resultBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>996, 379</value>
+  </data>
+  <data name="resultBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;resultBox.Name" xml:space="preserve">
+    <value>resultBox</value>
+  </data>
+  <data name="&gt;&gt;resultBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;resultBox.Parent" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;resultBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="textCmdPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;translateTextButton.Name" xml:space="preserve">
+    <value>translateTextButton</value>
+  </data>
+  <data name="&gt;&gt;translateTextButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;translateTextButton.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;translateTextButton.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.Name" xml:space="preserve">
+    <value>toCodeLabel</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.Name" xml:space="preserve">
+    <value>toCodeBox</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.Name" xml:space="preserve">
+    <value>fromCodeBox</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.Name" xml:space="preserve">
+    <value>fromCodeLabel</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="textCmdPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 23</value>
+  </data>
+  <data name="textCmdPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 9, 0, 9</value>
+  </data>
+  <data name="textCmdPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>994, 60</value>
+  </data>
+  <data name="textCmdPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;textCmdPanel.Name" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;textCmdPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textCmdPanel.Parent" xml:space="preserve">
+    <value>textTab</value>
+  </data>
+  <data name="&gt;&gt;textCmdPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="translateTextButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="translateTextButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="translateTextButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -530,334 +1060,137 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="resultBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="translateTextButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>789, 6</value>
   </data>
-  <data name="&gt;&gt;outputBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;languageList.Name" xml:space="preserve">
-    <value>languageList</value>
-  </data>
-  <data name="&gt;&gt;fromCodeLabel.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;languageList.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;textBox.Parent" xml:space="preserve">
-    <value>textTab</value>
-  </data>
-  <data name="textCmdPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;logBox.Name" xml:space="preserve">
-    <value>logBox</value>
-  </data>
-  <data name="browseFileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>958, 18</value>
-  </data>
-  <data name="&gt;&gt;resxTab.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="resultsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 20</value>
-  </data>
-  <data name="translateButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
+  <data name="translateTextButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 46</value>
   </data>
   <data name="translateTextButton.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="translateTextButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
+  <data name="&gt;&gt;translateTextButton.Name" xml:space="preserve">
+    <value>translateTextButton</value>
   </data>
-  <data name="textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 202</value>
-  </data>
-  <data name="codeBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 28</value>
-  </data>
-  <data name="&gt;&gt;outputBox.Name" xml:space="preserve">
-    <value>outputBox</value>
-  </data>
-  <data name="browseFolderButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 34</value>
-  </data>
-  <data name="inputLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 26</value>
-  </data>
-  <data name="&gt;&gt;outputLabel.Name" xml:space="preserve">
-    <value>outputLabel</value>
-  </data>
-  <data name="&gt;&gt;sheetPanel.Name" xml:space="preserve">
-    <value>sheetPanel</value>
-  </data>
-  <data name="resultsLabel.Text" xml:space="preserve">
-    <value>Results</value>
-  </data>
-  <data name="inputBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 15</value>
-  </data>
-  <data name="&gt;&gt;languageList.Parent" xml:space="preserve">
-    <value>sheetPanel</value>
-  </data>
-  <data name="estimationLabel.Text" xml:space="preserve">
-    <value>Estimation...</value>
-  </data>
-  <data name="translateButton.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;inputBox.Name" xml:space="preserve">
-    <value>inputBox</value>
-  </data>
-  <data name="&gt;&gt;translationsLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="sheetPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>796, 543</value>
-  </data>
-  <data name="&gt;&gt;resultBox.Parent" xml:space="preserve">
-    <value>textTab</value>
-  </data>
-  <data name="&gt;&gt;toCodeBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;browseFileButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;translateTextButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textCmdPanel.Parent" xml:space="preserve">
-    <value>textTab</value>
-  </data>
-  <data name="textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;resxTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;inputBox.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="statusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 20</value>
-  </data>
-  <data name="inputLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 20</value>
-  </data>
-  <data name="&gt;&gt;resultsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="fromCodeLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;outputBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;sheetPanel.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="&gt;&gt;textTab.Parent" xml:space="preserve">
-    <value>tabs</value>
-  </data>
-  <data name="&gt;&gt;toCodeLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;textBox.Name" xml:space="preserve">
-    <value>textBox</value>
-  </data>
-  <data name="outputLabel.Text" xml:space="preserve">
-    <value>Output directory:</value>
-  </data>
-  <data name="resultBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="logBox.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="toCodeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 20</value>
-  </data>
-  <data name="&gt;&gt;folderBrowserDialog.Name" xml:space="preserve">
-    <value>folderBrowserDialog</value>
-  </data>
-  <data name="tabs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>693, 22</value>
-  </data>
-  <data name="logBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;inputLabel.Name" xml:space="preserve">
-    <value>inputLabel</value>
-  </data>
-  <data name="&gt;&gt;codeBox.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="fromCodeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 20</value>
-  </data>
-  <data name="toCodeBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="translationsLabel.Text" xml:space="preserve">
-    <value>Translations:</value>
-  </data>
-  <data name="&gt;&gt;inputBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="textBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 20</value>
-  </data>
-  <data name="&gt;&gt;tabs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="inputLabel.Text" xml:space="preserve">
-    <value>Source Resx:</value>
-  </data>
-  <data name="translationsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="outputLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 103</value>
-  </data>
-  <data name="&gt;&gt;folderBrowserDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="resxTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 20, 20, 20</value>
-  </data>
-  <data name="&gt;&gt;fromCodeLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;resxTab.Name" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="statusLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="estimationLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;translateButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="browseFolderButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>958, 95</value>
-  </data>
-  <data name="&gt;&gt;resultBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;statusLabel.Name" xml:space="preserve">
-    <value>statusLabel</value>
-  </data>
-  <data name="&gt;&gt;textCmdPanel.Name" xml:space="preserve">
+  <data name="&gt;&gt;translateTextButton.Parent" xml:space="preserve">
     <value>textCmdPanel</value>
   </data>
-  <data name="resultsLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="statusLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 691</value>
-  </data>
-  <data name="toCodeBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 28</value>
-  </data>
-  <data name="&gt;&gt;resxTab.Parent" xml:space="preserve">
-    <value>tabs</value>
-  </data>
-  <data name="&gt;&gt;inputLabel.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="translationsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 137</value>
-  </data>
-  <data name="&gt;&gt;resultsLabel.Parent" xml:space="preserve">
-    <value>textTab</value>
-  </data>
-  <data name="browseFolderButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="resultBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
-  </data>
-  <data name="textBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;sheetPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="browseFileButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;outputLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabs.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;translateTextButton.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;textTab.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;estimationLabel.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="&gt;&gt;browseFolderButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="browseFolderButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
-        MjHxIGmVAAABBElEQVQ4T6WRsRGDMAxFPQU7ULtiCNbwCmxAnYo7j5AiDRMwgHsq5qBU9KUYGzDkcine
-        nbH9voRsiOgviptHlmWhYRgE7wNN00TrugpF4YhznkIIvNRvBM3zTNiX9NfzcSIXjuAMsgToZc/7EADW
-        /jYkyluASkkWgtt1lGbg+DyFZQG5rAElvgbgd0BePSd20ve9hGmAzCCJ2sEV2klgGUEpgMFaBpq1fMby
-        VcsDtPKU8qaQ99XLYsSzHGexBdxX/8hcOXhDzmp1CcAwrqvnosqo7hyfxVdAK1odgzGXSNuQufo4jvsA
-        0HUdX3CSjgG1bUtN05Bloa5rEaqq2sTI7uN3yLwBpM724PGQQrAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="outputBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>793, 26</value>
-  </data>
-  <data name="&gt;&gt;toCodeLabel.Name" xml:space="preserve">
-    <value>toCodeLabel</value>
-  </data>
-  <data name="fromCodeBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="browseFileButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="statusLabel.Text" xml:space="preserve">
-    <value>Status...</value>
-  </data>
-  <data name="logBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>413, 38</value>
-  </data>
-  <data name="translationsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 20</value>
   </data>
   <data name="toCodeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="languageList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 322</value>
+  <data name="toCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>429, 15</value>
   </data>
-  <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
-    <value>progressBar</value>
+  <data name="toCodeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 20</value>
   </data>
-  <data name="&gt;&gt;browseFileButton.Name" xml:space="preserve">
-    <value>browseFileButton</value>
+  <data name="toCodeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="toCodeLabel.Text" xml:space="preserve">
+    <value>Translate to:</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.Name" xml:space="preserve">
+    <value>toCodeLabel</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="toCodeBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>532, 12</value>
+  </data>
+  <data name="toCodeBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 28</value>
+  </data>
+  <data name="toCodeBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.Name" xml:space="preserve">
+    <value>toCodeBox</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="fromCodeBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 12</value>
+  </data>
+  <data name="fromCodeBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 28</value>
+  </data>
+  <data name="fromCodeBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.Name" xml:space="preserve">
+    <value>fromCodeBox</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="fromCodeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fromCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 15</value>
+  </data>
+  <data name="fromCodeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 20</value>
+  </data>
+  <data name="fromCodeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="fromCodeLabel.Text" xml:space="preserve">
+    <value>Source language:</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.Name" xml:space="preserve">
+    <value>fromCodeLabel</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>201, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1078, 824</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1078,106 +1411,31 @@
         AAAAAAAAAAAAAAAAAAAAAAAAgAEAAPADAAD4DwAA
 </value>
   </data>
-  <data name="&gt;&gt;tabs.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>938, 582</value>
   </data>
-  <data name="inputBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 8</value>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
   </data>
-  <data name="&gt;&gt;browseFolderButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Resx Robo Translator</value>
   </data>
-  <data name="&gt;&gt;textTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;openFileDialog.Name" xml:space="preserve">
+    <value>openFileDialog</value>
   </data>
-  <data name="&gt;&gt;fromCodeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;openFileDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toCodeLabel.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
+  <data name="&gt;&gt;folderBrowserDialog.Name" xml:space="preserve">
+    <value>folderBrowserDialog</value>
   </data>
-  <data name="toCodeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;folderBrowserDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="resultsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainWindow</value>
   </data>
-  <data name="&gt;&gt;translateTextButton.Name" xml:space="preserve">
-    <value>translateTextButton</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="textCmdPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 23</value>
-  </data>
-  <data name="browseFileButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 34</value>
-  </data>
-  <data name="codeBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>700, 23</value>
-  </data>
-  <data name="inputBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 23</value>
-  </data>
-  <data name="&gt;&gt;translateTextButton.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="inputBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;browseFolderButton.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="tabs.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;fromCodeBox.Name" xml:space="preserve">
-    <value>fromCodeBox</value>
-  </data>
-  <data name="&gt;&gt;toCodeBox.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="codeBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="translateTextButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;fromCodeBox.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="fromCodeLabel.Text" xml:space="preserve">
-    <value>Source language:</value>
-  </data>
-  <data name="&gt;&gt;statusLabel.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="translateTextButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 46</value>
-  </data>
-  <data name="translateButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 46</value>
-  </data>
-  <data name="&gt;&gt;logBox.Parent" xml:space="preserve">
-    <value>sheetPanel</value>
-  </data>
-  <data name="fromCodeBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 28</value>
-  </data>
-  <data name="resultBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>996, 379</value>
-  </data>
-  <data name="textTab.Text" xml:space="preserve">
-    <value>Translate Text</value>
-  </data>
-  <data name="textTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
-  </data>
-  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>201, 17</value>
-  </metadata>
-  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

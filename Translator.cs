@@ -14,6 +14,7 @@ namespace ResxTranslator
 	using System.Net.Http;
 	using System.Text;
 	using System.Text.Json;
+	using System.Threading;
 	using System.Threading.Tasks;
 	using System.Web;
 	using System.Xml.Linq;
@@ -103,9 +104,6 @@ namespace ResxTranslator
 		private const int WordsPerDay = 2000;
 		private const int BatchSize = 1; //1024;
 
-		// one translation every 20 seconds :-(
-		private const int Delay = 30 * 1000;
-
 		private HttpClient client = null;
 
 
@@ -116,7 +114,7 @@ namespace ResxTranslator
 		/// <param name="strings"></param>
 		/// <param name="seconds"></param>
 		/// <returns></returns>
-		public static bool Estimate(string path, out int strings, out int seconds)
+		public static bool Estimate(string path, out int strings, int delayInSecondss, out int seconds)
 		{
 			try
 			{
@@ -125,10 +123,11 @@ namespace ResxTranslator
 				var data = CollectData(root);
 
 				strings = data.Count;
+				var delay = 1.0 * delayInSecondss;
 
 				seconds = BatchSize == 1
-					? (int)(data.Count * (Delay / 1000.0))
-					: (int)((data.Elements("value").Sum(e => e.Value.Length) / BatchSize) * (Delay / 1000.0));
+					? (int)(data.Count * delay)
+					: (int)((data.Elements("value").Sum(e => e.Value.Length) / BatchSize) * delay);
 
 				return true;
 			}
@@ -230,7 +229,9 @@ namespace ResxTranslator
 		/// <param name="logger"></param>
 		/// <returns></returns>
 		public async Task<bool> TranslateResx(
-			XElement root, string fromCode, string toCode, StatusCallback logger)
+			XElement root, string fromCode, string toCode, int delayInSecs,
+			CancellationTokenSource cancellation,
+			StatusCallback logger)
 		{
 			var data = CollectData(root);
 
@@ -241,9 +242,10 @@ namespace ResxTranslator
 			var batch = new StringBuilder();
 
 			var count = 0;
+			var delay = delayInSecs * 1000;
 
 			int i = 0;
-			while (i < data.Count)
+			while (i < data.Count && !cancellation.IsCancellationRequested)
 			{
 
 				/*
@@ -282,7 +284,8 @@ namespace ResxTranslator
 				{
 					logger(false, 0, $"translating '{batch}'");
 
-					var result = await TranslateWithRetry(batch.ToString(), fromCode, toCode, logger);
+					var result = await TranslateWithRetry(
+						batch.ToString(), fromCode, toCode, cancellation, logger);
 
 					if (!string.IsNullOrEmpty(result))
 					{
@@ -292,7 +295,11 @@ namespace ResxTranslator
 						{
 							for (var p = 0; p < parts.Length; p++)
 							{
-								logger(false, 0, $"setting {cache[p].Attribute("name").Value}");
+								logger(false, 0,
+									$"setting {count}/{data.Count} " +
+									$"{cache[p].Attribute("name").Value} to " +
+									$"'{parts[p]}'");
+
 								cache[p].Element("value").Value = parts[p];
 							}
 
@@ -313,7 +320,7 @@ namespace ResxTranslator
 				cache.Clear();
 				batch.Clear();
 
-				await Task.Delay(Delay);
+				await Task.Delay(delay);
 			}
 
 			logger(false, 0, $"{count}/{data.Count} translated to {toCode}");
@@ -323,9 +330,12 @@ namespace ResxTranslator
 
 
 		private async Task<string> TranslateWithRetry(
-			string batch, string fromCode, string toCode, StatusCallback logger)
+			string batch, string fromCode, string toCode,
+			CancellationTokenSource cancellation,
+			StatusCallback logger)
 		{
 			var retry = 0;
+			var minutes = 5;
 
 			// the reset window seems to be less than 24 hours but not sure how long...
 
@@ -338,10 +348,22 @@ namespace ResxTranslator
 				}
 				catch (HttpException exc)
 				{
-					logger(false, 0, $"Retry {retry}/23, waiting 20 minutes, starting at {DateTime.Now}; {exc.Message}");
+					logger(false, 0,
+						$"Retry {retry}/23, waiting {minutes} minutes, " +
+						$"starting at {DateTime.Now}; {exc.Message}");
+
 					retry++;
 
-					await Task.Delay(new TimeSpan(0, 20, 0));
+					await Task.Delay(new TimeSpan(0, minutes, 0), cancellation.Token);
+
+					if (minutes == 5)
+					{
+						minutes = 10;
+					}
+					else if (minutes < 30)
+					{
+						minutes += 10;
+					}
 				}
 			}
 
