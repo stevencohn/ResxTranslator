@@ -22,6 +22,9 @@ Translate an entire .resx file to one or more languages.
    pause for 10 seconds, 20, 30, 40, 50, and finally every 60 seconds for an hour before
    giving up.
 
+You can also translate only new strings added to your source resx file that are not yet
+present in the target resx file(s) by ticking the _Translate only new strings_ checkbox.
+
 #### Language Selections
 
 ![Translate Resx](Images/LanguagesScreen.png)

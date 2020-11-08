@@ -12,12 +12,20 @@ namespace ResxTranslator
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Net.Http;
-	using System.Text;
 	using System.Text.Json;
 	using System.Threading;
 	using System.Threading.Tasks;
 	using System.Web;
 	using System.Xml.Linq;
+
+
+	internal enum Status
+	{
+		OK,
+		Working,
+		Error
+	}
+
 
 	internal class Translator
 	{
@@ -99,10 +107,6 @@ namespace ResxTranslator
 			"client=gtx&sl={0}&tl={1}&hl=en&dt=t&dt=bd&dj=1&source=icon&tk={2}&q={3}";
 
 		private const string ApiToken = "467103.467103";
-		private const string DataDelimiter = "~~~~";
-
-		private const int WordsPerDay = 2000;
-		private const int BatchSize = 1; //1024;
 
 		private HttpClient client = null;
 
@@ -114,7 +118,7 @@ namespace ResxTranslator
 		/// <param name="strings"></param>
 		/// <param name="seconds"></param>
 		/// <returns></returns>
-		public static bool Estimate(string path, out int strings, int delayInSecondss, out int seconds)
+		public static bool Estimate(string path, out int strings, int delayInSeconds, out int seconds)
 		{
 			try
 			{
@@ -123,11 +127,7 @@ namespace ResxTranslator
 				var data = CollectData(root);
 
 				strings = data.Count;
-				var delay = 1.0 * delayInSecondss;
-
-				seconds = BatchSize == 1
-					? (int)(data.Count * delay)
-					: (int)((data.Elements("value").Sum(e => e.Value.Length) / BatchSize) * delay);
+				seconds = data.Count * delayInSeconds;
 
 				return true;
 			}
@@ -139,7 +139,7 @@ namespace ResxTranslator
 		}
 
 
-		private static List<XElement> CollectData(XElement root)
+		public static List<XElement> CollectData(XElement root)
 		{
 			var xs = root.GetNamespaceOfPrefix("xml");
 
@@ -149,6 +149,33 @@ namespace ResxTranslator
 							e.Attribute("type") == null &&
 							e.Attribute(xs + "space") != null)
 				.ToList();
+		}
+
+
+		/// <summary>
+		/// Filters the data list by keeping only items that don't exist in the
+		/// specified resx file. This find all new items that need to be translated
+		/// </summary>
+		/// <param name="data"></param>
+		/// <param name="path"></param>
+		/// <returns></returns>
+		public static List<XElement> FilterData(List<XElement> data, string path)
+		{
+			try
+			{
+				var root = XElement.Load(path);
+
+				return data.Where(d =>
+					!root.Elements("data")
+						.Any(e => e.Attribute("name")?.Value == d.Attribute("name").Value))
+					.ToList();
+			}
+			catch
+			{
+				//
+			}
+
+			return data;
 		}
 
 
@@ -217,7 +244,17 @@ namespace ResxTranslator
 		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 		// Resx...
 
-		public delegate void StatusCallback(bool success, int count, string message);
+		/*
+		 * 
+		 * NOTE, tried to batch up strings, up to 1K of chars, delimited by ~~~~
+		 * but the free Google Translator doesn't handle most languages correctly
+		 * so this is temporarily disabled by hard-codng the batch size to 1.
+		 * e.g. given a batch with 10 strings, Google may only return 7 of them
+		 * and it's unclear which 7 it will return?
+		 * 
+		 */
+
+		public delegate void StatusCallback(Status status, int count, string message);
 
 
 		/// <summary>
@@ -229,103 +266,45 @@ namespace ResxTranslator
 		/// <param name="logger"></param>
 		/// <returns></returns>
 		public async Task<bool> TranslateResx(
-			XElement root, string fromCode, string toCode, int delayInSecs,
+			List<XElement> data, string fromCode, string toCode, int delayInSecs,
 			CancellationTokenSource cancellation,
 			StatusCallback logger)
 		{
-			var data = CollectData(root);
-
-			// reference data elements to translate as a batch
-			var cache = new List<XElement>();
-
-			// batch of strings to translate
-			var batch = new StringBuilder();
-
-			var count = 0;
 			var delay = delayInSecs * 1000;
 
-			int i = 0;
-			while (i < data.Count && !cancellation.IsCancellationRequested)
+			int index = 0;
+			int count = 1;
+			for (; index < data.Count && !cancellation.IsCancellationRequested; index++, count++)
 			{
+				var value = data[index].Element("value").Value;
 
-				/*
-				 * 
-				 * NOTE, tried to batch up strings, up to 1K of chars, delimited by ~~~~
-				 * but the free Google Translator doesn't handle most languages correctly
-				 * so this is temporarily disabled by hard-codng the batch size to 1.
-				 * e.g. given a batch with 10 strings, Google may only return 7 of them
-				 * and it's unclear which 7 it will return?
-				 * 
-				 */
-
-
-				// build batch
-				while (i < data.Count && batch.Length < BatchSize)
+				if (value.Length == 0)
 				{
-					var value = data[i].Element("value");
-					if (value == null)
-					{
-						continue;
-					}
-
-					if (batch.Length > 0)
-					{
-						batch.Append(DataDelimiter);
-					}
-
-					batch.Append(value.Value);
-
-					cache.Add(data[i]);
-					i++;
+					continue;
 				}
 
-				// translate the batch
-				if (batch.Length > 0)
+				logger(Status.Working, index,
+					$"Translating {data[index].Attribute("name").Value} ({count}/{data.Count})");
+
+				var result = await TranslateWithRetry(
+					value, fromCode, toCode, cancellation, logger);
+
+				if (!string.IsNullOrEmpty(result))
 				{
-					logger(false, 0, $"translating '{batch}'");
-
-					var result = await TranslateWithRetry(
-						batch.ToString(), fromCode, toCode, cancellation, logger);
-
-					if (!string.IsNullOrEmpty(result))
-					{
-						// translations ends up putting spaces around the delimiter
-						var parts = result.Split(new string[] { DataDelimiter }, StringSplitOptions.None);
-						if (parts.Length == cache.Count)
-						{
-							for (var p = 0; p < parts.Length; p++)
-							{
-								logger(false, 0,
-									$"setting {count}/{data.Count} " +
-									$"{cache[p].Attribute("name").Value} to " +
-									$"'{parts[p]}'");
-
-								cache[p].Element("value").Value = parts[p];
-							}
-
-							logger(true, cache.Count, null);
-							count += cache.Count;
-						}
-						else
-						{
-							logger(false, cache.Count, $"misaligned ({result})");
-						}
-					}
-					else
-					{
-						logger(false, cache.Count, "error");
-					}
+					logger(Status.OK, count, $" \u2192 '{value}' to '{result}'");
+					data[index].Element("value").Value = result;
 				}
-
-				cache.Clear();
-				batch.Clear();
+				else
+				{
+					logger(Status.Error, 0, "error");
+				}
 
 				await Task.Delay(delay);
 			}
 
-			logger(false, 0, $"{count}/{data.Count} translated to {toCode}");
+			logger(Status.OK, count, $"Translated {count}/{data.Count} strings to {toCode}");
 
-			return count == data.Count;
+			return index == data.Count;
 		}
 
 
@@ -348,7 +327,7 @@ namespace ResxTranslator
 				}
 				catch (HttpException exc)
 				{
-					logger(false, 0,
+					logger(Status.Error, 0,
 						$"Retry {retry}/23, waiting {minutes} minutes, " +
 						$"starting at {DateTime.Now}; {exc.Message}");
 

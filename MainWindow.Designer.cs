@@ -31,6 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.resxTab = new System.Windows.Forms.TabPage();
+			this.compareBox = new System.Windows.Forms.CheckBox();
 			this.recommendationLabel = new System.Windows.Forms.Label();
 			this.delayBox = new System.Windows.Forms.NumericUpDown();
 			this.delayLabel = new System.Windows.Forms.Label();
@@ -80,6 +81,7 @@
 			// 
 			// resxTab
 			// 
+			this.resxTab.Controls.Add(this.compareBox);
 			this.resxTab.Controls.Add(this.recommendationLabel);
 			this.resxTab.Controls.Add(this.delayBox);
 			this.resxTab.Controls.Add(this.delayLabel);
@@ -101,6 +103,13 @@
 			this.resxTab.Name = "resxTab";
 			this.resxTab.UseVisualStyleBackColor = true;
 			// 
+			// compareBox
+			// 
+			resources.ApplyResources(this.compareBox, "compareBox");
+			this.compareBox.Name = "compareBox";
+			this.compareBox.UseVisualStyleBackColor = true;
+			this.compareBox.CheckedChanged += new System.EventHandler(this.CompareChanged);
+			// 
 			// recommendationLabel
 			// 
 			resources.ApplyResources(this.recommendationLabel, "recommendationLabel");
@@ -121,7 +130,7 @@
             0});
 			this.delayBox.Name = "delayBox";
 			this.delayBox.Value = new decimal(new int[] {
-            20,
+            15,
             0,
             0,
             0});
@@ -357,6 +366,7 @@
 		private System.Windows.Forms.NumericUpDown delayBox;
 		private System.Windows.Forms.Label delayLabel;
 		private System.Windows.Forms.Label recommendationLabel;
+		private System.Windows.Forms.CheckBox compareBox;
 	}
 }
 

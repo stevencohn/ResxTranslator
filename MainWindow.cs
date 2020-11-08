@@ -7,6 +7,7 @@
 namespace ResxTranslator
 {
 	using System;
+	using System.Collections.Generic;
 	using System.Drawing;
 	using System.Globalization;
 	using System.IO;
@@ -15,6 +16,7 @@ namespace ResxTranslator
 	using System.Web;
 	using System.Windows.Forms;
 	using System.Xml.Linq;
+
 
 	public partial class MainWindow : Form
 	{
@@ -191,6 +193,12 @@ namespace ResxTranslator
 		}
 
 
+		private void CompareChanged(object sender, EventArgs e)
+		{
+			estimationLabel.ForeColor = compareBox.Checked ? Color.Gray : Color.Black;
+		}
+
+
 		private void CheckedLanguage(object sender, ItemCheckedEventArgs e)
 		{
 			ChangedResxInput(sender, e);
@@ -209,13 +217,13 @@ namespace ResxTranslator
 			var inputPath = Path.GetFullPath(inputBox.Text);
 			var fromCode = Translator.Codes[codeBox.SelectedIndex];
 
-			var outputPath = outputBox.Text.Length > 0
+			var outputDir = outputBox.Text.Length > 0
 				? Path.GetFullPath(outputBox.Text)
 				: Path.GetDirectoryName(inputPath);
 
-			if (!Directory.Exists(outputPath))
+			if (!Directory.Exists(outputDir))
 			{
-				Directory.CreateDirectory(outputPath);
+				Directory.CreateDirectory(outputDir);
 			}
 
 			string filepath = null;
@@ -232,26 +240,35 @@ namespace ResxTranslator
 			{
 				var toCode = Translator.Codes[(int)index];
 
+				// convert two-letter language "en" to five-letter "en-US"
+				// this will presume a default country code if one is not included...
+				var info = CultureInfo.GetCultureInfo(toCode);
+				var cultureName = info.TextInfo.CultureName;
+				var outputFile = $"{filepath}.{cultureName}.resx";
+
 				statusLabel.Text = $"Translating to {toCode}";
 
 				// load source resx for every target language
 				// this will be translated in memory and stored for each language
 				var root = XElement.Load(inputPath);
 
+				var data = Translator.CollectData(root);
+
+				if (compareBox.Checked)
+				{
+					if (File.Exists(outputFile))
+					{
+						data = Translator.FilterData(data, outputFile);
+					}
+				}
+
 				try
 				{
 					var success = await translator.TranslateResx(
-						root, fromCode, toCode, (int)delayBox.Value, cancellation,
-						(ok, count, message) =>
+						data, fromCode, toCode, (int)delayBox.Value, cancellation,
+						(status, count, message) =>
 						{
-							if (ok)
-							{
-								progressBar.Increment(count);
-							}
-							else
-							{
-								logBox.AppendText(message + Environment.NewLine);
-							}
+							Log(status, count, data.Count, toCode, message);
 						});
 
 					if (cancellation.IsCancellationRequested)
@@ -261,10 +278,7 @@ namespace ResxTranslator
 
 					if (success)
 					{
-						// convert two-letter language "en" to five-letter "en-US"
-						// this will presume a default country code if one is not included...
-						var info = CultureInfo.GetCultureInfo(toCode);
-						root.Save($"{filepath}.{info.TextInfo.CultureName}.resx");
+						SaveTranslations(root, data, outputFile);
 					}
 				}
 				catch (HttpException exc)
@@ -288,6 +302,45 @@ namespace ResxTranslator
 
 			cancellation.Dispose();
 		}
+
+
+		private void Log(Status status, int count, int total, string toCode, string message)
+		{
+			if (status == Status.OK)
+			{
+				statusLabel.Text = $"translating {count}/{total} to {toCode}";
+				logBox.AppendText(message + Environment.NewLine);
+				progressBar.Increment(1);
+			}
+			else if (status == Status.Working)
+			{
+				logBox.AppendText($"{message} ");
+			}
+			else
+			{
+				logBox.AppendText(Environment.NewLine + message + Environment.NewLine);
+			}
+		}
+
+
+		private void SaveTranslations(XElement root, List<XElement> data, string outputFile)
+		{
+			if (compareBox.Checked)
+			{
+				var target = XElement.Load(outputFile);
+				foreach (var d in data)
+				{
+					target.Add(d);
+				}
+
+				target.Save(outputFile);
+			}
+			else
+			{
+				root.Save(outputFile);
+			}
+		}
+
 
 		private void CancelTranslation(object sender, EventArgs e)
 		{
