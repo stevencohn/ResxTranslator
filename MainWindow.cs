@@ -308,7 +308,7 @@ namespace ResxTranslator
 		{
 			if (status == Status.OK)
 			{
-				statusLabel.Text = $"translating {count}/{total} to {toCode}";
+				statusLabel.Text = $"Translating {count}/{total} to {toCode}";
 				logBox.AppendText(message + Environment.NewLine);
 				progressBar.Increment(1);
 			}
