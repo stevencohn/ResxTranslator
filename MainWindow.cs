@@ -58,11 +58,7 @@ namespace ResxTranslator
 
 			foreach (var code in Translator.Codes)
 			{
-				var info = CultureInfo.GetCultureInfo(code);
-
-				var name = info.EnglishName.StartsWith("Unknown")
-					? $"{code} (not installed)"
-					: info.DisplayName;
+				var name = Translator.GetDisplayName(code);
 
 				fromCodeBox.Items.Add(name);
 				toCodeBox.Items.Add(name);
@@ -240,13 +236,11 @@ namespace ResxTranslator
 			{
 				var toCode = Translator.Codes[(int)index];
 
-				// convert two-letter language "en" to five-letter "en-US"
-				// this will presume a default country code if one is not included...
-				var info = CultureInfo.GetCultureInfo(toCode);
-				var cultureName = info.TextInfo.CultureName;
+				var displayName = Translator.GetDisplayName(toCode);
+				var cultureName = Translator.GetCultureName(toCode);
 				var outputFile = $"{filepath}.{cultureName}.resx";
 
-				statusLabel.Text = $"Translating to {toCode}";
+				statusLabel.Text = $"Translating to {toCode} - {displayName} ({cultureName})";
 
 				// load source resx for every target language
 				// this will be translated in memory and stored for each language

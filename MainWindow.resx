@@ -570,7 +570,7 @@
     <value>3, 3, 3, 8</value>
   </data>
   <data name="outputBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>793, 26</value>
+    <value>796, 26</value>
   </data>
   <data name="outputBox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>

@@ -10,6 +10,7 @@ namespace ResxTranslator
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Globalization;
 	using System.Linq;
 	using System.Net.Http;
 	using System.Text.Json;
@@ -34,16 +35,21 @@ namespace ResxTranslator
 			#region Code
 			"af",		// Afrikaans
 			"sq",		// Albanian
+			"am",		// Amharic
 			"ar",		// Arabic
 			"hy",		// Armenian
 			"az",		// Azerbaijani
 			"eu",		// Basque
 			"be",		// Belarusian
 			"bn",		// Bengali
+			"bs",		// Bosnian
 			"bg",		// Bulgarian
 			"ca",		// Catalan
+			"ceb",		// Cebuano
+			"ny",		// Chichewa - (n/a)
 			"zh-CN",	// Chinese (Simplified)
 			"zh-TW",	// Chinese (Traditional)
+			"co",		// Corsican
 			"hr",		// Croatian
 			"cs",		// Czech
 			"da",		// Danish
@@ -51,55 +57,108 @@ namespace ResxTranslator
 			"en",		// English
 			"eo",		// Esperanto
 			"et",		// Estonian
-			"tl",		// Filipino
+			"tl",		// Filipino = fil-PH
 			"fi",		// Finnish
 			"fr",		// French
+			"fy",		// Frisian
 			"gl",		// Galician
 			"ka",		// Georgian
 			"de",		// German
 			"el",		// Greek
 			"gu",		// Gujarati
-			"ht",		// Haitian Creole
-			"iw",		// Hebrew
+			"ha",		// Hausa
+			"ht",		// Haitian Creole... not supported by Windows?
+			"haw",		// Hawaiian
+			"iw",		// Hebrew = he-IL
 			"hi",		// Hindi
+			"hmn",		// Hmong - (n/a)
 			"hu",		// Hungarian
 			"is",		// Icelandic
+			"ig",		// Igbo
 			"id",		// Indonesian
 			"ga",		// Irish
 			"it",		// Italian
 			"ja",		// Japanese
+			"jw",		// Javanese - (n/a)
 			"kn",		// Kannada
+			"kk",		// Kazakh
 			"km",		// Khmer
+			"rw",		// Kinyarwanda
 			"ko",		// Korean
+			"ku",		// Kurdish (Kurmanji)
+			"ky",		// Kyrgyz
 			"lo",		// Lao
 			"la",		// Latin
 			"lv",		// Latvian
 			"lt",		// Lithuanian
+			"lb",		// Luxembourgish
 			"mk",		// Macedonian
+			"mg",		// Malagasy
 			"ms",		// Malay
+			"ml",		// Malayalam
 			"mt",		// Maltese
+			"mi",		// Maori
+			"mr",		// Marathi
+			"mn",		// Mongolian
+			"my",		// Myanmar (Burmese)
+			"ne",		// Nepali
 			"no",		// Norwegian
+			"or",		// Odia (Oriya)
+			"ps",		// Pashto
 			"fa",		// Persian
 			"pl",		// Polish
 			"pt",		// Portuguese
+			"pa",		// Punjabi
 			"ro",		// Romanian
 			"ru",		// Russian
+			"sm",		// Samoan - (n/a)
 			"sr",		// Serbian
+			"gd",		// Scots Gaelic
+			"st",		// Sesotho
+			"sn",		// Shona
+			"sd",		// Sindhi
+			"si",		// Sinhala
 			"sk",		// Slovak
 			"sl",		// Slovenian
+			"so",		// Somali
 			"es",		// Spanish
+			"su",		// Sundanese - (n/a)
 			"sw",		// Swahili
 			"sv",		// Swedish
+			"tg",		// Tajik
 			"ta",		// Tamil
+			"tt",		// Tatar
 			"te",		// Telugu
 			"th",		// Thai
 			"tr",		// Turkish
+			"tk",		// Turkmen
 			"uk",		// Ukrainian
 			"ur",		// Urdu
+			"ug",		// Uyghur
+			"uz",		// Uzbek
 			"vi",		// Vietnamese
 			"cy",		// Welsh
-			"yi"		// Yiddis
+			"xh",		// Xhosa
+			"yi",		// Yiddis
+			"yo",		// Yoruba
+			"zu"		// Zulu
 			#endregion Code
+		};
+
+		private static readonly Dictionary<string, string> FileCodeMap = new Dictionary<string, string>
+		{
+			{ "tl", "fil-PH" },
+			{ "iw", "he-IL" }
+		};
+
+		private static readonly Dictionary<string, string> FileNameMap = new Dictionary<string, string>
+		{
+			{ "ny", "Chichewa" },
+			{ "hmn", "Hmong" },
+			{ "ht", "Haitian Creole" },
+			{ "jw", "Javanese" },
+			{ "sm", "Samoan" },
+			{ "su", "Sudanese" }
 		};
 
 		private const string GoogleUri =
@@ -110,6 +169,44 @@ namespace ResxTranslator
 
 		private HttpClient client = null;
 
+
+		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+		// Languages...
+
+		/// <summary>
+		/// Gets the Windows-specific culture name, e.g. en -> en-US, for naming 
+		/// satellite assemblies
+		/// </summary>
+		/// <param name="code"></param>
+		/// <returns></returns>
+		public static string GetCultureName(string code)
+		{
+			return FileCodeMap.ContainsKey(code)
+				? FileCodeMap[code]
+				: CultureInfo.GetCultureInfo(code).TextInfo.CultureName;
+		}
+
+
+		/// <summary>
+		/// Gets the display name of the language for UI controls
+		/// </summary>
+		/// <param name="code"></param>
+		/// <returns></returns>
+		public static string GetDisplayName(string code)
+		{
+			if (FileCodeMap.ContainsKey(code))
+			{
+				code = FileCodeMap[code];
+			}
+
+			return FileNameMap.ContainsKey(code)
+				? FileNameMap[code]
+				: CultureInfo.GetCultureInfo(code).DisplayName;
+		}
+
+
+		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+		// Data Management...
 
 		/// <summary>
 		/// 
