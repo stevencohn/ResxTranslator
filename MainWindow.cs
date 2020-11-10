@@ -9,7 +9,6 @@ namespace ResxTranslator
 	using System;
 	using System.Collections.Generic;
 	using System.Drawing;
-	using System.Globalization;
 	using System.IO;
 	using System.Text.RegularExpressions;
 	using System.Threading;
@@ -39,16 +38,8 @@ namespace ResxTranslator
 
 			cancelButton.Top = translateButton.Top;
 			cancelButton.Left = translateButton.Left;
-
-			openFileDialog.Filter = "Resx Files (*.resx)|*.resx";
-			openFileDialog.Title = "Choose source resx file";
-			openFileDialog.DefaultExt = ".resx";
-			openFileDialog.AddExtension = true;
-			openFileDialog.CheckFileExists = true;
-			openFileDialog.Multiselect = false;
-
-			folderBrowserDialog.Description = "Choose output folder";
-			folderBrowserDialog.ShowNewFolderButton = true;
+			restartButton.Top = translateButton.Top;
+			restartButton.Left = translateButton.Left;
 		}
 
 
@@ -203,9 +194,7 @@ namespace ResxTranslator
 
 		private async void TranslateFile(object sender, EventArgs e)
 		{
-			languageList.Visible = false;
-			logBox.Visible = true;
-			logBox.Clear();
+			LockControls();
 
 			translateButton.Visible = false;
 			cancelButton.Visible = true;
@@ -282,7 +271,7 @@ namespace ResxTranslator
 			}
 
 			cancelButton.Visible = false;
-			translateButton.Visible = true;
+			restartButton.Visible = true;
 
 			if (cancellation.IsCancellationRequested)
 			{
@@ -295,6 +284,22 @@ namespace ResxTranslator
 			}
 
 			cancellation.Dispose();
+		}
+
+
+		private void LockControls()
+		{
+			languageList.Visible = false;
+			logBox.Visible = true;
+			logBox.Clear();
+
+			inputBox.Enabled = false;
+			codeBox.Enabled = false;
+			browseFileButton.Enabled = false;
+			outputBox.Enabled = false;
+			browseFolderButton.Enabled = false;
+			compareBox.Enabled = false;
+			delayBox.Enabled = false;
 		}
 
 
@@ -339,6 +344,29 @@ namespace ResxTranslator
 		private void CancelTranslation(object sender, EventArgs e)
 		{
 			cancellation.Cancel();
+			cancelButton.Enabled = false;
+		}
+
+
+		private void Restart(object sender, EventArgs e)
+		{
+			inputBox.Enabled = true;
+			codeBox.Enabled = true;
+			browseFileButton.Enabled = true;
+			outputBox.Enabled = true;
+			browseFolderButton.Enabled = true;
+			compareBox.Enabled = true;
+			delayBox.Enabled = true;
+
+			languageList.Visible = true;
+			logBox.Visible = false;
+			logBox.Clear();
+
+			statusLabel.Text = "Status...";
+			progressBar.Value = 0;
+
+			restartButton.Visible = false;
+			translateButton.Visible = true;
 		}
 	}
 }

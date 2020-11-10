@@ -28,9 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.resxTab = new System.Windows.Forms.TabPage();
+			this.restartButton = new System.Windows.Forms.Button();
 			this.compareBox = new System.Windows.Forms.CheckBox();
 			this.recommendationLabel = new System.Windows.Forms.Label();
 			this.delayBox = new System.Windows.Forms.NumericUpDown();
@@ -63,6 +65,7 @@
 			this.fromCodeLabel = new System.Windows.Forms.Label();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.delayBox)).BeginInit();
@@ -81,6 +84,7 @@
 			// 
 			// resxTab
 			// 
+			this.resxTab.Controls.Add(this.restartButton);
 			this.resxTab.Controls.Add(this.compareBox);
 			this.resxTab.Controls.Add(this.recommendationLabel);
 			this.resxTab.Controls.Add(this.delayBox);
@@ -102,6 +106,14 @@
 			resources.ApplyResources(this.resxTab, "resxTab");
 			this.resxTab.Name = "resxTab";
 			this.resxTab.UseVisualStyleBackColor = true;
+			// 
+			// restartButton
+			// 
+			resources.ApplyResources(this.restartButton, "restartButton");
+			this.restartButton.Name = "restartButton";
+			this.toolTip.SetToolTip(this.restartButton, resources.GetString("restartButton.ToolTip"));
+			this.restartButton.UseVisualStyleBackColor = true;
+			this.restartButton.Click += new System.EventHandler(this.Restart);
 			// 
 			// compareBox
 			// 
@@ -145,6 +157,7 @@
 			// 
 			resources.ApplyResources(this.cancelButton, "cancelButton");
 			this.cancelButton.Name = "cancelButton";
+			this.toolTip.SetToolTip(this.cancelButton, resources.GetString("cancelButton.ToolTip"));
 			this.cancelButton.UseVisualStyleBackColor = true;
 			this.cancelButton.Click += new System.EventHandler(this.CancelTranslation);
 			// 
@@ -184,6 +197,7 @@
 			// 
 			resources.ApplyResources(this.translateButton, "translateButton");
 			this.translateButton.Name = "translateButton";
+			this.toolTip.SetToolTip(this.translateButton, resources.GetString("translateButton.ToolTip"));
 			this.translateButton.UseVisualStyleBackColor = true;
 			this.translateButton.Click += new System.EventHandler(this.TranslateFile);
 			// 
@@ -201,6 +215,7 @@
 			// 
 			resources.ApplyResources(this.browseFolderButton, "browseFolderButton");
 			this.browseFolderButton.Name = "browseFolderButton";
+			this.toolTip.SetToolTip(this.browseFolderButton, resources.GetString("browseFolderButton.ToolTip"));
 			this.browseFolderButton.UseVisualStyleBackColor = true;
 			this.browseFolderButton.Click += new System.EventHandler(this.BrowseFolders);
 			// 
@@ -219,6 +234,7 @@
 			// 
 			resources.ApplyResources(this.browseFileButton, "browseFileButton");
 			this.browseFileButton.Name = "browseFileButton";
+			this.toolTip.SetToolTip(this.browseFileButton, resources.GetString("browseFileButton.ToolTip"));
 			this.browseFileButton.UseVisualStyleBackColor = true;
 			this.browseFileButton.Click += new System.EventHandler(this.BrowseFiles);
 			// 
@@ -309,7 +325,13 @@
 			// 
 			// openFileDialog
 			// 
+			this.openFileDialog.DefaultExt = "resx";
 			this.openFileDialog.FileName = "openFileDialog1";
+			resources.ApplyResources(this.openFileDialog, "openFileDialog");
+			// 
+			// folderBrowserDialog
+			// 
+			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
 			// 
 			// MainWindow
 			// 
@@ -367,6 +389,8 @@
 		private System.Windows.Forms.Label delayLabel;
 		private System.Windows.Forms.Label recommendationLabel;
 		private System.Windows.Forms.CheckBox compareBox;
+		private System.Windows.Forms.Button restartButton;
+		private System.Windows.Forms.ToolTip toolTip;
 	}
 }
 
