@@ -326,8 +326,8 @@ namespace ResxTranslator
 
 				if (text[0] == '"' && text[text.Length - 1] == '"')
 				{
-					// Unescape will translate \u0000 escape sequences to actual chars
-					text = Regex.Unescape(text.Substring(1, text.Length - 2));
+					// encode/escape Unicode \u0000 escape sequences to store in XML
+					text = HttpUtility.HtmlEncode(Regex.Unescape(text.Substring(1, text.Length - 2)));
 				}
 
 				// result = doc.RootElement.ToString();
