@@ -142,7 +142,7 @@
             0});
 			this.delayBox.Name = "delayBox";
 			this.delayBox.Value = new decimal(new int[] {
-            15,
+            11,
             0,
             0,
             0});

@@ -14,6 +14,7 @@ namespace ResxTranslator
 	using System.Linq;
 	using System.Net.Http;
 	using System.Text.Json;
+	using System.Text.RegularExpressions;
 	using System.Threading;
 	using System.Threading.Tasks;
 	using System.Web;
@@ -325,7 +326,8 @@ namespace ResxTranslator
 
 				if (text[0] == '"' && text[text.Length - 1] == '"')
 				{
-					text = text.Substring(1, text.Length - 2);
+					// Unescape will translate \u0000 escape sequences to actual chars
+					text = Regex.Unescape(text.Substring(1, text.Length - 2));
 				}
 
 				// result = doc.RootElement.ToString();
@@ -388,6 +390,7 @@ namespace ResxTranslator
 
 				if (!string.IsNullOrEmpty(result))
 				{
+					// 2192 is right-arrow
 					logger(Status.OK, count, $" \u2192 '{value}' to '{result}'");
 					data[index].Element("value").Value = result;
 				}

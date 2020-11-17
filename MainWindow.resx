@@ -185,7 +185,7 @@
     <value>700, 104</value>
   </data>
   <data name="compareBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 24</value>
+    <value>210, 24</value>
   </data>
   <data name="compareBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -221,7 +221,7 @@
     <value>17</value>
   </data>
   <data name="recommendationLabel.Text" xml:space="preserve">
-    <value>At least 15 seconds is recommended</value>
+    <value>At least 11 seconds is recommended</value>
   </data>
   <data name="&gt;&gt;recommendationLabel.Name" xml:space="preserve">
     <value>recommendationLabel</value>
