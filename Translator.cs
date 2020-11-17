@@ -13,7 +13,6 @@ namespace ResxTranslator
 	using System.Globalization;
 	using System.Linq;
 	using System.Net.Http;
-	using System.Security;
 	using System.Text.Json;
 	using System.Text.RegularExpressions;
 	using System.Threading;
@@ -328,7 +327,7 @@ namespace ResxTranslator
 				if (text[0] == '"' && text[text.Length - 1] == '"')
 				{
 					// escape Unicode \u0000 escape sequences to store in XML [<>&'"]
-					text = SecurityElement.Escape(Regex.Unescape(text.Substring(1, text.Length - 2)));
+					text = Regex.Unescape(text.Substring(1, text.Length - 2)).XmlEscape();
 				}
 
 				// result = doc.RootElement.ToString();
