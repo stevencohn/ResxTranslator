@@ -12,6 +12,7 @@ namespace ResxTranslator
 	using System.IO;
 	using System.Text.RegularExpressions;
 	using System.Threading;
+	using System.Threading.Tasks;
 	using System.Web;
 	using System.Windows.Forms;
 	using System.Xml.Linq;
@@ -40,6 +41,9 @@ namespace ResxTranslator
 			cancelButton.Left = translateButton.Left;
 			restartButton.Top = translateButton.Top;
 			restartButton.Left = translateButton.Left;
+
+			cancelOneButton.Top = translateTextButton.Top;
+			cancelOneButton.Left = translateTextButton.Left;
 		}
 
 
@@ -78,6 +82,12 @@ namespace ResxTranslator
 
 		private async void TranslateOne(object sender, EventArgs e)
 		{
+			translateTextButton.Visible = false;
+			cancelOneButton.Visible = true;
+
+			resultBox.Clear();
+			resultBox.ForeColor = Color.Black;
+
 			var fromCode = fromCodeBox.SelectedIndex == 0
 				? "auto"
 				: Translator.Codes[fromCodeBox.SelectedIndex];
@@ -88,18 +98,51 @@ namespace ResxTranslator
 
 			try
 			{
-				var result = await translator.Translate(textBox.Text, fromCode, toCode);
+				using (cancellation = new CancellationTokenSource())
+				{
+					var parts = textBox.Text.Split('\n');
+					for (int i = 0; i < parts.Length; i++)
+					{
+						var result = await translator.Translate(
+							parts[i], fromCode, toCode, cancellation);
 
-				resultBox.Clear();
-				resultBox.ForeColor = Color.Black;
-				resultBox.Text = result;
+						if (cancellation.IsCancellationRequested)
+						{
+							resultBox.Text = "Cancelled";
+							break;
+						}
+						else
+						{
+							resultBox.AppendText(result + Environment.NewLine);
+						}
+
+						if (i < parts.Length - 1)
+						{
+							await Task.Delay(1000 * 10, cancellation.Token);
+						}
+					}
+				}
+			}
+			catch (TaskCanceledException)
+			{
+				resultBox.AppendText("Cancelled");
 			}
 			catch (HttpException exc)
 			{
 				resultBox.ForeColor = Color.Red;
 				resultBox.Text = exc.Message;
 			}
+
+			cancelOneButton.Visible = false;
+			translateTextButton.Visible = true;
 		}
+
+
+		private void CancelTranslateOne(object sender, EventArgs e)
+		{
+			cancellation.Cancel();
+		}
+
 
 
 		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -242,6 +285,8 @@ namespace ResxTranslator
 					if (File.Exists(outputFile))
 					{
 						data = Translator.FilterData(data, outputFile);
+						var span = new TimeSpan(0, 0, data.Count * (int)delayBox.Value);
+						estimationLabel.Text = $"{data.Count} {toCode} strings. Estimated completion in {span}";
 					}
 				}
 
@@ -262,6 +307,7 @@ namespace ResxTranslator
 					if (success)
 					{
 						SaveTranslations(root, data, outputFile);
+						Log(Status.Message, 0, 0, null, $"saved {outputFile}");
 					}
 				}
 				catch (HttpException exc)
@@ -305,7 +351,11 @@ namespace ResxTranslator
 
 		private void Log(Status status, int count, int total, string toCode, string message)
 		{
-			if (status == Status.OK)
+			if (status == Status.Message)
+			{
+				logBox.AppendText(message + Environment.NewLine);
+			}
+			else if (status == Status.OK)
 			{
 				statusLabel.Text = $"Translating {count}/{total} to {toCode}";
 				logBox.AppendText(message + Environment.NewLine);

@@ -13,6 +13,7 @@ namespace ResxTranslator
 	using System.Globalization;
 	using System.Linq;
 	using System.Net.Http;
+	using System.Text;
 	using System.Text.Json;
 	using System.Text.RegularExpressions;
 	using System.Threading;
@@ -25,7 +26,8 @@ namespace ResxTranslator
 	{
 		OK,
 		Working,
-		Error
+		Error,
+		Message
 	}
 
 
@@ -287,7 +289,8 @@ namespace ResxTranslator
 		/// <param name="fromCode"></param>
 		/// <param name="toCode"></param>
 		/// <returns></returns>
-		public async Task<string> Translate(string text, string fromCode, string toCode)
+		public async Task<string> Translate(
+			string text, string fromCode, string toCode, CancellationTokenSource cancellation)
 		{
 			if (client == null)
 			{
@@ -298,7 +301,8 @@ namespace ResxTranslator
 			}
 
 			var response = await client.GetAsync(
-				string.Format(GoogleUri, fromCode, toCode, ApiToken, HttpUtility.UrlEncode(text)));
+				string.Format(GoogleUri, fromCode, toCode, ApiToken, HttpUtility.UrlEncode(text)),
+				cancellation.Token);
 
 			if (response.IsSuccessStatusCode)
 			{
@@ -311,6 +315,11 @@ namespace ResxTranslator
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="json"></param>
+		/// <param name="result"></param>
 		private void ParseJsonResult(string json, out string result)
 		{
 			string text;
@@ -383,13 +392,30 @@ namespace ResxTranslator
 				}
 
 				logger(Status.Working, index,
-					$"Translating {data[index].Attribute("name").Value} ({count}/{data.Count})");
+					$"{count}/{data.Count}: {data[index].Attribute("name").Value}");
 
-				var result = await TranslateWithRetry(
-					value, fromCode, toCode, cancellation, logger);
+				var builder = new StringBuilder();
 
-				if (!string.IsNullOrEmpty(result))
+				// handle values with multiple lines (comboboxes)
+				var parts = value.Split('\n');
+				for (int i = 0; i < parts.Length && !cancellation.IsCancellationRequested; i++)
 				{
+					var result = await TranslateWithRetry(
+						parts[i], fromCode, toCode, cancellation, logger);
+
+					if (!string.IsNullOrEmpty(result) && !cancellation.IsCancellationRequested)
+					{
+						builder.Append(result);
+
+						if (i < parts.Length - 1)
+							builder.Append(Environment.NewLine);
+					}
+				}
+
+				if (builder.Length > 0)
+				{
+					var result = builder.ToString();
+
 					// 2192 is right-arrow
 					logger(Status.OK, count, $" \u2192 '{value}' to '{result}'");
 					data[index].Element("value").Value = result;
@@ -409,9 +435,8 @@ namespace ResxTranslator
 
 
 		private async Task<string> TranslateWithRetry(
-			string batch, string fromCode, string toCode,
-			CancellationTokenSource cancellation,
-			StatusCallback logger)
+			string text, string fromCode, string toCode,
+			CancellationTokenSource cancellation, StatusCallback logger)
 		{
 			var retry = 0;
 			var minutes = 5;
@@ -422,7 +447,7 @@ namespace ResxTranslator
 			{
 				try
 				{
-					var result = await Translate(batch.ToString(), fromCode, toCode);
+					var result = await Translate(text, fromCode, toCode, cancellation);
 					return result;
 				}
 				catch (HttpException exc)

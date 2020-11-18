@@ -58,6 +58,7 @@
 			this.resultsLabel = new System.Windows.Forms.Label();
 			this.resultBox = new System.Windows.Forms.TextBox();
 			this.textCmdPanel = new System.Windows.Forms.Panel();
+			this.cancelOneButton = new System.Windows.Forms.Button();
 			this.translateTextButton = new System.Windows.Forms.Button();
 			this.toCodeLabel = new System.Windows.Forms.Label();
 			this.toCodeBox = new System.Windows.Forms.ComboBox();
@@ -285,12 +286,21 @@
 			// textCmdPanel
 			// 
 			resources.ApplyResources(this.textCmdPanel, "textCmdPanel");
+			this.textCmdPanel.Controls.Add(this.cancelOneButton);
 			this.textCmdPanel.Controls.Add(this.translateTextButton);
 			this.textCmdPanel.Controls.Add(this.toCodeLabel);
 			this.textCmdPanel.Controls.Add(this.toCodeBox);
 			this.textCmdPanel.Controls.Add(this.fromCodeBox);
 			this.textCmdPanel.Controls.Add(this.fromCodeLabel);
 			this.textCmdPanel.Name = "textCmdPanel";
+			// 
+			// cancelOneButton
+			// 
+			resources.ApplyResources(this.cancelOneButton, "cancelOneButton");
+			this.cancelOneButton.Name = "cancelOneButton";
+			this.toolTip.SetToolTip(this.cancelOneButton, resources.GetString("cancelOneButton.ToolTip"));
+			this.cancelOneButton.UseVisualStyleBackColor = true;
+			this.cancelOneButton.Click += new System.EventHandler(this.CancelTranslateOne);
 			// 
 			// translateTextButton
 			// 
@@ -391,6 +401,7 @@
 		private System.Windows.Forms.CheckBox compareBox;
 		private System.Windows.Forms.Button restartButton;
 		private System.Windows.Forms.ToolTip toolTip;
+		private System.Windows.Forms.Button cancelOneButton;
 	}
 }
 

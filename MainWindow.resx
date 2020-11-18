@@ -920,6 +920,60 @@
   <data name="textCmdPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="cancelOneButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="cancelOneButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cancelOneButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAixJREFUOE+Vks1rE0EYxvdfMGlDLR48VDx4KKgXoeCpUC9+IFhxt6bqwVxUbEVL
+        xRYqFNuq1KKk1A9QelAQTaEo6EXEbjZNTBs02qClS2k+mrTutkm7ybqbp7PZzSbbBMHDb5h553med3Z2
+        KAAWZGER8XfDCN+lEbjRDH/XEcwMXQI/+QLrqQ0iserNSV5OIzFxC1x7LabO7KgK69yLiGeCyLcF5LMC
+        +EcnwdK2qkYLdC1m3W4zpDCkJjtKZmYXOFfDNqMNXtc+eNsMDV2PsOdzIYRShe8IXHDoG0w9vr18CykW
+        ROjqHtPMXWlB6ncUy55rZiP24iGsxjZBCV/6SaLRiXFg5uEIJOkv5IQe4us4hlV+Bdod8Y9PlU6qneI9
+        Cyr+pNXoZEDbEXxwD1lZRS75C+vLItTcGvgxYi7XEaaHR0FFR1osxSKhp+NQVfKV+RyWxs9WmAv09IKK
+        uY9XbHCdJyAkJNJZgiwrUIQ5hLsbK3UD90GtfOwuK9rh62IgJiUomTgiA4fxdbAPG+ks1MwifvYeLNM6
+        EHr9AZQSn4LPadeLzt2Y/+SHnIlirr9Jr5E7mb59HWlxE2vcKLyMrmXPNyK58Ed/DNHnp0t/or0Bgc4D
+        +tzERv5GE3zn6vQ17cDss1f6O9AGNb2A8M39pZB/UgN/z+WC2QzQUMR5RIaayWurqWIyaKtDkNxJ0aNh
+        ToqIwTf4cecoWKbMSO9EoM+FJc5LJFa9ZfH/gNoC52604oOVNVUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="cancelOneButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cancelOneButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>869, 6</value>
+  </data>
+  <data name="cancelOneButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 3, 3</value>
+  </data>
+  <data name="cancelOneButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 46</value>
+  </data>
+  <data name="cancelOneButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="cancelOneButton.ToolTip" xml:space="preserve">
+    <value>Cancel translation</value>
+  </data>
+  <data name="cancelOneButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;cancelOneButton.Name" xml:space="preserve">
+    <value>cancelOneButton</value>
+  </data>
+  <data name="&gt;&gt;cancelOneButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelOneButton.Parent" xml:space="preserve">
+    <value>textCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;cancelOneButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="translateTextButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -969,7 +1023,7 @@
     <value>textCmdPanel</value>
   </data>
   <data name="&gt;&gt;translateTextButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="toCodeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -996,7 +1050,7 @@
     <value>textCmdPanel</value>
   </data>
   <data name="&gt;&gt;toCodeLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="toCodeBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>532, 12</value>
@@ -1017,7 +1071,7 @@
     <value>textCmdPanel</value>
   </data>
   <data name="&gt;&gt;toCodeBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="fromCodeBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 12</value>
@@ -1038,7 +1092,7 @@
     <value>textCmdPanel</value>
   </data>
   <data name="&gt;&gt;fromCodeBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="fromCodeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1065,7 +1119,7 @@
     <value>textCmdPanel</value>
   </data>
   <data name="&gt;&gt;fromCodeLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="textCmdPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 23</value>
