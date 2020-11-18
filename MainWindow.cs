@@ -287,6 +287,9 @@ namespace ResxTranslator
 						data = Translator.FilterData(data, outputFile);
 						var span = new TimeSpan(0, 0, data.Count * (int)delayBox.Value);
 						estimationLabel.Text = $"{data.Count} {toCode} strings. Estimated completion in {span}";
+
+						progressBar.Maximum = data.Count;
+						progressBar.Value = 0;
 					}
 				}
 
@@ -307,7 +310,7 @@ namespace ResxTranslator
 					if (success)
 					{
 						SaveTranslations(root, data, outputFile);
-						Log(Status.Message, 0, 0, null, $"saved {outputFile}");
+						Log(Status.Message, 0, 0, null, $"saved {outputFile}" + Environment.NewLine);
 					}
 				}
 				catch (HttpException exc)
