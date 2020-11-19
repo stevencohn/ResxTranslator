@@ -241,13 +241,21 @@ namespace ResxTranslator
 
 		public static List<XElement> CollectData(XElement root)
 		{
+			/*
+			  <data name="DemoString" xml:space="preserve">
+				<value>Foobar</value>
+				<comment>NO</comment>
+			  </data>
+			*/
 			var xs = root.GetNamespaceOfPrefix("xml");
 
 			// this should filter out all non-string entries and leave only strings
 			return root.Elements("data")
-				.Where(e => e.Attribute("name")?.Value.StartsWith(">>") != true &&
+				.Where(e => e.Attribute(xs + "space") != null &&
 							e.Attribute("type") == null &&
-							e.Attribute(xs + "space") != null)
+							e.Attribute("name")?.Value.StartsWith(">>") != true &&
+							// SKIP is a special flag indicating this entry should not be translated
+							e.Attribute("comment")?.Value.Contains("SKIP") != true)
 				.ToList();
 		}
 

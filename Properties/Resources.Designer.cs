@@ -59,5 +59,23 @@ namespace ResxTranslator.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I&apos;m not translated!.
+        /// </summary>
+        internal static string ConfigString {
+            get {
+                return ResourceManager.GetString("ConfigString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Foobar.
+        /// </summary>
+        internal static string DemoString {
+            get {
+                return ResourceManager.GetString("DemoString", resourceCulture);
+            }
+        }
     }
 }

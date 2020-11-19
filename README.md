@@ -32,3 +32,10 @@ present in the target resx file(s) by ticking the _Translate only new strings_ c
 #### Working
 
 ![Translate Resx](Images/TranslateResxScreen.png)
+
+#### Skipping Resources
+
+If the resource file includes control or configuration entries that should not be translated
+then flag these by including the word **SKIP** in the entry's comment. It must be capitalized.
+The comment can include other text besides the word SKIP.
+
