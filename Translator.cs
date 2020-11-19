@@ -10,6 +10,7 @@ namespace ResxTranslator
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Drawing;
 	using System.Globalization;
 	using System.Linq;
 	using System.Net.Http;
@@ -255,7 +256,7 @@ namespace ResxTranslator
 							e.Attribute("type") == null &&
 							e.Attribute("name")?.Value.StartsWith(">>") != true &&
 							// SKIP is a special flag indicating this entry should not be translated
-							e.Attribute("comment")?.Value.Contains("SKIP") != true)
+							e.Elements("comment").FirstOrDefault()?.Value != "SKIP")
 				.ToList();
 		}
 
@@ -362,15 +363,14 @@ namespace ResxTranslator
 
 		/*
 		 * 
-		 * NOTE, tried to batch up strings, up to 1K of chars, delimited by ~~~~
-		 * but the free Google Translator doesn't handle most languages correctly
-		 * so this is temporarily disabled by hard-codng the batch size to 1.
+		 * NOTE, tried to batch up strings, up to 1K of chars, with a delimiter,
+		 * but the free Google Translator doesn't handle most languages correctly;
 		 * e.g. given a batch with 10 strings, Google may only return 7 of them
 		 * and it's unclear which 7 it will return?
 		 * 
 		 */
 
-		public delegate void StatusCallback(Status status, int count, string message);
+		public delegate void StatusCallback(string message, Color? color = null);
 
 
 		/// <summary>
@@ -399,8 +399,7 @@ namespace ResxTranslator
 					continue;
 				}
 
-				logger(Status.Working, index,
-					$"{count}/{data.Count}: {data[index].Attribute("name").Value}");
+				logger($"{count}/{data.Count}: {data[index].Attribute("name").Value}");
 
 				var builder = new StringBuilder();
 
@@ -425,18 +424,19 @@ namespace ResxTranslator
 					var result = builder.ToString();
 
 					// 2192 is right-arrow
-					logger(Status.OK, count, $" \u2192 '{value}' to '{result}'");
+					logger($" \u2192 '{value}' to '{result}'" + Environment.NewLine);
 					data[index].Element("value").Value = result;
 				}
 				else
 				{
-					logger(Status.Error, 0, "error");
+					logger("unknown error" + Environment.NewLine, Color.Red);
 				}
 
-				await Task.Delay(delay);
+				if (index < data.Count - 1)
+				{
+					await Task.Delay(delay);
+				}
 			}
-
-			logger(Status.OK, count, $"Translated {count}/{data.Count} strings to {toCode}");
 
 			return index == data.Count;
 		}
@@ -460,9 +460,10 @@ namespace ResxTranslator
 				}
 				catch (HttpException exc)
 				{
-					logger(Status.Error, 0,
+					logger(
 						$"Retry {retry}/23, waiting {minutes} minutes, " +
-						$"starting at {DateTime.Now}; {exc.Message}");
+						$"starting at {DateTime.Now}; {exc.Message}" + Environment.NewLine,
+						Color.Red);
 
 					retry++;
 

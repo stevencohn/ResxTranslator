@@ -185,7 +185,7 @@
     <value>700, 104</value>
   </data>
   <data name="compareBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 24</value>
+    <value>217, 24</value>
   </data>
   <data name="compareBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -346,17 +346,14 @@
   <data name="logBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>413, 38</value>
   </data>
-  <data name="logBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="logBox.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Both</value>
-  </data>
   <data name="logBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>355, 322</value>
   </data>
   <data name="logBox.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>15</value>
+  </data>
+  <data name="logBox.Text" xml:space="preserve">
+    <value />
   </data>
   <data name="logBox.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -365,7 +362,7 @@
     <value>logBox</value>
   </data>
   <data name="&gt;&gt;logBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;logBox.Parent" xml:space="preserve">
     <value>sheetPanel</value>

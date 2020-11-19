@@ -39,7 +39,7 @@
 			this.delayLabel = new System.Windows.Forms.Label();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.sheetPanel = new System.Windows.Forms.Panel();
-			this.logBox = new System.Windows.Forms.TextBox();
+			this.logBox = new System.Windows.Forms.RichTextBox();
 			this.languageList = new System.Windows.Forms.ListView();
 			this.estimationLabel = new System.Windows.Forms.Label();
 			this.statusLabel = new System.Windows.Forms.Label();
@@ -354,7 +354,6 @@
 			this.resxTab.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.delayBox)).EndInit();
 			this.sheetPanel.ResumeLayout(false);
-			this.sheetPanel.PerformLayout();
 			this.textTab.ResumeLayout(false);
 			this.textTab.PerformLayout();
 			this.textCmdPanel.ResumeLayout(false);
@@ -393,7 +392,6 @@
 		private System.Windows.Forms.Label statusLabel;
 		private System.Windows.Forms.Label estimationLabel;
 		private System.Windows.Forms.Panel sheetPanel;
-		private System.Windows.Forms.TextBox logBox;
 		private System.Windows.Forms.Button cancelButton;
 		private System.Windows.Forms.NumericUpDown delayBox;
 		private System.Windows.Forms.Label delayLabel;
@@ -402,6 +400,7 @@
 		private System.Windows.Forms.Button restartButton;
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.Button cancelOneButton;
+		private System.Windows.Forms.RichTextBox logBox;
 	}
 }
 

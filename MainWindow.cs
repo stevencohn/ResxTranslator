@@ -35,7 +35,7 @@ namespace ResxTranslator
 
 			languageList.Dock = DockStyle.Fill;
 			logBox.Dock = DockStyle.Fill;
-			logBox.Visible = false;
+			logBox.Visible = true;
 
 			cancelButton.Top = translateButton.Top;
 			cancelButton.Left = translateButton.Left;
@@ -295,11 +295,13 @@ namespace ResxTranslator
 
 				try
 				{
+					Log($"Translating {data.Count} strings to {toCode}" + Environment.NewLine, Color.Green);
+
 					var success = await translator.TranslateResx(
 						data, fromCode, toCode, (int)delayBox.Value, cancellation,
-						(status, count, message) =>
+						(message, color) =>
 						{
-							Log(status, count, data.Count, toCode, message);
+							Log(message, color);
 						});
 
 					if (cancellation.IsCancellationRequested)
@@ -310,12 +312,12 @@ namespace ResxTranslator
 					if (success)
 					{
 						SaveTranslations(root, data, outputFile);
-						Log(Status.Message, 0, 0, null, $"saved {outputFile}" + Environment.NewLine);
+						Log($"Saved {outputFile}" + Environment.NewLine, Color.Blue);
 					}
 				}
 				catch (HttpException exc)
 				{
-					logBox.AppendText(exc.Message + Environment.NewLine);
+					Log(exc.Message + Environment.NewLine, Color.Red);
 				}
 			}
 
@@ -352,26 +354,18 @@ namespace ResxTranslator
 		}
 
 
-		private void Log(Status status, int count, int total, string toCode, string message)
+		private void Log(string message, Color? color)
 		{
-			if (status == Status.Message)
+			if (color == null || color.Equals(Color.Black))
 			{
-				logBox.AppendText(message + Environment.NewLine);
+				logBox.AppendText(message);
+				return;
 			}
-			else if (status == Status.OK)
-			{
-				statusLabel.Text = $"Translating {count}/{total} to {toCode}";
-				logBox.AppendText(message + Environment.NewLine);
-				progressBar.Increment(1);
-			}
-			else if (status == Status.Working)
-			{
-				logBox.AppendText($"{message} ");
-			}
-			else
-			{
-				logBox.AppendText(Environment.NewLine + message + Environment.NewLine);
-			}
+
+			var fore = logBox.SelectionColor;
+			logBox.SelectionColor = (Color)color;
+			logBox.AppendText(message);
+			logBox.SelectionColor = fore;
 		}
 
 
