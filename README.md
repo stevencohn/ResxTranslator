@@ -39,3 +39,11 @@ If the resource file includes control or configuration entries that should not b
 then flag these by including the word **SKIP** in the entry's comment. It must be capitalized.
 The comment can include other text besides the word SKIP.
 
+#### Inflation Detection
+
+The free Google translator will sometime add extra spaces around non-alphanumeric characters
+when translating. For example "x+1" may become "x + 1" (from no spaces around the plus sign,
+to spaces around the plus sign.) 
+
+ResxTranslator attempts to detect this string *inflation* and displays a warning for each
+string that may need manual tuning.
