@@ -22,6 +22,7 @@ namespace ResxTranslator
 	{
 		private const string CodePattern = @".+\.(?<code>.+)\.resx";
 		private const string FilePattern = @"(?<file>.+)(\.(?<code>.+)){0,1}\.resx";
+		private const string NL = "\n";
 
 		private int strings = 0;
 		private CancellationTokenSource cancellation;
@@ -108,12 +109,17 @@ namespace ResxTranslator
 
 						if (cancellation.IsCancellationRequested)
 						{
-							resultBox.Text = "Cancelled";
+							LogOne("Cancelled" + NL, Color.Gray);
 							break;
 						}
 						else
 						{
-							resultBox.AppendText(result + Environment.NewLine);
+							LogOne(result + NL);
+
+							if (translator.Inflated(parts[i], result))
+							{
+								LogOne("*** possible inflation detected ***" + NL, Color.Maroon);
+							}
 						}
 
 						if (i < parts.Length - 1)
@@ -125,16 +131,30 @@ namespace ResxTranslator
 			}
 			catch (TaskCanceledException)
 			{
-				resultBox.AppendText("Cancelled");
+				LogOne("Cancelled" + NL, Color.DarkRed);
 			}
 			catch (HttpException exc)
 			{
-				resultBox.ForeColor = Color.Red;
-				resultBox.Text = exc.Message;
+				LogOne(exc.Message + NL, Color.Red);
 			}
 
 			cancelOneButton.Visible = false;
 			translateTextButton.Visible = true;
+		}
+
+
+		private void LogOne(string message, Color? color = null)
+		{
+			if (color == null || color.Equals(Color.Black))
+			{
+				resultBox.AppendText(message);
+				return;
+			}
+
+			var fore = logBox.SelectionColor;
+			resultBox.SelectionColor = (Color)color;
+			resultBox.AppendText(message);
+			resultBox.SelectionColor = fore;
 		}
 
 
@@ -295,7 +315,7 @@ namespace ResxTranslator
 
 				try
 				{
-					Log($"Translating {data.Count} strings to {toCode}" + Environment.NewLine, Color.Green);
+					Log($"Translating {data.Count} strings to {toCode}" + NL, Color.Green);
 
 					var success = await translator.TranslateResx(
 						data, fromCode, toCode, (int)delayBox.Value, cancellation,
@@ -312,12 +332,12 @@ namespace ResxTranslator
 					if (success)
 					{
 						SaveTranslations(root, data, outputFile);
-						Log($"Saved {outputFile}" + Environment.NewLine, Color.Blue);
+						Log($"Saved {outputFile}" + NL, Color.Blue);
 					}
 				}
 				catch (HttpException exc)
 				{
-					Log(exc.Message + Environment.NewLine, Color.Red);
+					Log(exc.Message + NL, Color.Red);
 				}
 			}
 

@@ -170,7 +170,11 @@ namespace ResxTranslator
 			"client=gtx&sl={0}&tl={1}&hl=en&dt=t&dt=bd&dj=1&source=icon&tk={2}&q={3}";
 
 		private const string ApiToken = "467103.467103";
+		private const string NL = "\n";
 
+		private const string InflationPattern = @"([^\s](?:[^\w\d\s\p{L}]))|((?:[^\w\d\s\p{L}])[^\s])";
+
+		private Regex inflation = new Regex(InflationPattern);
 		private HttpClient client = null;
 
 
@@ -285,6 +289,17 @@ namespace ResxTranslator
 			}
 
 			return data;
+		}
+
+
+		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+		// Inflation test...
+
+		public bool Inflated(string original, string translation)
+		{
+			var oi = inflation.Matches(original).Count;
+			var ti = inflation.Matches(translation).Count;
+			return oi != ti;
 		}
 
 
@@ -415,21 +430,26 @@ namespace ResxTranslator
 						builder.Append(result);
 
 						if (i < parts.Length - 1)
-							builder.Append(Environment.NewLine);
+							builder.Append(NL);
 					}
 				}
 
 				if (builder.Length > 0)
 				{
 					var result = builder.ToString();
+					data[index].Element("value").Value = result;
 
 					// 2192 is right-arrow
-					logger($" \u2192 '{value}' to '{result}'" + Environment.NewLine);
-					data[index].Element("value").Value = result;
+					logger($" \u2192 '{value}' to '{result}'" + NL);
+
+					if (Inflated(value, result))
+					{
+						logger("*** possible inflation detected ***" + NL, Color.Maroon);
+					}
 				}
 				else
 				{
-					logger("unknown error" + Environment.NewLine, Color.Red);
+					logger("unknown error" + NL, Color.Red);
 				}
 
 				if (index < data.Count - 1)
@@ -462,7 +482,7 @@ namespace ResxTranslator
 				{
 					logger(
 						$"Retry {retry}/23, waiting {minutes} minutes, " +
-						$"starting at {DateTime.Now}; {exc.Message}" + Environment.NewLine,
+						$"starting at {DateTime.Now}; {exc.Message}" + NL,
 						Color.Red);
 
 					retry++;

@@ -56,7 +56,7 @@
 			this.textTab = new System.Windows.Forms.TabPage();
 			this.textBox = new System.Windows.Forms.TextBox();
 			this.resultsLabel = new System.Windows.Forms.Label();
-			this.resultBox = new System.Windows.Forms.TextBox();
+			this.resultBox = new System.Windows.Forms.RichTextBox();
 			this.textCmdPanel = new System.Windows.Forms.Panel();
 			this.cancelOneButton = new System.Windows.Forms.Button();
 			this.translateTextButton = new System.Windows.Forms.Button();
@@ -375,7 +375,7 @@
 		private System.Windows.Forms.TabPage resxTab;
 		private System.Windows.Forms.TextBox textBox;
 		private System.Windows.Forms.Label resultsLabel;
-		private System.Windows.Forms.TextBox resultBox;
+		private System.Windows.Forms.RichTextBox resultBox;
 		private System.Windows.Forms.Button translateButton;
 		private System.Windows.Forms.ProgressBar progressBar;
 		private System.Windows.Forms.ListView languageList;
