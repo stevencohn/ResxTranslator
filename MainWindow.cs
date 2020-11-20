@@ -322,6 +322,7 @@ namespace ResxTranslator
 						(message, color) =>
 						{
 							Log(message, color);
+							progressBar.Increment(1);
 						});
 
 					if (cancellation.IsCancellationRequested)
