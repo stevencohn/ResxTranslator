@@ -200,18 +200,6 @@ namespace ResxTranslator
 				}
 			}
 
-			if (strings > 0 && languageList.CheckedIndices.Count > 0)
-			{
-				progressBar.Maximum = strings * languageList.CheckedIndices.Count;
-			}
-
-			if (progressBar.Value > 0)
-			{
-				// reset after last run
-				statusLabel.Text = string.Empty;
-				progressBar.Value = 0;
-			}
-
 			if (logBox.Visible)
 			{
 				languageList.Visible = true;
@@ -262,6 +250,12 @@ namespace ResxTranslator
 			translateButton.Visible = false;
 			cancelButton.Visible = true;
 
+			if (!compareBox.Checked)
+			{
+				// this is an estimate
+				progressBar.Maximum = strings * languageList.CheckedIndices.Count;
+			}
+
 			var inputPath = Path.GetFullPath(inputBox.Text);
 			var fromCode = Translator.Codes[codeBox.SelectedIndex];
 
@@ -308,6 +302,7 @@ namespace ResxTranslator
 						var span = new TimeSpan(0, 0, data.Count * (int)delayBox.Value);
 						estimationLabel.Text = $"{data.Count} {toCode} strings. Estimated completion in {span}";
 
+						// count per file
 						progressBar.Maximum = data.Count;
 						progressBar.Value = 0;
 					}
