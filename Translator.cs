@@ -260,7 +260,7 @@ namespace ResxTranslator
 							e.Attribute("type") == null &&
 							e.Attribute("name")?.Value.StartsWith(">>") != true &&
 							// SKIP is a special flag indicating this entry should not be translated
-							e.Elements("comment").FirstOrDefault()?.Value != "SKIP")
+							e.Elements("comment").FirstOrDefault()?.Value.Contains("SKIP") != true)
 				.ToList();
 		}
 
