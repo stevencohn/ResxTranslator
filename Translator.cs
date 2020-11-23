@@ -174,7 +174,7 @@ namespace ResxTranslator
 
 		private const string InflationPattern = @"([^\s](?:[^\w\d\s\p{L}]))|((?:[^\w\d\s\p{L}])[^\s])";
 
-		private Regex inflation = new Regex(InflationPattern);
+		private readonly Regex inflation = new Regex(InflationPattern);
 		private HttpClient client = null;
 
 
