@@ -10,6 +10,7 @@ namespace ResxTranslator
 	using System.Collections.Generic;
 	using System.Drawing;
 	using System.IO;
+	using System.Linq;
 	using System.Text.RegularExpressions;
 	using System.Threading;
 	using System.Threading.Tasks;
@@ -327,7 +328,7 @@ namespace ResxTranslator
 
 					if (success)
 					{
-						SaveTranslations(root, data, outputFile);
+						SaveTranslations(root, data, inputPath, outputFile);
 						Log($"Saved {outputFile}" + NL, Color.Blue);
 					}
 				}
@@ -335,6 +336,12 @@ namespace ResxTranslator
 				{
 					Log(exc.Message + NL, Color.Red);
 				}
+			}
+
+			if (clearBox.Checked && !cancellation.IsCancellationRequested)
+			{
+				// we're done with this file so clear the EDIT markers
+				Translator.ClearMarkers(inputPath);
 			}
 
 			cancelButton.Visible = false;
@@ -385,22 +392,46 @@ namespace ResxTranslator
 		}
 
 
-		private void SaveTranslations(XElement root, List<XElement> data, string outputFile)
+		private void SaveTranslations(
+			XElement root, List<XElement> data, string inputPath, string outputFile)
 		{
+			// add or update changes...
+
 			if (compareBox.Checked)
 			{
-				var target = XElement.Load(outputFile);
+				root = XElement.Load(outputFile);
 				foreach (var d in data)
 				{
-					target.Add(d);
-				}
+					var element = root.Elements("data")
+						.FirstOrDefault(e => e.Attribute("name").Value == d.Attribute("name").Value);
 
-				target.Save(outputFile);
+					if (element != null)
+					{
+						element.Value = d.Value;
+					}
+					else
+					{
+						root.Add(d);
+					}
+				}
 			}
-			else
+
+			// remove deleted items...
+
+			var sourceData = XElement.Load(inputPath).Elements("data");
+
+			var deleted = root.Elements("data")
+				.Where(e => !sourceData.Any(d => d.Attribute("name").Value == e.Attribute("name").Value))
+				.ToList();
+
+			deleted.ForEach(d =>
 			{
-				root.Save(outputFile);
-			}
+				Log($"Deleted {d.Attribute("name").Value}", Color.DarkRed);
+			});
+
+			deleted.Remove();
+
+			root.Save(outputFile);
 		}
 
 

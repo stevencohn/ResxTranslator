@@ -117,15 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="clearBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="clearBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="clearBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 134</value>
+  </data>
+  <data name="clearBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 24</value>
+  </data>
+  <data name="clearBox.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="clearBox.Text" xml:space="preserve">
+    <value>Clear markers</value>
+  </data>
+  <data name="&gt;&gt;clearBox.Name" xml:space="preserve">
+    <value>clearBox</value>
+  </data>
+  <data name="&gt;&gt;clearBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;clearBox.Parent" xml:space="preserve">
+    <value>resxTab</value>
+  </data>
+  <data name="&gt;&gt;clearBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="restartButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="restartButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="restartButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -176,7 +206,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;restartButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="compareBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -203,7 +233,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;compareBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="recommendationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -233,7 +263,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;recommendationLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="delayBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 102</value>
@@ -254,7 +284,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;delayBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="delayLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -284,7 +314,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;delayLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="cancelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -338,7 +368,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="sheetPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -410,7 +440,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;sheetPanel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="estimationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -440,7 +470,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;estimationLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="statusLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -470,7 +500,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;statusLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="translateButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -530,7 +560,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;translateButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="progressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -554,7 +584,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="translationsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -581,7 +611,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;translationsLabel.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="browseFolderButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -622,7 +652,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;browseFolderButton.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="outputBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -649,7 +679,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;outputBox.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="outputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -676,7 +706,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;outputLabel.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="browseFileButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -717,7 +747,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;browseFileButton.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="codeBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -741,7 +771,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;codeBox.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="inputBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -768,7 +798,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;inputBox.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="inputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -795,7 +825,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;inputLabel.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="resxTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
@@ -893,20 +923,20 @@
   <data name="resultBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="resultBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="resultBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>996, 379</value>
   </data>
   <data name="resultBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="resultBox.Text" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;resultBox.Name" xml:space="preserve">
     <value>resultBox</value>
   </data>
   <data name="&gt;&gt;resultBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;resultBox.Parent" xml:space="preserve">
     <value>textTab</value>

@@ -279,6 +279,9 @@ namespace ResxTranslator
 				var root = XElement.Load(path);
 
 				return data.Where(d =>
+					// keep all edited entries
+					d.Attribute("comment").Value.Contains("EDIT") ||
+					// keep only entries that don't exist in target
 					!root.Elements("data")
 						.Any(e => e.Attribute("name")?.Value == d.Attribute("name").Value))
 					.ToList();
@@ -414,7 +417,11 @@ namespace ResxTranslator
 					continue;
 				}
 
-				logger($"{count}/{data.Count}: {data[index].Attribute("name").Value}");
+				var name = data[index].Attribute("comment").Value.Contains("EDIT")
+					? $"{data[index].Attribute("name").Value} (EDITED)"
+					: data[index].Attribute("name").Value;
+
+				logger($"{count}/{data.Count}: {name}");
 
 				var builder = new StringBuilder();
 
@@ -501,6 +508,30 @@ namespace ResxTranslator
 			}
 
 			return null;
+		}
+
+
+		/// <summary>
+		/// Remove the EDIT markers from the source file after we're done applying
+		/// the changes to all output files
+		/// </summary>
+		/// <param name="path"></param>
+		public static void ClearMarkers(string path)
+		{
+			var root = XElement.Load(path);
+			var marked = root.Elements("data")
+				.Where(e => e.Attribute("comment").Value.Contains("EDIT"));
+
+			foreach (var mark in marked)
+			{
+				mark.Attribute("comment").Value = 
+					mark.Attribute("comment").Value.Replace("EDIT", string.Empty);
+			}
+
+			if (marked.Any())
+			{
+				root.Save(path);
+			}
 		}
 	}
 }

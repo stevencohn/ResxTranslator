@@ -67,6 +67,7 @@
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.clearBox = new System.Windows.Forms.CheckBox();
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.delayBox)).BeginInit();
@@ -85,6 +86,7 @@
 			// 
 			// resxTab
 			// 
+			this.resxTab.Controls.Add(this.clearBox);
 			this.resxTab.Controls.Add(this.restartButton);
 			this.resxTab.Controls.Add(this.compareBox);
 			this.resxTab.Controls.Add(this.recommendationLabel);
@@ -343,6 +345,12 @@
 			// 
 			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
 			// 
+			// clearBox
+			// 
+			resources.ApplyResources(this.clearBox, "clearBox");
+			this.clearBox.Name = "clearBox";
+			this.clearBox.UseVisualStyleBackColor = true;
+			// 
 			// MainWindow
 			// 
 			resources.ApplyResources(this, "$this");
@@ -401,6 +409,7 @@
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.Button cancelOneButton;
 		private System.Windows.Forms.RichTextBox logBox;
+		private System.Windows.Forms.CheckBox clearBox;
 	}
 }
 
