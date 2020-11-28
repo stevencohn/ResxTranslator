@@ -280,7 +280,7 @@ namespace ResxTranslator
 
 				return data.Where(d =>
 					// keep all edited entries
-					d.Attribute("comment").Value.Contains("EDIT") ||
+					d.Element("comment")?.Value.Contains("EDIT") == true ||
 					// keep only entries that don't exist in target
 					!root.Elements("data")
 						.Any(e => e.Attribute("name")?.Value == d.Attribute("name").Value))
@@ -388,7 +388,7 @@ namespace ResxTranslator
 		 * 
 		 */
 
-		public delegate void StatusCallback(string message, Color? color = null);
+		public delegate void StatusCallback(string message, Color? color = null, bool increment = false);
 
 
 		/// <summary>
@@ -417,11 +417,11 @@ namespace ResxTranslator
 					continue;
 				}
 
-				var name = data[index].Attribute("comment").Value.Contains("EDIT")
+				var name = data[index].Element("comment")?.Value.Contains("EDIT") == true
 					? $"{data[index].Attribute("name").Value} (EDITED)"
 					: data[index].Attribute("name").Value;
 
-				logger($"{count}/{data.Count}: {name}");
+				logger($"{count}/{data.Count}: {name}", increment: true);
 
 				var builder = new StringBuilder();
 

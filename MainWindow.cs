@@ -315,10 +315,14 @@ namespace ResxTranslator
 
 					var success = await translator.TranslateResx(
 						data, fromCode, toCode, (int)delayBox.Value, cancellation,
-						(message, color) =>
+						(message, color, increment) =>
 						{
 							Log(message, color);
-							progressBar.Increment(1);
+
+							if (increment)
+							{
+								progressBar.Increment(1);
+							}
 						});
 
 					if (cancellation.IsCancellationRequested)
@@ -373,6 +377,7 @@ namespace ResxTranslator
 			outputBox.Enabled = false;
 			browseFolderButton.Enabled = false;
 			compareBox.Enabled = false;
+			clearBox.Enabled = false;
 			delayBox.Enabled = false;
 		}
 
@@ -426,7 +431,7 @@ namespace ResxTranslator
 
 			deleted.ForEach(d =>
 			{
-				Log($"Deleted {d.Attribute("name").Value}", Color.DarkRed);
+				Log($"Deleted {d.Attribute("name").Value}" + NL, Color.DarkRed);
 			});
 
 			deleted.Remove();
@@ -450,6 +455,7 @@ namespace ResxTranslator
 			outputBox.Enabled = true;
 			browseFolderButton.Enabled = true;
 			compareBox.Enabled = true;
+			clearBox.Enabled = true;
 			delayBox.Enabled = true;
 
 			languageList.Visible = true;
