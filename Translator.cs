@@ -525,7 +525,7 @@ namespace ResxTranslator
 			foreach (var mark in marked)
 			{
 				mark.Attribute("comment").Value = 
-					mark.Attribute("comment").Value.Replace("EDIT", string.Empty);
+					Regex.Replace(mark.Attribute("comment").Value, @"\s*EDIT\s*", string.Empty);
 			}
 
 			if (marked.Any())
