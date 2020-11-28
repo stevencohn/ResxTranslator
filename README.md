@@ -22,8 +22,13 @@ Translate an entire .resx file to one or more languages.
    pause for 10 seconds, 20, 30, 40, 50, and finally every 60 seconds for an hour before
    giving up.
 
-You can also translate only new strings added to your source resx file that are not yet
-present in the target resx file(s) by ticking the _Translate only new strings_ checkbox.
+Enable the _Translate only new strings_ checkbox to translate only new strings that were added
+to the source resx file that are not yet in the target resx file(s). This looks for any
+entries that have the keyword EDIT in its comment. This also remove items in the target
+file(s) that were deleted in the source file.
+
+Enable the _Clear markers_ checkbox to remove the EDIT keyword from all entires in the source
+resx file. Do this only when processing the last target file in your workflow.
 
 #### Language Selections
 
