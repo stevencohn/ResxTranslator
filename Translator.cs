@@ -520,7 +520,7 @@ namespace ResxTranslator
 		{
 			var root = XElement.Load(path);
 			var marked = root.Elements("data")
-				.Where(e => e.Attribute("comment").Value.Contains("EDIT"));
+				.Where(e => e.Element("comment")?.Value.Contains("EDIT") == true);
 
 			foreach (var mark in marked)
 			{
