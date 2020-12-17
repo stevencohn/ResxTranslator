@@ -26,6 +26,7 @@ namespace ResxTranslator
 		private const string NL = "\n";
 
 		private int strings = 0;
+		private bool backendUpdate = false;
 		private CancellationTokenSource cancellation;
 
 
@@ -189,6 +190,11 @@ namespace ResxTranslator
 				}
 			}
 
+			if (sender == inputBox)
+			{
+				AutosetLanguages();
+			}
+
 			if (sender == inputBox || sender == languageList || sender == delayBox)
 			{
 				if (Translator.Estimate(inputBox.Text, out strings, (int)delayBox.Value, out var seconds))
@@ -212,6 +218,50 @@ namespace ResxTranslator
 				fileOK &&
 				languageList.CheckedIndices.Count > 0 &&
 				estimationLabel.Text.Length > 0;
+		}
+
+
+		private void AutosetLanguages()
+		{
+			backendUpdate = true;
+
+			var regex = new Regex(@"\.(([a-z]{2,3})\-[A-Z]{2})\.resx");
+
+			var dir = Path.GetDirectoryName(inputBox.Text);
+			if (Directory.Exists(dir))
+			{
+				for (int i = 0; i < languageList.Items.Count; i++)
+				{
+					languageList.Items[0].Checked = false;
+				}
+
+				var files = Directory.GetFiles(dir, "*.resx")
+					.Where(f => regex.IsMatch(f))
+					.ToList();
+
+				foreach (var file in files)
+				{
+					var match = regex.Match(file);
+
+					// group 2 is the inner capture
+					var lang = match.Groups[2].Value;
+
+					if (lang == "zh")
+					{
+						// group 1 is the outer capture
+						lang = match.Groups[1].Value;
+					}
+
+					var index = Translator.Codes.IndexOf(lang);
+					if (index >= 0)
+					{
+						languageList.Items[index].Checked = true;
+					}
+				}
+
+			}
+
+			backendUpdate = false;
 		}
 
 
@@ -240,7 +290,10 @@ namespace ResxTranslator
 
 		private void CheckedLanguage(object sender, ItemCheckedEventArgs e)
 		{
-			ChangedResxInput(sender, e);
+			if (!backendUpdate)
+			{
+				ChangedResxInput(sender, e);
+			}
 		}
 
 
