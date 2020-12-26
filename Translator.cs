@@ -519,16 +519,15 @@ namespace ResxTranslator
 		public static void ClearMarkers(string path)
 		{
 			var root = XElement.Load(path);
-			var marked = root.Elements("data")
-				.Where(e => e.Element("comment")?.Value.Contains("EDIT") == true);
+			var comments = root.Elements("data").Elements("comment")
+				.Where(e => e.Value.Contains("EDIT"));
 
-			foreach (var mark in marked)
+			foreach (var comment in comments)
 			{
-				mark.Attribute("comment").Value = 
-					Regex.Replace(mark.Attribute("comment").Value, @"\s*EDIT\s*", string.Empty);
+				comment.Value = Regex.Replace(comment.Value, @"\s*EDIT\s*", string.Empty);
 			}
 
-			if (marked.Any())
+			if (comments.Any())
 			{
 				root.Save(path);
 			}
