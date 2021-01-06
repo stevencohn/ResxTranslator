@@ -364,7 +364,7 @@ namespace ResxTranslator
 
 				try
 				{
-					Log($"Translating {data.Count} strings to {toCode}" + NL, Color.Green);
+					Log($"{NL}Translating {data.Count} strings to {toCode}{NL}", Color.Green);
 
 					var success = await translator.TranslateResx(
 						data, fromCode, toCode, (int)delayBox.Value, cancellation,
@@ -386,7 +386,7 @@ namespace ResxTranslator
 					if (success)
 					{
 						SaveTranslations(root, data, inputPath, outputFile);
-						Log($"Saved {outputFile}" + NL, Color.Blue);
+						Log($"Saved {outputFile}{NL}", Color.Blue);
 					}
 				}
 				catch (HttpException exc)
@@ -398,7 +398,9 @@ namespace ResxTranslator
 			if (clearBox.Checked && !cancellation.IsCancellationRequested)
 			{
 				// we're done with this file so clear the EDIT markers
-				Translator.ClearMarkers(inputPath);
+				var count = Translator.ClearMarkers(inputPath);
+				if (count > 0)
+					Log($"Cleared {count} EDIT markers{NL}");
 			}
 
 			cancelButton.Visible = false;
@@ -435,7 +437,7 @@ namespace ResxTranslator
 		}
 
 
-		private void Log(string message, Color? color)
+		private void Log(string message, Color? color = null)
 		{
 			if (color == null || color.Equals(Color.Black))
 			{
@@ -484,7 +486,7 @@ namespace ResxTranslator
 
 			deleted.ForEach(d =>
 			{
-				Log($"Deleted {d.Attribute("name").Value}" + NL, Color.DarkRed);
+				Log($"Deleted {d.Attribute("name").Value}{NL}", Color.DarkRed);
 			});
 
 			deleted.Remove();
