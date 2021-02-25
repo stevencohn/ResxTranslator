@@ -516,21 +516,24 @@ namespace ResxTranslator
 		/// the changes to all output files
 		/// </summary>
 		/// <param name="path"></param>
-		public static void ClearMarkers(string path)
+		public static int ClearMarkers(string path)
 		{
 			var root = XElement.Load(path);
 			var comments = root.Elements("data").Elements("comment")
-				.Where(e => e.Value.Contains("EDIT"));
+				.Where(e => e.Value.Contains("EDIT"))
+				.ToList();
 
-			foreach (var comment in comments)
+			if (comments.Count > 0)
 			{
-				comment.Value = Regex.Replace(comment.Value, @"\s*EDIT\s*", string.Empty);
-			}
+				foreach (var comment in comments)
+				{
+					comment.Value = Regex.Replace(comment.Value, @"\s*EDIT\s*", string.Empty);
+				}
 
-			if (comments.Any())
-			{
 				root.Save(path);
 			}
+
+			return comments.Count;
 		}
 	}
 }
