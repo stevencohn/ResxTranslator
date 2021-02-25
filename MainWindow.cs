@@ -34,6 +34,9 @@ namespace ResxTranslator
 		{
 			InitializeComponent();
 
+			Width = Math.Min(2000, Screen.FromControl(this).WorkingArea.Width - 400);
+			Height = Math.Min(1000, Screen.FromControl(this).WorkingArea.Height - 400);
+
 			PopulateLanguages();
 
 			languageList.Dock = DockStyle.Fill;

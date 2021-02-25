@@ -32,6 +32,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.resxTab = new System.Windows.Forms.TabPage();
+			this.clearBox = new System.Windows.Forms.CheckBox();
 			this.restartButton = new System.Windows.Forms.Button();
 			this.compareBox = new System.Windows.Forms.CheckBox();
 			this.recommendationLabel = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.clearBox = new System.Windows.Forms.CheckBox();
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.delayBox)).BeginInit();
@@ -110,6 +110,14 @@
 			this.resxTab.Name = "resxTab";
 			this.resxTab.UseVisualStyleBackColor = true;
 			// 
+			// clearBox
+			// 
+			resources.ApplyResources(this.clearBox, "clearBox");
+			this.clearBox.Checked = true;
+			this.clearBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.clearBox.Name = "clearBox";
+			this.clearBox.UseVisualStyleBackColor = true;
+			// 
 			// restartButton
 			// 
 			resources.ApplyResources(this.restartButton, "restartButton");
@@ -121,6 +129,8 @@
 			// compareBox
 			// 
 			resources.ApplyResources(this.compareBox, "compareBox");
+			this.compareBox.Checked = true;
+			this.compareBox.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.compareBox.Name = "compareBox";
 			this.compareBox.UseVisualStyleBackColor = true;
 			this.compareBox.CheckedChanged += new System.EventHandler(this.CompareChanged);
@@ -344,12 +354,6 @@
 			// folderBrowserDialog
 			// 
 			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
-			// 
-			// clearBox
-			// 
-			resources.ApplyResources(this.clearBox, "clearBox");
-			this.clearBox.Name = "clearBox";
-			this.clearBox.UseVisualStyleBackColor = true;
 			// 
 			// MainWindow
 			// 
