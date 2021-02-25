@@ -88,6 +88,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SettingsProvider.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="Translator.cs" />
     <EmbeddedResource Include="MainWindow.resx">

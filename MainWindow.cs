@@ -34,7 +34,7 @@ namespace ResxTranslator
 		{
 			InitializeComponent();
 
-			Width = Math.Min(2000, Screen.FromControl(this).WorkingArea.Width - 400);
+			Width = Math.Min(1700, Screen.FromControl(this).WorkingArea.Width - 400);
 			Height = Math.Min(1000, Screen.FromControl(this).WorkingArea.Height - 400);
 
 			PopulateLanguages();
@@ -50,6 +50,13 @@ namespace ResxTranslator
 
 			cancelOneButton.Top = translateTextButton.Top;
 			cancelOneButton.Left = translateTextButton.Left;
+
+			var settings = new SettingsProvider();
+			var inputPath = settings.Get("inputPath");
+			if (!string.IsNullOrEmpty(inputPath))
+			{
+				inputBox.Text = inputPath;
+			}
 		}
 
 
@@ -420,6 +427,10 @@ namespace ResxTranslator
 			}
 
 			cancellation.Dispose();
+
+			var settings = new SettingsProvider();
+			settings.Set("inputPath", inputPath);
+			settings.Save();
 		}
 
 
