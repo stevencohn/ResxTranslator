@@ -53,6 +53,19 @@ namespace ResxTranslator
 
 			var settings = new SettingsProvider();
 			var inputPath = settings.Get("inputPath");
+			if (string.IsNullOrEmpty(inputPath))
+			{
+				var args = Environment.GetCommandLineArgs();
+				if (args.Length > 1)
+				{
+					if (File.Exists(args[1]))
+					{
+						inputPath = args[1];
+					}
+
+				}
+			}
+
 			if (!string.IsNullOrEmpty(inputPath))
 			{
 				inputBox.Text = inputPath;
