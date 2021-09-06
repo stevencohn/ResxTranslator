@@ -491,9 +491,29 @@ namespace ResxTranslator
 
 					if (element != null)
 					{
-						element.Element("value").Value = d.Element("value").Value;
+						if (element.Element("value") is XElement evalue &&
+							d.Element("value") is XElement dvalue)
+						{
+							evalue.Value = dvalue.Value;
+						}
+
 						// also pick up any changes to the comment
-						element.Element("comment").Value = d.Element("comment").Value;
+						var ecomment = element.Element("comment");
+						var dcomment = d.Element("comment");
+						if (dcomment != null)
+						{
+							if (ecomment != null)
+							{
+								// update comment
+								ecomment.Value = Translator.ClearMarker(dcomment.Value);
+							}
+							else
+							{
+								// restore missing comment
+								element.Add(new XElement("comment",
+									Translator.ClearMarker(dcomment.Value)));
+							}
+						}
 					}
 					else
 					{

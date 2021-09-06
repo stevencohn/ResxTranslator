@@ -410,17 +410,16 @@ namespace ResxTranslator
 			int count = 1;
 			for (; index < data.Count && !cancellation.IsCancellationRequested; index++, count++)
 			{
-				var datum = data[index];
-				var value = datum.Element("value").Value;
+				var value = data[index].Element("value").Value;
 
 				if (value.Length == 0)
 				{
 					continue;
 				}
 
-				var name = datum.Element("comment")?.Value.Contains("EDIT") == true
-					? $"{datum.Attribute("name").Value} (EDITED)"
-					: datum.Attribute("name").Value;
+				var name = data[index].Element("comment")?.Value.Contains("EDIT") == true
+					? $"{data[index].Attribute("name").Value} (EDITED)"
+					: data[index].Attribute("name").Value;
 
 				logger($"{count}/{data.Count}: {name}", increment: true);
 
@@ -445,10 +444,7 @@ namespace ResxTranslator
 				if (builder.Length > 0)
 				{
 					var result = builder.ToString();
-					datum.Element("value").Value = result;
-
-					var comment = datum.Element("comment");
-					comment.Value = ClearMarker(comment.Value);
+					data[index].Element("value").Value = result;
 
 					// 2192 is right-arrow
 					logger($" \u2192 '{value}' to '{result}'" + NL);
