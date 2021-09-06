@@ -410,16 +410,17 @@ namespace ResxTranslator
 			int count = 1;
 			for (; index < data.Count && !cancellation.IsCancellationRequested; index++, count++)
 			{
-				var value = data[index].Element("value").Value;
+				var datum = data[index];
+				var value = datum.Element("value").Value;
 
 				if (value.Length == 0)
 				{
 					continue;
 				}
 
-				var name = data[index].Element("comment")?.Value.Contains("EDIT") == true
-					? $"{data[index].Attribute("name").Value} (EDITED)"
-					: data[index].Attribute("name").Value;
+				var name = datum.Element("comment")?.Value.Contains("EDIT") == true
+					? $"{datum.Attribute("name").Value} (EDITED)"
+					: datum.Attribute("name").Value;
 
 				logger($"{count}/{data.Count}: {name}", increment: true);
 
@@ -444,7 +445,10 @@ namespace ResxTranslator
 				if (builder.Length > 0)
 				{
 					var result = builder.ToString();
-					data[index].Element("value").Value = result;
+					datum.Element("value").Value = result;
+
+					var comment = datum.Element("comment");
+					comment.Value = ClearMarker(comment.Value);
 
 					// 2192 is right-arrow
 					logger($" \u2192 '{value}' to '{result}'" + NL);
@@ -512,6 +516,16 @@ namespace ResxTranslator
 
 
 		/// <summary>
+		/// Clear the EDIT marker in the given data element
+		/// </summary>
+		/// <param name="data">A translation data element with a comment child</param>
+		public static string ClearMarker(string comment)
+		{
+			return Regex.Replace(comment, @"\s*EDIT\s*", string.Empty);
+		}
+
+
+		/// <summary>
 		/// Remove the EDIT markers from the source file after we're done applying
 		/// the changes to all output files
 		/// </summary>
@@ -520,20 +534,19 @@ namespace ResxTranslator
 		{
 			var root = XElement.Load(path);
 			var comments = root.Elements("data").Elements("comment")
-				.Where(e => e.Value.Contains("EDIT"))
-				.ToList();
+				.Where(e => e.Value.Contains("EDIT"));
 
-			if (comments.Count > 0)
+			if (comments.Any())
 			{
 				foreach (var comment in comments)
 				{
-					comment.Value = Regex.Replace(comment.Value, @"\s*EDIT\s*", string.Empty);
+					comment.Value = ClearMarker(comment.Value);
 				}
 
 				root.Save(path);
 			}
 
-			return comments.Count;
+			return comments.Count();
 		}
 	}
 }

@@ -371,18 +371,15 @@ namespace ResxTranslator
 
 				var data = Translator.CollectData(root);
 
-				if (compareBox.Checked)
+				if (compareBox.Checked && File.Exists(outputFile))
 				{
-					if (File.Exists(outputFile))
-					{
-						data = Translator.FilterData(data, outputFile);
-						var span = new TimeSpan(0, 0, data.Count * (int)delayBox.Value);
-						estimationLabel.Text = $"{data.Count} {toCode} strings. Estimated completion in {span}";
+					data = Translator.FilterData(data, outputFile);
+					var span = new TimeSpan(0, 0, data.Count * (int)delayBox.Value);
+					estimationLabel.Text = $"{data.Count} {toCode} strings. Estimated completion in {span}";
 
-						// count per file
-						progressBar.Maximum = data.Count;
-						progressBar.Value = 0;
-					}
+					// count per file
+					progressBar.Maximum = data.Count;
+					progressBar.Value = 0;
 				}
 
 				try
@@ -484,7 +481,7 @@ namespace ResxTranslator
 		{
 			// add or update changes...
 
-			if (compareBox.Checked)
+			if (compareBox.Checked && File.Exists(outputFile))
 			{
 				root = XElement.Load(outputFile);
 				foreach (var d in data)
@@ -494,7 +491,9 @@ namespace ResxTranslator
 
 					if (element != null)
 					{
-						element.Value = d.Value;
+						element.Element("value").Value = d.Element("value").Value;
+						// also pick up any changes to the comment
+						element.Element("comment").Value = d.Element("comment").Value;
 					}
 					else
 					{
