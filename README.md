@@ -54,4 +54,7 @@ when translating. For example "x+1" may become "x + 1" (from no spaces around th
 to spaces around the plus sign.) 
 
 ResxTranslator attempts to detect this string *inflation* and displays a warning for each
-string that may need manual tuning.
+string that may need manual tuning. Of course, the program itself has no way of knowing the
+exact context of the translation so it simply compare the number of spaces in the input
+string and the output string. Most of the time, the translation is accurate and shouldn't need
+to be adjusted manually.
