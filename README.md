@@ -1,19 +1,14 @@
 # ResxTranslator
-Automates the translation of resx files using throttled access to the Google Translation API in an attempt to avoid the dreaded 403
+Automates the translation of resx files using throttled access to the Google Translation API in
+an attempt to avoid the dreaded 403.
 
 Inspired by https://github.com/salarcode/AutoResxTranslator
-
-### Translate Text
-Translate one string, phrase, or paragraph of text.
-
-![Translate Text](Images/TranslateTextScreen.png)
-
 
 ### Translate Resx File
 Translate an entire .resx file to one or more languages.
 
 1. Choose a .resx file to translate. It will detect the language based on the language/culture
-   code in the filename. 
+   code in the filename. It will also remember the last file translated.
 2. Choose the output directory where new .resx files should be stored. If this is left blank
    then new files are stored in the same directory as the source file.
 3. Adjust the number of seconds to wait between each string translation. A number too low
@@ -43,6 +38,14 @@ resx file. Do this only when processing the last target file in your workflow.
 If the resource file includes control or configuration entries that should not be translated
 then flag these by including the word **SKIP** in the entry's comment. It must be capitalized.
 The comment can include other text besides the word SKIP.
+
+### Translate Text
+Translate one string, phrase, or paragraph of text.
+
+![Translate Text](Images/TranslateTextScreen.png)
+
+What's up with the _possible inflation detection_ message? Keep reading...
+
 
 #### Inflation Detection
 
