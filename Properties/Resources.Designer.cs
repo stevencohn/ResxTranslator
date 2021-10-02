@@ -77,5 +77,23 @@ namespace ResxTranslator.Properties {
                 return ResourceManager.GetString("DemoString", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This should be overriden in German.
+        /// </summary>
+        internal static string OverrideMe {
+            get {
+                return ResourceManager.GetString("OverrideMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will not use the hints file.
+        /// </summary>
+        internal static string OverrideObsolete {
+            get {
+                return ResourceManager.GetString("OverrideObsolete", resourceCulture);
+            }
+        }
     }
 }

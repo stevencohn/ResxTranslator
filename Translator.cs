@@ -12,6 +12,7 @@ namespace ResxTranslator
 	using System.Collections.Generic;
 	using System.Drawing;
 	using System.Globalization;
+	using System.IO;
 	using System.Linq;
 	using System.Net.Http;
 	using System.Text;
@@ -176,6 +177,8 @@ namespace ResxTranslator
 
 		private readonly Regex inflation = new Regex(InflationPattern);
 		private HttpClient client = null;
+
+		private XElement hints;
 
 
 		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -391,6 +394,25 @@ namespace ResxTranslator
 		public delegate void StatusCallback(string message, Color? color = null, bool increment = false);
 
 
+		public void LoadHints(string path)
+		{
+			if (File.Exists(path))
+			{
+				try
+				{
+					hints = XElement.Load(path);
+					return;
+				}
+				catch
+				{
+					// no-op
+				}
+			}
+
+			hints = new XElement("hints");
+		}
+
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -423,49 +445,80 @@ namespace ResxTranslator
 
 				logger($"{count}/{data.Count}: {name}", increment: true);
 
-				var builder = new StringBuilder();
-
-				// handle values with multiple lines (comboboxes)
-				var parts = value.Split('\n');
-				for (int i = 0; i < parts.Length && !cancellation.IsCancellationRequested; i++)
+				var hint = FindHint(data[index], logger);
+				if (hint != null)
 				{
-					var result = await TranslateWithRetry(
-						parts[i], fromCode, toCode, cancellation, logger);
-
-					if (!string.IsNullOrEmpty(result) && !cancellation.IsCancellationRequested)
-					{
-						builder.Append(result);
-
-						if (i < parts.Length - 1)
-							builder.Append(NL);
-					}
-				}
-
-				if (builder.Length > 0)
-				{
-					var result = builder.ToString();
-					data[index].Element("value").Value = result;
+					data[index].Element("value").Value = hint;
 
 					// 2192 is right-arrow
-					logger($" \u2192 '{value}' to '{result}'" + NL);
-
-					if (Inflated(value, result))
-					{
-						logger("*** possible inflation detected ***" + NL, Color.Maroon);
-					}
+					logger($" \u2192 using hint override '{hint}'" + NL);
 				}
 				else
 				{
-					logger("unknown error" + NL, Color.Red);
-				}
+					var builder = new StringBuilder();
 
-				if (index < data.Count - 1)
-				{
-					await Task.Delay(delay);
+					// handle values with multiple lines (comboboxes)
+					var parts = value.Split('\n');
+					for (int i = 0; i < parts.Length && !cancellation.IsCancellationRequested; i++)
+					{
+						var result = await TranslateWithRetry(
+							parts[i], fromCode, toCode, cancellation, logger);
+
+						if (!string.IsNullOrEmpty(result) && !cancellation.IsCancellationRequested)
+						{
+							builder.Append(result);
+
+							if (i < parts.Length - 1)
+								builder.Append(NL);
+						}
+					}
+
+					if (builder.Length > 0)
+					{
+						var result = builder.ToString();
+						data[index].Element("value").Value = result;
+
+						// 2192 is right-arrow
+						logger($" \u2192 '{value}' to '{result}'" + NL);
+
+						if (Inflated(value, result))
+						{
+							logger("*** possible inflation detected ***" + NL, Color.Maroon);
+						}
+					}
+					else
+					{
+						logger("unknown error" + NL, Color.Red);
+					}
+
+					if (index < data.Count - 1)
+					{
+						await Task.Delay(delay);
+					}
 				}
 			}
 
 			return index == data.Count;
+		}
+
+
+		private string FindHint(XElement data, StatusCallback logger)
+		{
+			var name = data.Attribute("name").Value;
+			var hint = hints.Elements()
+				.FirstOrDefault(e => e.Attribute("name").Value == name);
+
+			if (hint != null)
+			{
+				if (data.Element("value").Value.Trim() == hint.Element("source").Value.Trim())
+				{
+					return hint.Element("preferred").Value.Trim();
+				}
+
+				logger($" \u2192 hint override is obsolete");
+			}
+
+			return null;
 		}
 
 

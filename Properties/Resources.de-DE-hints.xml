@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hints>
+  <hint name="OverrideMe">
+    <source>
+      This should be overriden in German
+    </source>
+    <preferred>
+      Dies sollte in deutscher Sprache ersetzt werden
+    </preferred>
+  </hint>
+  <hint name="OverrideObsolete">
+    <source>
+      This is an obsolete translation
+    </source>
+    <preferred>
+      Dies ist eine veraltete Übersetzung
+    </preferred>
+  </hint>
+</hints>

@@ -125,4 +125,12 @@
     <value>Foobar</value>
     <comment>The bar is fooed</comment>
   </data>
+  <data name="OverrideMe" xml:space="preserve">
+    <value>This should be overriden in German</value>
+    <comment>override example</comment>
+  </data>
+  <data name="OverrideObsolete" xml:space="preserve">
+    <value>This will not use the hints file</value>
+    <comment>obsolete override example</comment>
+  </data>
 </root>

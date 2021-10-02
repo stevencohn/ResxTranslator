@@ -118,6 +118,7 @@
     <Content Include="Images\Logo.ico" />
     <Content Include="Images\Open.png" />
     <Content Include="Images\Translate.png" />
+    <Content Include="Properties\Resources.de-DE-hints.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

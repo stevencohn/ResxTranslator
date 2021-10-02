@@ -5,10 +5,11 @@ an attempt to avoid the dreaded 403.
 Inspired by https://github.com/salarcode/AutoResxTranslator
 
 ### Translate Resx File
-Translate an entire .resx file to one or more languages.
+Translates an entire .resx file to one or more languages.
 
 1. Choose a .resx file to translate. It will detect the language based on the language/culture
-   code in the filename. It will also remember the last file translated.
+   code in the filename, or English if no code is included. It will remember the last file
+   translated.
 2. Choose the output directory where new .resx files should be stored. If this is left blank
    then new files are stored in the same directory as the source file.
 3. Adjust the number of seconds to wait between each string translation. A number too low
@@ -17,13 +18,19 @@ Translate an entire .resx file to one or more languages.
    pause for 10 seconds, 20, 30, 40, 50, and finally every 60 seconds for an hour before
    giving up.
 
-Enable the _Translate only new strings_ checkbox to translate only new strings that were added
-to the source resx file that are not yet in the target resx file(s). This looks for any
-entries that have the keyword EDIT in its comment. This also remove items in the target
-file(s) that were deleted in the source file.
+_Options_
 
-Enable the _Clear markers_ checkbox to remove the EDIT keyword from all entires in the source
-resx file. Do this only when processing the last target file in your workflow.
+* Enable the _Translate only new strings_ checkbox to translate only new strings that were added
+  to the source resx file that are not yet in the target resx file(s). It will detect entries
+  that were deleted in the source file and remove them from the target files. It also detects
+  the keyword **EDIT** in the comment of each entry; if this keyword is found, it will translate
+  that entry and replace the value in all taret files; if this keyword is not found and the
+  resource identifier exists in both the source and target file, that entry is left untouched.
+
+* Enable the _Clear markers_ checkbox to remove the EDIT keyword from all entires in the source
+  resx file. If generating all languages in a single batch then you can safely enable this option.
+  If translating one language at a time, enable this only when processing the last target file
+  in your workflow, otherwise subsequent runs may not produce the correct results.
 
 #### Language Selections
 
@@ -39,13 +46,48 @@ If the resource file includes control or configuration entries that should not b
 then flag these by including the word **SKIP** in the entry's comment. It must be capitalized.
 The comment can include other text besides the word SKIP.
 
+#### Using an Override Hint File
+
+While Google translator is generally quite good, there are nuances in languages that it can't
+predict and may make a native speaker question the appropriateness of the translation. For each
+language, you can provide an optional hint file that contains preferred translations for each
+resource identifier. This must be an XML file located in the same directory as the source resx
+file and must be named _name_._code_-hints.xml, for example Resources.de-DE-hints.xml.
+
+The contents of the hints file should look similar to the following:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<hints>
+  <hint name="resouce-identifier1">
+    <source>
+      copy of the source text from the main resx file
+    </source>
+    <preferred>
+      my preferred translation here
+    </preferred>
+  </hint>
+  <hint name="resouce-identifier2">
+    <source>
+      copy of the source text from the main resx file
+    </source>
+    <preferred>
+      my preferred translation here
+    </preferred>
+  </hint>
+</hints>
+```
+When resources are translated to that language, ResxTranslator will first look in this hint file
+each resource identifier and use the available text before attempting to use Google translate.
+
+Notice that the file includes a copy of the original source text. ResxTranslator uses this to
+detect if the source item has been updated since this hint was last created and display a warning
+that the hint may be out of date and needs correcting.
+
 ### Translate Text
 Translate one string, phrase, or paragraph of text.
 
 ![Translate Text](Images/TranslateTextScreen.png)
-
-What's up with the _possible inflation detection_ message? Keep reading...
-
 
 #### Inflation Detection
 
@@ -55,6 +97,6 @@ to spaces around the plus sign.)
 
 ResxTranslator attempts to detect this string *inflation* and displays a warning for each
 string that may need manual tuning. Of course, the program itself has no way of knowing the
-exact context of the translation so it simply compare the number of spaces in the input
-string and the output string. Most of the time, the translation is accurate and shouldn't need
-to be adjusted manually.
+exact context of the translation so it simply compares the number of spaces in the input
+string and the output string. Most of the time, the translation is accurate and shouldn't
+need to be adjusted manually.

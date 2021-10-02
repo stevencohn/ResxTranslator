@@ -386,6 +386,8 @@ namespace ResxTranslator
 				{
 					Log($"{NL}Translating {data.Count} strings to {toCode}{NL}", Color.Green);
 
+					translator.LoadHints($"{filepath}.{cultureName}-hints.xml");
+
 					var success = await translator.TranslateResx(
 						data, fromCode, toCode, (int)delayBox.Value, cancellation,
 						(message, color, increment) =>
