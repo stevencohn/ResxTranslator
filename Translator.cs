@@ -451,7 +451,7 @@ namespace ResxTranslator
 					data[index].Element("value").Value = hint;
 
 					// 2192 is right-arrow
-					logger($" \u2192 using hint override '{hint}'" + NL);
+					logger($" \u2192 using hint override '{hint}'" + NL, Color.SteelBlue);
 				}
 				else
 				{
@@ -515,7 +515,7 @@ namespace ResxTranslator
 					return hint.Element("preferred").Value.Trim();
 				}
 
-				logger($" \u2192 hint override is obsolete");
+				logger($" \u2192 hint override is obsolete", Color.Maroon);
 			}
 
 			return null;
