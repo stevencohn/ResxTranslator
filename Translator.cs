@@ -464,12 +464,19 @@ namespace ResxTranslator
 						var result = await TranslateWithRetry(
 							parts[i], fromCode, toCode, cancellation, logger);
 
-						if (!string.IsNullOrEmpty(result) && !cancellation.IsCancellationRequested)
+						if (!string.IsNullOrEmpty(result) && !cancellation.IsCancellationRequested)                 
 						{
 							builder.Append(result);
 
 							if (i < parts.Length - 1)
 								builder.Append(NL);
+						}
+
+						if ((i < parts.Length) && (index < (data.Count - 1)) &&
+							!cancellation.IsCancellationRequested)
+						{
+							// pause in between parts so we don't bump into 403
+							await Task.Delay(delay);
 						}
 					}
 
@@ -489,11 +496,6 @@ namespace ResxTranslator
 					else
 					{
 						logger("unknown error" + NL, Color.Red);
-					}
-
-					if (index < data.Count - 1)
-					{
-						await Task.Delay(delay);
 					}
 				}
 			}
