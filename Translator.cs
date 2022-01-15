@@ -338,9 +338,6 @@ namespace ResxTranslator
 				};
 			}
 
-			//var response = await client.GetAsync(
-			//	string.Format(GoogleOne, fromCode, toCode, ApiToken, HttpUtility.UrlEncode(text)),
-			//	cancellation.Token);
 			var response = await client.GetAsync(
 				string.Format(GoogleRun, fromCode, toCode, HttpUtility.UrlEncode(text)),
 				cancellation.Token);
@@ -348,7 +345,21 @@ namespace ResxTranslator
 			if (response.IsSuccessStatusCode)
 			{
 				ParseJsonResult(await response.Content.ReadAsStringAsync(), out var result);
-				return result;
+				if (!string.IsNullOrEmpty(result))
+				{
+					return result;
+				}
+
+				// fallback...
+				response = await client.GetAsync(
+					string.Format(GoogleOne, fromCode, toCode, ApiToken, HttpUtility.UrlEncode(text)),
+					cancellation.Token);
+
+				if (response.IsSuccessStatusCode)
+				{
+					ParseJsonResult(await response.Content.ReadAsStringAsync(), out result);
+					return result;
+				}
 			}
 
 			var status = (int)response.StatusCode;
@@ -356,48 +367,28 @@ namespace ResxTranslator
 		}
 
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="json"></param>
-		/// <param name="result"></param>
 		private void ParseJsonResult(string json, out string result)
 		{
-			try
+			var doc = JsonDocument.Parse(json);
+
+			var builder = new StringBuilder();
+			var sentences = doc.RootElement.GetProperty("sentences");
+
+			for (var i = 0; i < sentences.GetArrayLength(); i++)
 			{
-				var doc = JsonDocument.Parse(json);
+				// spaces between sentences are retained in the translations
+				// so no need to insert them manually
+				// also there may additional elements in the array beyond trans entries
 
-				//text = doc.RootElement
-				//	.GetProperty("sentences")[0]
-				//	.GetProperty("trans")
-				//	.GetRawText();
-
-				var builder = new StringBuilder();
-				var sentences = doc.RootElement.GetProperty("sentences");
-
-				for (var i = 0; i < sentences.GetArrayLength(); i++)
+				if (sentences[i].TryGetProperty("trans", out var trans))
 				{
-					// spaces between sentences are retained in the translations
-					// so no need to insert them manually
-
-					builder.Append(sentences[i].GetProperty("trans").GetString());
+					builder.Append(trans.GetString());
 				}
-
-				//if (text[0] == '"' && text[text.Length - 1] == '"')
-				//{
-				//	// escape Unicode \u0000 escape sequences to store in XML [<>&'"]
-				//	text = Regex.Unescape(text.Substring(1, text.Length - 2)).XmlEscape();
-				//}
-
-				// result = doc.RootElement.ToString();
-				//result = text;
-
-				result = builder.ToString();
 			}
-			catch
-			{
-				result = null;
-			}
+
+			// escape Unicode \u0000 escape sequences to store in XML [<>&'"]
+			var text = builder.ToString();
+			result = Regex.Unescape(text).XmlEscape();
 		}
 
 
