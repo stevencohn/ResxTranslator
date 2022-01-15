@@ -166,9 +166,12 @@ namespace ResxTranslator
 			{ "su", "Sudanese" }
 		};
 
-		private const string GoogleUri =
+		private const string GoogleOne =
 			"https://translate.googleapis.com/translate_a/single?" +
 			"client=gtx&sl={0}&tl={1}&hl=en&dt=t&dt=bd&dj=1&source=icon&tk={2}&q={3}";
+
+		private const string GoogleRun =
+			"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl={0}&tl={1}&dt=t&q={2}";
 
 		private const string ApiToken = "467103.467103";
 		private const string NL = "\n";
@@ -303,6 +306,11 @@ namespace ResxTranslator
 
 		public bool Inflated(string original, string translation)
 		{
+			if (original == null || translation == null)
+			{
+				return false;
+			}
+
 			var oi = inflation.Matches(original).Count;
 			var ti = inflation.Matches(translation).Count;
 			return oi != ti;
@@ -330,8 +338,11 @@ namespace ResxTranslator
 				};
 			}
 
+			//var response = await client.GetAsync(
+			//	string.Format(GoogleOne, fromCode, toCode, ApiToken, HttpUtility.UrlEncode(text)),
+			//	cancellation.Token);
 			var response = await client.GetAsync(
-				string.Format(GoogleUri, fromCode, toCode, ApiToken, HttpUtility.UrlEncode(text)),
+				string.Format(GoogleRun, fromCode, toCode, HttpUtility.UrlEncode(text)),
 				cancellation.Token);
 
 			if (response.IsSuccessStatusCode)
@@ -352,25 +363,36 @@ namespace ResxTranslator
 		/// <param name="result"></param>
 		private void ParseJsonResult(string json, out string result)
 		{
-			string text;
-
 			try
 			{
 				var doc = JsonDocument.Parse(json);
 
-				text = doc.RootElement
-					.GetProperty("sentences")[0]
-					.GetProperty("trans")
-					.GetRawText();
+				//text = doc.RootElement
+				//	.GetProperty("sentences")[0]
+				//	.GetProperty("trans")
+				//	.GetRawText();
 
-				if (text[0] == '"' && text[text.Length - 1] == '"')
+				var builder = new StringBuilder();
+				var sentences = doc.RootElement.GetProperty("sentences");
+
+				for (var i = 0; i < sentences.GetArrayLength(); i++)
 				{
-					// escape Unicode \u0000 escape sequences to store in XML [<>&'"]
-					text = Regex.Unescape(text.Substring(1, text.Length - 2)).XmlEscape();
+					// spaces between sentences are retained in the translations
+					// so no need to insert them manually
+
+					builder.Append(sentences[i].GetProperty("trans").GetString());
 				}
 
+				//if (text[0] == '"' && text[text.Length - 1] == '"')
+				//{
+				//	// escape Unicode \u0000 escape sequences to store in XML [<>&'"]
+				//	text = Regex.Unescape(text.Substring(1, text.Length - 2)).XmlEscape();
+				//}
+
 				// result = doc.RootElement.ToString();
-				result = text;
+				//result = text;
+
+				result = builder.ToString();
 			}
 			catch
 			{
