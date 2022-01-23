@@ -328,7 +328,8 @@ namespace ResxTranslator
 		/// <param name="toCode"></param>
 		/// <returns></returns>
 		public async Task<string> Translate(
-			string text, string fromCode, string toCode, CancellationTokenSource cancellation)
+			string text, string fromCode, string toCode, CancellationTokenSource cancellation,
+			StatusCallback logger = null)
 		{
 			if (client == null)
 			{
@@ -344,7 +345,7 @@ namespace ResxTranslator
 
 			if (response.IsSuccessStatusCode)
 			{
-				ParseJsonResult(await response.Content.ReadAsStringAsync(), out var result);
+				ParseJsonResult(await response.Content.ReadAsStringAsync(), out var result, logger);
 				if (!string.IsNullOrEmpty(result))
 				{
 					return result;
@@ -357,7 +358,7 @@ namespace ResxTranslator
 
 				if (response.IsSuccessStatusCode)
 				{
-					ParseJsonResult(await response.Content.ReadAsStringAsync(), out result);
+					ParseJsonResult(await response.Content.ReadAsStringAsync(), out result, logger);
 					return result;
 				}
 			}
@@ -367,28 +368,41 @@ namespace ResxTranslator
 		}
 
 
-		private void ParseJsonResult(string json, out string result)
+		private void ParseJsonResult(string json, out string result, StatusCallback logger)
 		{
-			var doc = JsonDocument.Parse(json);
-
-			var builder = new StringBuilder();
-			var sentences = doc.RootElement.GetProperty("sentences");
-
-			for (var i = 0; i < sentences.GetArrayLength(); i++)
+			try
 			{
-				// spaces between sentences are retained in the translations
-				// so no need to insert them manually
-				// also there may additional elements in the array beyond trans entries
+				var doc = JsonDocument.Parse(json);
 
-				if (sentences[i].TryGetProperty("trans", out var trans))
+				var builder = new StringBuilder();
+				var sentences = doc.RootElement.GetProperty("sentences");
+
+				for (var i = 0; i < sentences.GetArrayLength(); i++)
 				{
-					builder.Append(trans.GetString());
-				}
-			}
+					// spaces between sentences are retained in the translations
+					// so no need to insert them manually
+					// also there may additional elements in the array beyond trans entries
 
-			// escape Unicode \u0000 escape sequences to store in XML [<>&'"]
-			var text = builder.ToString();
-			result = Regex.Unescape(text).XmlEscape();
+					if (sentences[i].TryGetProperty("trans", out var trans))
+					{
+						builder.Append(trans.GetString());
+					}
+				}
+
+				// escape Unicode \u0000 escape sequences to store in XML [<>&'"]
+				var text = builder.ToString();
+				result = Regex.Unescape(text).XmlEscape();
+			}
+			catch (Exception exc)
+			{
+				if (logger != null)
+				{
+					logger(exc.Message, Color.Red);
+					logger(json, Color.Brown);
+				}
+
+				result = string.Empty;
+			}
 		}
 
 
@@ -550,7 +564,7 @@ namespace ResxTranslator
 			{
 				try
 				{
-					var result = await Translate(text, fromCode, toCode, cancellation);
+					var result = await Translate(text, fromCode, toCode, cancellation, logger);
 					return result;
 				}
 				catch (HttpException exc)
