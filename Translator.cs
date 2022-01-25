@@ -375,17 +375,30 @@ namespace ResxTranslator
 				var doc = JsonDocument.Parse(json);
 
 				var builder = new StringBuilder();
-				var sentences = doc.RootElement.GetProperty("sentences");
 
-				for (var i = 0; i < sentences.GetArrayLength(); i++)
+				if (doc.RootElement.ValueKind == JsonValueKind.Array)
 				{
-					// spaces between sentences are retained in the translations
-					// so no need to insert them manually
-					// also there may additional elements in the array beyond trans entries
-
-					if (sentences[i].TryGetProperty("trans", out var trans))
+					// simple array of text
+					for (var i = 0; i < doc.RootElement.GetArrayLength(); i++)
 					{
-						builder.Append(trans.GetString());
+						builder.Append(doc.RootElement[i].GetString());
+					}
+				}
+				else
+				{
+					// sentence array
+					var sentences = doc.RootElement.GetProperty("sentences");
+
+					for (var i = 0; i < sentences.GetArrayLength(); i++)
+					{
+						// spaces between sentences are retained in the translations
+						// so no need to insert them manually
+						// also there may additional elements in the array beyond trans entries
+
+						if (sentences[i].TryGetProperty("trans", out var trans))
+						{
+							builder.Append(trans.GetString());
+						}
 					}
 				}
 
