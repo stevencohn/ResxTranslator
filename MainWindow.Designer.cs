@@ -65,6 +65,14 @@
 			this.toCodeBox = new System.Windows.Forms.ComboBox();
 			this.fromCodeBox = new System.Windows.Forms.ComboBox();
 			this.fromCodeLabel = new System.Windows.Forms.Label();
+			this.analyzeTab = new System.Windows.Forms.TabPage();
+			this.analyzeResultsLabel = new System.Windows.Forms.Label();
+			this.reportBox = new System.Windows.Forms.RichTextBox();
+			this.analyzeCmdPanel = new System.Windows.Forms.Panel();
+			this.analyzeButton = new System.Windows.Forms.Button();
+			this.analyzeSourceBox = new System.Windows.Forms.TextBox();
+			this.analyzeBrowseButton = new System.Windows.Forms.Button();
+			this.analyzeSourceLabel = new System.Windows.Forms.Label();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -74,12 +82,15 @@
 			this.sheetPanel.SuspendLayout();
 			this.textTab.SuspendLayout();
 			this.textCmdPanel.SuspendLayout();
+			this.analyzeTab.SuspendLayout();
+			this.analyzeCmdPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabs
 			// 
 			this.tabs.Controls.Add(this.resxTab);
 			this.tabs.Controls.Add(this.textTab);
+			this.tabs.Controls.Add(this.analyzeTab);
 			resources.ApplyResources(this.tabs, "tabs");
 			this.tabs.Name = "tabs";
 			this.tabs.SelectedIndex = 0;
@@ -345,6 +356,61 @@
 			resources.ApplyResources(this.fromCodeLabel, "fromCodeLabel");
 			this.fromCodeLabel.Name = "fromCodeLabel";
 			// 
+			// analyzeTab
+			// 
+			this.analyzeTab.Controls.Add(this.analyzeResultsLabel);
+			this.analyzeTab.Controls.Add(this.reportBox);
+			this.analyzeTab.Controls.Add(this.analyzeCmdPanel);
+			resources.ApplyResources(this.analyzeTab, "analyzeTab");
+			this.analyzeTab.Name = "analyzeTab";
+			this.analyzeTab.UseVisualStyleBackColor = true;
+			// 
+			// analyzeResultsLabel
+			// 
+			resources.ApplyResources(this.analyzeResultsLabel, "analyzeResultsLabel");
+			this.analyzeResultsLabel.Name = "analyzeResultsLabel";
+			// 
+			// analyzeBox
+			// 
+			resources.ApplyResources(this.reportBox, "analyzeBox");
+			this.reportBox.Name = "analyzeBox";
+			// 
+			// analyzeCmdPanel
+			// 
+			resources.ApplyResources(this.analyzeCmdPanel, "analyzeCmdPanel");
+			this.analyzeCmdPanel.Controls.Add(this.analyzeButton);
+			this.analyzeCmdPanel.Controls.Add(this.analyzeSourceBox);
+			this.analyzeCmdPanel.Controls.Add(this.analyzeBrowseButton);
+			this.analyzeCmdPanel.Controls.Add(this.analyzeSourceLabel);
+			this.analyzeCmdPanel.Name = "analyzeCmdPanel";
+			// 
+			// analyzeButton
+			// 
+			resources.ApplyResources(this.analyzeButton, "analyzeButton");
+			this.analyzeButton.BackgroundImage = global::ResxTranslator.Properties.Resources.Translate;
+			this.analyzeButton.Name = "analyzeButton";
+			this.analyzeButton.UseVisualStyleBackColor = true;
+			this.analyzeButton.Click += new System.EventHandler(this.AnalyzeButtonClick);
+			// 
+			// analyzeSourceBox
+			// 
+			resources.ApplyResources(this.analyzeSourceBox, "analyzeSourceBox");
+			this.analyzeSourceBox.Name = "analyzeSourceBox";
+			this.analyzeSourceBox.TextChanged += new System.EventHandler(this.AnalyzeBoxTextChanged);
+			// 
+			// analyzeBrowseButton
+			// 
+			resources.ApplyResources(this.analyzeBrowseButton, "analyzeBrowseButton");
+			this.analyzeBrowseButton.Name = "analyzeBrowseButton";
+			this.toolTip.SetToolTip(this.analyzeBrowseButton, resources.GetString("analyzeBrowseButton.ToolTip"));
+			this.analyzeBrowseButton.UseVisualStyleBackColor = true;
+			this.analyzeBrowseButton.Click += new System.EventHandler(this.BrowseFiles);
+			// 
+			// analyzeSourceLabel
+			// 
+			resources.ApplyResources(this.analyzeSourceLabel, "analyzeSourceLabel");
+			this.analyzeSourceLabel.Name = "analyzeSourceLabel";
+			// 
 			// openFileDialog
 			// 
 			this.openFileDialog.DefaultExt = "resx";
@@ -370,6 +436,10 @@
 			this.textTab.PerformLayout();
 			this.textCmdPanel.ResumeLayout(false);
 			this.textCmdPanel.PerformLayout();
+			this.analyzeTab.ResumeLayout(false);
+			this.analyzeTab.PerformLayout();
+			this.analyzeCmdPanel.ResumeLayout(false);
+			this.analyzeCmdPanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -414,6 +484,14 @@
 		private System.Windows.Forms.Button cancelOneButton;
 		private System.Windows.Forms.RichTextBox logBox;
 		private System.Windows.Forms.CheckBox clearBox;
+		private System.Windows.Forms.TabPage analyzeTab;
+		private System.Windows.Forms.Label analyzeResultsLabel;
+		private System.Windows.Forms.RichTextBox reportBox;
+		private System.Windows.Forms.Panel analyzeCmdPanel;
+		private System.Windows.Forms.TextBox analyzeSourceBox;
+		private System.Windows.Forms.Button analyzeBrowseButton;
+		private System.Windows.Forms.Label analyzeSourceLabel;
+		private System.Windows.Forms.Button analyzeButton;
 	}
 }
 

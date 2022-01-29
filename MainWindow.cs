@@ -69,6 +69,7 @@ namespace ResxTranslator
 			if (!string.IsNullOrEmpty(inputPath))
 			{
 				inputBox.Text = inputPath;
+				analyzeSourceBox.Text = inputPath;
 			}
 		}
 
@@ -292,9 +293,17 @@ namespace ResxTranslator
 		{
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				inputBox.Text = openFileDialog.FileName;
+				if (sender == browseFileButton)
+				{
+					inputBox.Text = openFileDialog.FileName;
+				}
+				else
+				{
+					analyzeSourceBox.Text = openFileDialog.FileName;
+				}
 			}
 		}
+
 
 		private void BrowseFolders(object sender, EventArgs e)
 		{
@@ -570,6 +579,74 @@ namespace ResxTranslator
 
 			restartButton.Visible = false;
 			translateButton.Visible = true;
+		}
+
+		private void AnalyzeBoxTextChanged(object sender, EventArgs e)
+		{
+			analyzeButton.Enabled =
+				analyzeSourceBox.Text.Length > 0 &&
+				File.Exists(analyzeSourceBox.Text);
+		}
+
+
+		private void AnalyzeButtonClick(object sender, EventArgs e)
+		{
+			reportBox.Clear();
+
+			var root = XElement.Load(analyzeSourceBox.Text);
+
+			var data = root.Elements("data")
+				.Where(d => d.Attribute("type") == null);
+
+			Loga($"Resx contains {data.Count()} strings" + NL);
+
+			var groups = data.GroupBy(d => d.Element("value").Value);
+			Loga($"Found {groups.Count()} unique strings" + NL);
+
+			var unique = groups.Where(g => g.Count() > 1);
+			Loga($"Found {unique.Count()} duplicate strings" + NL + NL);
+
+			Loga(new String('=', 100) + NL);
+
+			var delims = new[] { ' ', '\n', '\r' };
+
+			var words = unique.Where(g => !delims.Any(d => g.Key.Contains(d)));
+			Loga($"found {words.Count()} single-word duplicates" + NL, Color.DarkRed);
+			foreach (var group in words)
+			{
+				Loga(NL + group.Key + NL, Color.Red);
+				foreach (var item in group)
+				{
+					Loga($" . . . {item.Attribute("name").Value}" + NL);
+				}
+			}
+
+			Loga(NL + new String('=', 100) + NL);
+
+			var phrases = unique.Where(g => delims.Any(d => g.Key.Contains(d)));
+			Loga($"found {phrases.Count()} multi-word duplicate phrases" + NL, Color.DarkBlue);
+			foreach (var group in phrases)
+			{
+				Loga(NL + group.Key + NL, Color.Blue);
+				foreach (var item in group)
+				{
+					Loga($" . . . {item.Attribute("name").Value}" + NL);
+				}
+			}
+		}
+
+		private void Loga(string message, Color? color = null)
+		{
+			if (color == null || color.Equals(Color.Black))
+			{
+				reportBox.AppendText(message);
+				return;
+			}
+
+			var fore = logBox.SelectionColor;
+			reportBox.SelectionColor = (Color)color;
+			reportBox.AppendText(message);
+			reportBox.SelectionColor = fore;
 		}
 	}
 }
