@@ -2,6 +2,12 @@
 Automates the translation of resx files using throttled access to the Google Translation API in
 an attempt to avoid the dreaded 403.
 
+There are three main tabs
+
+- Translate Resx file - translates a resx file to the specified languages, fully explained below.
+- Translate Text - translates a given text to a selected language. Use this for quick translations
+- Analyze - identifies duplicate words and phrases in the resx file, useful for consolidating and cleaning up resource strings
+
 Inspired by https://github.com/salarcode/AutoResxTranslator
 
 ### Translate Resx File
