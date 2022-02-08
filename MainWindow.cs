@@ -612,7 +612,7 @@ namespace ResxTranslator
 
 			var words = unique.Where(g => !delims.Any(d => g.Key.Contains(d)));
 			Loga($"found {words.Count()} single-word duplicates" + NL, Color.DarkRed);
-			foreach (var group in words)
+			foreach (var group in words.OrderBy(w => w.Key))
 			{
 				Loga(NL + group.Key + NL, Color.Red);
 				foreach (var item in group)
@@ -625,7 +625,7 @@ namespace ResxTranslator
 
 			var phrases = unique.Where(g => delims.Any(d => g.Key.Contains(d)));
 			Loga($"found {phrases.Count()} multi-word duplicate phrases" + NL, Color.DarkBlue);
-			foreach (var group in phrases)
+			foreach (var group in phrases.OrderBy(p => p.Key))
 			{
 				Loga(NL + group.Key + NL, Color.Blue);
 				foreach (var item in group)
