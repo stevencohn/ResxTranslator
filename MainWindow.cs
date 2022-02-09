@@ -34,8 +34,8 @@ namespace ResxTranslator
 		{
 			InitializeComponent();
 
-			Width = Math.Min(1700, Screen.FromControl(this).WorkingArea.Width - 400);
-			Height = Math.Min(1000, Screen.FromControl(this).WorkingArea.Height - 400);
+			Width = Math.Min(1700, Screen.FromControl(this).WorkingArea.Width - 600);
+			Height = Math.Min(1000, Screen.FromControl(this).WorkingArea.Height - 300);
 
 			PopulateLanguages();
 
@@ -596,7 +596,15 @@ namespace ResxTranslator
 			var root = XElement.Load(analyzeSourceBox.Text);
 
 			var data = root.Elements("data")
-				.Where(d => d.Attribute("type") == null);
+				.Where(d => d.Attribute("type") == null)
+				.Select(d => new
+				{
+					Data = d,
+					Comment = d.Element("comment")?.Value
+				})
+				.Where(a => a.Comment == null ||
+					!(a.Comment.Contains("SKIP") || a.Comment.Contains("NODUP")))
+				.Select(d => d.Data);
 
 			Loga($"Resx contains {data.Count()} strings" + NL);
 

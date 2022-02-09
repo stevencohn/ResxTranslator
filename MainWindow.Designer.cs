@@ -370,10 +370,10 @@
 			resources.ApplyResources(this.analyzeResultsLabel, "analyzeResultsLabel");
 			this.analyzeResultsLabel.Name = "analyzeResultsLabel";
 			// 
-			// analyzeBox
+			// reportBox
 			// 
-			resources.ApplyResources(this.reportBox, "analyzeBox");
-			this.reportBox.Name = "analyzeBox";
+			resources.ApplyResources(this.reportBox, "reportBox");
+			this.reportBox.Name = "reportBox";
 			// 
 			// analyzeCmdPanel
 			// 
