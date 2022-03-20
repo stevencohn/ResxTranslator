@@ -331,6 +331,11 @@ namespace ResxTranslator
 			string text, string fromCode, string toCode, CancellationTokenSource cancellation,
 			StatusCallback logger = null)
 		{
+			if (text.Trim() == string.Empty)
+			{
+				return text;
+			}
+
 			if (client == null)
 			{
 				client = new HttpClient
@@ -501,22 +506,29 @@ namespace ResxTranslator
 					var parts = value.Split('\n');
 					for (int i = 0; i < parts.Length && !cancellation.IsCancellationRequested; i++)
 					{
-						var result = await TranslateWithRetry(
-							parts[i], fromCode, toCode, cancellation, logger);
-
-						if (!string.IsNullOrEmpty(result) && !cancellation.IsCancellationRequested)                 
+						if (parts[i].Trim().Length == 0)
 						{
-							builder.Append(result);
-
-							if (i < parts.Length - 1)
-								builder.Append(NL);
+							builder.Append(NL);
 						}
-
-						if ((i < parts.Length) && (index < (data.Count - 1)) &&
-							!cancellation.IsCancellationRequested)
+						else
 						{
-							// pause in between parts so we don't bump into 403
-							await Task.Delay(delay);
+							var result = await TranslateWithRetry(
+								parts[i], fromCode, toCode, cancellation, logger);
+
+							if (!string.IsNullOrEmpty(result) && !cancellation.IsCancellationRequested)
+							{
+								builder.Append(result);
+
+								if (i < parts.Length - 1)
+									builder.Append(NL);
+							}
+
+							if ((i < parts.Length) && (index < (data.Count - 1)) &&
+								!cancellation.IsCancellationRequested)
+							{
+								// pause in between parts so we don't bump into 403
+								await Task.Delay(delay);
+							}
 						}
 					}
 
