@@ -1,6 +1,5 @@
 # ResxTranslator
-Automates the translation of resx files using throttled access to the Google Translation API in
-an attempt to avoid the dreaded 403.
+Translates entire resx files or individual bits of text to multiple languages.
 
 There are three main tabs
 

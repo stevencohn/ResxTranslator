@@ -4,10 +4,13 @@
 
 #pragma warning disable S1066 // Collapsible "if" statements should be merged
 
+#define GTranslate
+
 namespace ResxTranslator
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Diagnostics;
 	using System.Drawing;
 	using System.IO;
 	using System.Linq;
@@ -123,6 +126,9 @@ namespace ResxTranslator
 
 			var translator = new Translator();
 
+			var watch = new Stopwatch();
+			watch.Start();
+
 			try
 			{
 				using (cancellation = new CancellationTokenSource())
@@ -133,9 +139,11 @@ namespace ResxTranslator
 						var result = await translator.Translate(
 							parts[i], fromCode, toCode, cancellation);
 
+						watch.Stop();
+
 						if (cancellation.IsCancellationRequested)
 						{
-							LogOne("Cancelled" + NL, Color.Gray);
+							LogOne("Cancelled" + NL, Color.Red);
 							break;
 						}
 						else
@@ -146,12 +154,16 @@ namespace ResxTranslator
 							{
 								LogOne("*** possible inflation detected ***" + NL, Color.Maroon);
 							}
+
+							LogOne($"ellapsed time {watch.ElapsedMilliseconds}ms{NL}", Color.DarkCyan);
 						}
 
+#if !GTranslate
 						if (i < parts.Length - 1)
 						{
 							await Task.Delay(1000 * 10, cancellation.Token);
 						}
+#endif
 					}
 				}
 			}
@@ -162,6 +174,13 @@ namespace ResxTranslator
 			catch (HttpException exc)
 			{
 				LogOne(exc.Message + NL, Color.Red);
+			}
+			finally
+			{
+				if (watch.IsRunning)
+				{
+					watch.Stop();
+				}
 			}
 
 			cancelOneButton.Visible = false;
@@ -221,7 +240,11 @@ namespace ResxTranslator
 
 			if (sender == inputBox || sender == languageList || sender == delayBox)
 			{
-				if (Translator.Estimate(inputBox.Text, out strings, (int)delayBox.Value, out var seconds))
+#if GTranslate
+				if (Translator.Estimate(inputBox.Text, out strings, out var seconds))
+#else
+				if (Translator.Estimate(inputBox.Text, out strings, (int)delayBox.Value * 1000, out var seconds))
+#endif
 				{
 					var langs = Math.Max(languageList.CheckedIndices.Count, 1);
 					var span = new TimeSpan(0, 0, seconds * langs);
@@ -364,6 +387,9 @@ namespace ResxTranslator
 			var translator = new Translator();
 			cancellation = new CancellationTokenSource();
 
+			var watch = new Stopwatch();
+			watch.Start();
+
 			foreach (var index in languageList.CheckedIndices)
 			{
 				var toCode = Translator.Codes[(int)index];
@@ -446,6 +472,9 @@ namespace ResxTranslator
 			{
 				statusLabel.Text = "Done";
 			}
+
+			watch.Stop();
+			Log($"ellapsed time {watch.ElapsedMilliseconds}ms{NL}", Color.DarkCyan);
 
 			cancellation.Dispose();
 

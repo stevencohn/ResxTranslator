@@ -6,9 +6,11 @@
 #pragma warning disable S1075  // hardcoded URLs or paths
 #pragma warning disable CA1031 // non-specific catch
 
+#define GTranslate
+
 namespace ResxTranslator
 {
-	using System;
+	using GTranslate.Translators;
 	using System.Collections.Generic;
 	using System.Drawing;
 	using System.Globalization;
@@ -16,11 +18,9 @@ namespace ResxTranslator
 	using System.Linq;
 	using System.Net.Http;
 	using System.Text;
-	using System.Text.Json;
 	using System.Text.RegularExpressions;
 	using System.Threading;
 	using System.Threading.Tasks;
-	using System.Web;
 	using System.Xml.Linq;
 
 
@@ -229,16 +229,21 @@ namespace ResxTranslator
 		/// <param name="strings"></param>
 		/// <param name="seconds"></param>
 		/// <returns></returns>
-		public static bool Estimate(string path, out int strings, int delayInSeconds, out int seconds)
+		public static bool Estimate(string path, out int strings, out int seconds)
+		{
+			return Estimate(path, out strings, 1250, out seconds);
+		}
+
+
+		public static bool Estimate(string path, out int strings, int delayInMs, out int seconds)
 		{
 			try
 			{
 				var root = XElement.Load(path);
-
 				var data = CollectData(root);
 
 				strings = data.Count;
-				seconds = data.Count * delayInSeconds;
+				seconds = data.Count * delayInMs / 1000;
 
 				return true;
 			}
@@ -336,6 +341,19 @@ namespace ResxTranslator
 				return text;
 			}
 
+#if GTranslate
+			using (var translator = new AggregateTranslator())
+			{
+				if (fromCode == "auto")
+				{
+					var lang = await translator.DetectLanguageAsync(text);
+					fromCode = lang.ISO6391;
+				}
+
+				var result = await translator.TranslateAsync(text, toCode, fromCode);
+				return result.Translation;
+			}
+#else
 			if (client == null)
 			{
 				client = new HttpClient
@@ -421,6 +439,7 @@ namespace ResxTranslator
 
 				result = string.Empty;
 			}
+#endif
 		}
 
 
@@ -523,12 +542,14 @@ namespace ResxTranslator
 									builder.Append(NL);
 							}
 
+#if !GTranslate
 							if ((i < parts.Length) && (index < (data.Count - 1)) &&
 								!cancellation.IsCancellationRequested)
 							{
 								// pause in between parts so we don't bump into 403
 								await Task.Delay(delay);
 							}
+#endif
 						}
 					}
 
@@ -580,6 +601,13 @@ namespace ResxTranslator
 			string text, string fromCode, string toCode,
 			CancellationTokenSource cancellation, StatusCallback logger)
 		{
+#if GTranslate
+			using (var translator = new AggregateTranslator())
+			{
+				var result = await translator.TranslateAsync(text, toCode, fromCode);
+				return result.Translation;
+			}
+#else
 			var retry = 0;
 			var minutes = 5;
 
@@ -615,6 +643,7 @@ namespace ResxTranslator
 			}
 
 			return null;
+#endif
 		}
 
 
