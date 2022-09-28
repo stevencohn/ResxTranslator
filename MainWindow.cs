@@ -631,7 +631,7 @@ namespace ResxTranslator
 					Data = d,
 					Comment = d.Element("comment")?.Value
 				})
-				.Where(a => a.Comment == null ||
+				.Where(a => string.IsNullOrWhiteSpace(a.Comment) || 
 					!(a.Comment.Contains("SKIP") || a.Comment.Contains("NODUP")))
 				.Select(d => d.Data);
 
