@@ -35,6 +35,10 @@ namespace ResxTranslator
 
 	internal class Translator
 	{
+		//private const int PerEstimate = 1250;
+		private const int PerEstimate = 100;
+
+
 		public static readonly List<string> Codes = new List<string>
 		{
 			#region Code
@@ -231,7 +235,7 @@ namespace ResxTranslator
 		/// <returns></returns>
 		public static bool Estimate(string path, out int strings, out int seconds)
 		{
-			return Estimate(path, out strings, 1250, out seconds);
+			return Estimate(path, out strings, PerEstimate, out seconds);
 		}
 
 

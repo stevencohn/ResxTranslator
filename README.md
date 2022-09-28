@@ -51,13 +51,6 @@ If the resource file includes control or configuration entries that should not b
 then flag these by including the word **SKIP** in the entry's comment. It must be capitalized.
 The comment can include other text besides the word SKIP.
 
-#### Analysis - ignoring specific duplicate
-
-The Analyze tab analyzes a resx file looking for duplicate uses of words and phrase.
-There will likely be legitimate cases where you want to use duplicates but in very
-different contexts. In these case, you can tag those resources with the NODUP keyword;
-the analyzer will ignore those resources.
-
 #### Using an Override Hint File
 
 While Google translator is generally quite good, there are nuances in languages that it can't
@@ -112,3 +105,16 @@ string that may need manual tuning. Of course, the program itself has no way of 
 exact context of the translation so it simply compares the number of spaces in the input
 string and the output string. Most of the time, the translation is accurate and shouldn't
 need to be adjusted manually.
+
+### Analyze
+
+The Analyze tab analyzes a resx file looking for duplicate uses of words and phrase.
+
+![Analyze Resources](Images/AnalyzeScreen.png)
+
+#### Ignoring Known Duplicate
+
+There will likely be legitimate cases where you want to use duplicates but in very
+different contexts. In these case, you can tag those resources with the NODUP keyword;
+the analyzer will ignore those resources and not report them as duplicates.
+
