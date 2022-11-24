@@ -127,7 +127,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="clearBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>700, 134</value>
+    <value>154, 133</value>
   </data>
   <data name="clearBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 24</value>
@@ -159,7 +159,7 @@
   <data name="restartButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAAlpJREFUOE+NVM1r1FAQj/pXuMkKHtT6gR/gyVNBqNSKlop605tnjx5E8do/oJts
+        vAAADrwBlbxySQAAAlpJREFUOE+NVM1r1FAQj/pXuMkKHtT6gR/gyVNBqNSKlop605tnjx5E8do/oJts
         V93WxeqqrR8H0UvFtS5YRJFq3UUptIiKtptMkt0k7yXPeUnebvaj1oEfJG9mfpn5zbxIXcbYJnncOq6o
         MKloUJVVo46wZRUqsqbnlTH9GI+Jo3ubkjP3YXIZE70NUNqqQV+c1m5pVR+QNUPvkbQOYFXO1Prj9Mjk
         cXO/rIF++rFFlDhw8KFFJhYc/8MvElTXaDC77AVX5xp0501oI2tVdo1txkrmuSMIGJv85PqcAB972k/b
@@ -212,7 +212,7 @@
     <value>True</value>
   </data>
   <data name="compareBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>700, 104</value>
+    <value>154, 103</value>
   </data>
   <data name="compareBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 24</value>
@@ -235,95 +235,35 @@
   <data name="&gt;&gt;compareBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="recommendationLabel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="optionsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="recommendationLabel.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="recommendationLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="optionsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="recommendationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 104</value>
-  </data>
-  <data name="recommendationLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 20</value>
-  </data>
-  <data name="recommendationLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="recommendationLabel.Text" xml:space="preserve">
-    <value>At least 11 seconds is recommended</value>
-  </data>
-  <data name="&gt;&gt;recommendationLabel.Name" xml:space="preserve">
-    <value>recommendationLabel</value>
-  </data>
-  <data name="&gt;&gt;recommendationLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;recommendationLabel.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="&gt;&gt;recommendationLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="delayBox.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="delayBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 102</value>
-  </data>
-  <data name="delayBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 26</value>
-  </data>
-  <data name="delayBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;delayBox.Name" xml:space="preserve">
-    <value>delayBox</value>
-  </data>
-  <data name="&gt;&gt;delayBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;delayBox.Parent" xml:space="preserve">
-    <value>resxTab</value>
-  </data>
-  <data name="&gt;&gt;delayBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="delayLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="delayLabel.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="delayLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="delayLabel.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="optionsLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 104</value>
   </data>
-  <data name="delayLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
+  <data name="optionsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 20</value>
   </data>
-  <data name="delayLabel.TabIndex" type="System.Int32, mscorlib">
+  <data name="optionsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="delayLabel.Text" xml:space="preserve">
-    <value>Seconds Delay:</value>
+  <data name="optionsLabel.Text" xml:space="preserve">
+    <value>Options:</value>
   </data>
-  <data name="&gt;&gt;delayLabel.Name" xml:space="preserve">
-    <value>delayLabel</value>
+  <data name="&gt;&gt;optionsLabel.Name" xml:space="preserve">
+    <value>optionsLabel</value>
   </data>
-  <data name="&gt;&gt;delayLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;optionsLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;delayLabel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;optionsLabel.Parent" xml:space="preserve">
     <value>resxTab</value>
   </data>
-  <data name="&gt;&gt;delayLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;optionsLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="cancelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -334,7 +274,7 @@
   <data name="cancelButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAAixJREFUOE+Vks1rE0EYxvdfMGlDLR48VDx4KKgXoeCpUC9+IFhxt6bqwVxUbEVL
+        vAAADrwBlbxySQAAAixJREFUOE+Vks1rE0EYxvdfMGlDLR48VDx4KKgXoeCpUC9+IFhxt6bqwVxUbEVL
         xRYqFNuq1KKk1A9QelAQTaEo6EXEbjZNTBs02qClS2k+mrTutkm7ybqbp7PZzSbbBMHDb5h553med3Z2
         KAAWZGER8XfDCN+lEbjRDH/XEcwMXQI/+QLrqQ0iserNSV5OIzFxC1x7LabO7KgK69yLiGeCyLcF5LMC
         +EcnwdK2qkYLdC1m3W4zpDCkJjtKZmYXOFfDNqMNXtc+eNsMDV2PsOdzIYRShe8IXHDoG0w9vr18CykW
@@ -377,7 +317,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="sheetPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -449,13 +389,13 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;sheetPanel.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="estimationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="estimationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 138</value>
+    <value>563, 107</value>
   </data>
   <data name="estimationLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 0, 3, 20</value>
@@ -479,7 +419,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;estimationLabel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="statusLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -509,7 +449,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;statusLabel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="translateButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -523,7 +463,7 @@
   <data name="translateButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAABCFJREFUSEudlG1MW1UYx/thZpl+1US3ROc+7bvyMnFuiW7qZJEQNVgMiLxFYcRO
+        vAAADrwBlbxySQAABCFJREFUSEudlG1MW1UYx/thZpl+1US3ROc+7bvyMnFuiW7qZJEQNVgMiLxFYcRO
         IE4KbDSwiS4RCYaXZZsEwbFZ3gR5mRKTQkNbShF5K1D6etve9t4LKLDygb/nXNp6gdUhT/LLzT3nPP//
         uc9zzpW53e53GYYxu1wubi84nU7KtN1uTzabzQdljwoibiJgJxaLBf39/SAiu+aC9BLDZ4MykYMsWqQJ
         BoMBfX196O3tFWltbUV2djYaGxvDY5SJiQnRgHyFxuPxHAvKRA6yWDRoaGhAWloaUlJSRJKTk5GQkAC5
@@ -569,7 +509,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;translateButton.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="progressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -593,7 +533,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="translationsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -620,7 +560,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;translationsLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="browseFolderButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -631,7 +571,7 @@
   <data name="browseFolderButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
+        vAAADrwBlbxySQAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
         MjHxIGmVAAABBElEQVQ4T6WRsRGDMAxFPQU7ULtiCNbwCmxAnYo7j5AiDRMwgHsq5qBU9KUYGzDkcine
         nbH9voRsiOgviptHlmWhYRgE7wNN00TrugpF4YhznkIIvNRvBM3zTNiX9NfzcSIXjuAMsgToZc/7EADW
         /jYkyluASkkWgtt1lGbg+DyFZQG5rAElvgbgd0BePSd20ve9hGmAzCCJ2sEV2klgGUEpgMFaBpq1fMby
@@ -661,7 +601,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;browseFolderButton.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>11</value>
   </data>
   <data name="outputBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -688,7 +628,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;outputBox.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>12</value>
   </data>
   <data name="outputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -715,7 +655,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;outputLabel.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>13</value>
   </data>
   <data name="browseFileButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -726,7 +666,7 @@
   <data name="browseFileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
+        vAAADrwBlbxySQAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
         MjHxIGmVAAABBElEQVQ4T6WRsRGDMAxFPQU7ULtiCNbwCmxAnYo7j5AiDRMwgHsq5qBU9KUYGzDkcine
         nbH9voRsiOgviptHlmWhYRgE7wNN00TrugpF4YhznkIIvNRvBM3zTNiX9NfzcSIXjuAMsgToZc/7EADW
         /jYkyluASkkWgtt1lGbg+DyFZQG5rAElvgbgd0BePSd20ve9hGmAzCCJ2sEV2klgGUEpgMFaBpq1fMby
@@ -756,7 +696,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;browseFileButton.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>14</value>
   </data>
   <data name="codeBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -780,7 +720,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;codeBox.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>15</value>
   </data>
   <data name="inputBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -807,7 +747,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;inputBox.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>16</value>
   </data>
   <data name="inputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -834,7 +774,7 @@
     <value>resxTab</value>
   </data>
   <data name="&gt;&gt;inputLabel.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>17</value>
   </data>
   <data name="resxTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
@@ -965,7 +905,7 @@
   <data name="cancelOneButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAAixJREFUOE+Vks1rE0EYxvdfMGlDLR48VDx4KKgXoeCpUC9+IFhxt6bqwVxUbEVL
+        vAAADrwBlbxySQAAAixJREFUOE+Vks1rE0EYxvdfMGlDLR48VDx4KKgXoeCpUC9+IFhxt6bqwVxUbEVL
         xRYqFNuq1KKk1A9QelAQTaEo6EXEbjZNTBs02qClS2k+mrTutkm7ybqbp7PZzSbbBMHDb5h553med3Z2
         KAAWZGER8XfDCN+lEbjRDH/XEcwMXQI/+QLrqQ0iserNSV5OIzFxC1x7LabO7KgK69yLiGeCyLcF5LMC
         +EcnwdK2qkYLdC1m3W4zpDCkJjtKZmYXOFfDNqMNXtc+eNsMDV2PsOdzIYRShe8IXHDoG0w9vr18CykW
@@ -1019,7 +959,7 @@
   <data name="translateTextButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAABCFJREFUSEudlG1MW1UYx/thZpl+1US3ROc+7bvyMnFuiW7qZJEQNVgMiLxFYcRO
+        vAAADrwBlbxySQAABCFJREFUSEudlG1MW1UYx/thZpl+1US3ROc+7bvyMnFuiW7qZJEQNVgMiLxFYcRO
         IE4KbDSwiS4RCYaXZZsEwbFZ3gR5mRKTQkNbShF5K1D6etve9t4LKLDygb/nXNp6gdUhT/LLzT3nPP//
         uc9zzpW53e53GYYxu1wubi84nU7KtN1uTzabzQdljwoibiJgJxaLBf39/SAiu+aC9BLDZ4MykYMsWqQJ
         BoMBfX196O3tFWltbUV2djYaGxvDY5SJiQnRgHyFxuPxHAvKRA6yWDRoaGhAWloaUlJSRJKTk5GQkAC5
@@ -1455,6 +1395,212 @@
   </data>
   <data name="&gt;&gt;analyzeTab.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="toolsSortLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toolsSortLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 159</value>
+  </data>
+  <data name="toolsSortLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 20</value>
+  </data>
+  <data name="toolsSortLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="toolsSortLabel.Text" xml:space="preserve">
+    <value>Sort all &lt;Data&gt; elements in resource file</value>
+  </data>
+  <data name="&gt;&gt;toolsSortLabel.Name" xml:space="preserve">
+    <value>toolsSortLabel</value>
+  </data>
+  <data name="&gt;&gt;toolsSortLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolsSortLabel.Parent" xml:space="preserve">
+    <value>toolsPage</value>
+  </data>
+  <data name="&gt;&gt;toolsSortLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="toolsSortButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="toolsSortButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="toolsSortButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="toolsSortButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>76, 146</value>
+  </data>
+  <data name="toolsSortButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 47</value>
+  </data>
+  <data name="toolsSortButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;toolsSortButton.Name" xml:space="preserve">
+    <value>toolsSortButton</value>
+  </data>
+  <data name="&gt;&gt;toolsSortButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolsSortButton.Parent" xml:space="preserve">
+    <value>toolsPage</value>
+  </data>
+  <data name="&gt;&gt;toolsSortButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="toolsCmdPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="toolsSourceBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="toolsSourceBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 15</value>
+  </data>
+  <data name="toolsSourceBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 8</value>
+  </data>
+  <data name="toolsSourceBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>740, 26</value>
+  </data>
+  <data name="toolsSourceBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;toolsSourceBox.Name" xml:space="preserve">
+    <value>toolsSourceBox</value>
+  </data>
+  <data name="&gt;&gt;toolsSourceBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolsSourceBox.Parent" xml:space="preserve">
+    <value>toolsCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;toolsSourceBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="toolsBrowseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="toolsBrowseButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toolsBrowseButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
+        MjHxIGmVAAABBElEQVQ4T6WRsRGDMAxFPQU7ULtiCNbwCmxAnYo7j5AiDRMwgHsq5qBU9KUYGzDkcine
+        nbH9voRsiOgviptHlmWhYRgE7wNN00TrugpF4YhznkIIvNRvBM3zTNiX9NfzcSIXjuAMsgToZc/7EADW
+        /jYkyluASkkWgtt1lGbg+DyFZQG5rAElvgbgd0BePSd20ve9hGmAzCCJ2sEV2klgGUEpgMFaBpq1fMby
+        VcsDtPKU8qaQ99XLYsSzHGexBdxX/8hcOXhDzmp1CcAwrqvnosqo7hyfxVdAK1odgzGXSNuQufo4jvsA
+        0HUdX3CSjgG1bUtN05Bloa5rEaqq2sTI7uN3yLwBpM724PGQQrAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolsBrowseButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="toolsBrowseButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>865, 5</value>
+  </data>
+  <data name="toolsBrowseButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 47</value>
+  </data>
+  <data name="toolsBrowseButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="toolsBrowseButton.ToolTip" xml:space="preserve">
+    <value>Browse for source resx file</value>
+  </data>
+  <data name="&gt;&gt;toolsBrowseButton.Name" xml:space="preserve">
+    <value>toolsBrowseButton</value>
+  </data>
+  <data name="&gt;&gt;toolsBrowseButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolsBrowseButton.Parent" xml:space="preserve">
+    <value>toolsCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;toolsBrowseButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="toolsSourceLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="toolsSourceLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="toolsSourceLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 18</value>
+  </data>
+  <data name="toolsSourceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 20</value>
+  </data>
+  <data name="toolsSourceLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="toolsSourceLabel.Text" xml:space="preserve">
+    <value>Source Resx:</value>
+  </data>
+  <data name="&gt;&gt;toolsSourceLabel.Name" xml:space="preserve">
+    <value>toolsSourceLabel</value>
+  </data>
+  <data name="&gt;&gt;toolsSourceLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolsSourceLabel.Parent" xml:space="preserve">
+    <value>toolsCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;toolsSourceLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="toolsCmdPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="toolsCmdPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>994, 55</value>
+  </data>
+  <data name="toolsCmdPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;toolsCmdPanel.Name" xml:space="preserve">
+    <value>toolsCmdPanel</value>
+  </data>
+  <data name="&gt;&gt;toolsCmdPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolsCmdPanel.Parent" xml:space="preserve">
+    <value>toolsPage</value>
+  </data>
+  <data name="&gt;&gt;toolsCmdPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="toolsPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
+  <data name="toolsPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1040, 761</value>
+  </data>
+  <data name="toolsPage.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="toolsPage.Text" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="&gt;&gt;toolsPage.Name" xml:space="preserve">
+    <value>toolsPage</value>
+  </data>
+  <data name="&gt;&gt;toolsPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolsPage.Parent" xml:space="preserve">
+    <value>tabs</value>
+  </data>
+  <data name="&gt;&gt;toolsPage.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="tabs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

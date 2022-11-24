@@ -4,8 +4,6 @@
 
 #pragma warning disable S1066 // Collapsible "if" statements should be merged
 
-#define GTranslate
-
 namespace ResxTranslator
 {
 	using System;
@@ -73,6 +71,7 @@ namespace ResxTranslator
 			{
 				inputBox.Text = inputPath;
 				analyzeSourceBox.Text = inputPath;
+				toolsSourceBox.Text = inputPath;
 			}
 		}
 
@@ -157,13 +156,6 @@ namespace ResxTranslator
 
 							LogOne($"ellapsed time {watch.ElapsedMilliseconds}ms{NL}", Color.DarkCyan);
 						}
-
-#if !GTranslate
-						if (i < parts.Length - 1)
-						{
-							await Task.Delay(1000 * 10, cancellation.Token);
-						}
-#endif
 					}
 				}
 			}
@@ -238,13 +230,9 @@ namespace ResxTranslator
 				AutosetLanguages();
 			}
 
-			if (sender == inputBox || sender == languageList || sender == delayBox)
+			if (sender == inputBox || sender == languageList)
 			{
-#if GTranslate
 				if (Translator.Estimate(inputBox.Text, out strings, out var seconds))
-#else
-				if (Translator.Estimate(inputBox.Text, out strings, (int)delayBox.Value * 1000, out var seconds))
-#endif
 				{
 					var langs = Math.Max(languageList.CheckedIndices.Count, 1);
 					var span = new TimeSpan(0, 0, seconds * langs);
@@ -319,6 +307,10 @@ namespace ResxTranslator
 				if (sender == browseFileButton)
 				{
 					inputBox.Text = openFileDialog.FileName;
+				}
+				else if (sender == toolsBrowseButton)
+				{
+					toolsSourceBox.Text = openFileDialog.FileName;
 				}
 				else
 				{
@@ -409,7 +401,7 @@ namespace ResxTranslator
 				if (compareBox.Checked && File.Exists(outputFile))
 				{
 					data = Translator.FilterData(data, outputFile);
-					var span = new TimeSpan(0, 0, data.Count * (int)delayBox.Value);
+					var span = new TimeSpan(0, 0, (int)(data.Count * 0.1));
 					estimationLabel.Text = $"{data.Count} {toCode} strings. Estimated completion in {span}";
 
 					// count per file
@@ -424,7 +416,7 @@ namespace ResxTranslator
 					translator.LoadHints($"{filepath}.{cultureName}-hints.xml");
 
 					var success = await translator.TranslateResx(
-						data, fromCode, toCode, (int)delayBox.Value, cancellation,
+						data, fromCode, toCode, cancellation,
 						(message, color, increment) =>
 						{
 							Log(message, color);
@@ -497,7 +489,6 @@ namespace ResxTranslator
 			browseFolderButton.Enabled = false;
 			compareBox.Enabled = false;
 			clearBox.Enabled = false;
-			delayBox.Enabled = false;
 		}
 
 
@@ -597,7 +588,6 @@ namespace ResxTranslator
 			browseFolderButton.Enabled = true;
 			compareBox.Enabled = true;
 			clearBox.Enabled = true;
-			delayBox.Enabled = true;
 
 			languageList.Visible = true;
 			logBox.Visible = false;
@@ -609,6 +599,10 @@ namespace ResxTranslator
 			restartButton.Visible = false;
 			translateButton.Visible = true;
 		}
+
+
+		//========================================================================================
+		// Analyze Tab...
 
 		private void AnalyzeBoxTextChanged(object sender, EventArgs e)
 		{
@@ -671,6 +665,34 @@ namespace ResxTranslator
 				}
 			}
 		}
+
+
+		//========================================================================================
+		// Tools Tab...
+
+		private void toolsSourceTextChanged(object sender, EventArgs e)
+		{
+			toolsSortButton.Enabled =
+				toolsSourceBox.Text.Length > 0 &&
+				File.Exists(toolsSourceBox.Text);
+		}
+
+
+		private void SortResources(object sender, EventArgs e)
+		{
+			if (File.Exists(toolsSourceBox.Text))
+			{
+				var root = XElement.Load(toolsSourceBox.Text);
+
+				var data = root.Elements("data").ToList();
+				data.ForEach(d => d.Remove());
+
+				root.Add(data.OrderBy(d => d.Attribute("name").Value));
+
+				root.Save(toolsSourceBox.Text, SaveOptions.None);
+			}
+		}
+
 
 		private void Loga(string message, Color? color = null)
 		{

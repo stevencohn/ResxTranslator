@@ -35,9 +35,7 @@
 			this.clearBox = new System.Windows.Forms.CheckBox();
 			this.restartButton = new System.Windows.Forms.Button();
 			this.compareBox = new System.Windows.Forms.CheckBox();
-			this.recommendationLabel = new System.Windows.Forms.Label();
-			this.delayBox = new System.Windows.Forms.NumericUpDown();
-			this.delayLabel = new System.Windows.Forms.Label();
+			this.optionsLabel = new System.Windows.Forms.Label();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.sheetPanel = new System.Windows.Forms.Panel();
 			this.logBox = new System.Windows.Forms.RichTextBox();
@@ -73,17 +71,25 @@
 			this.analyzeSourceBox = new System.Windows.Forms.TextBox();
 			this.analyzeBrowseButton = new System.Windows.Forms.Button();
 			this.analyzeSourceLabel = new System.Windows.Forms.Label();
+			this.toolsPage = new System.Windows.Forms.TabPage();
+			this.toolsSortLabel = new System.Windows.Forms.Label();
+			this.toolsSortButton = new System.Windows.Forms.Button();
+			this.toolsCmdPanel = new System.Windows.Forms.Panel();
+			this.toolsSourceBox = new System.Windows.Forms.TextBox();
+			this.toolsBrowseButton = new System.Windows.Forms.Button();
+			this.toolsSourceLabel = new System.Windows.Forms.Label();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.delayBox)).BeginInit();
 			this.sheetPanel.SuspendLayout();
 			this.textTab.SuspendLayout();
 			this.textCmdPanel.SuspendLayout();
 			this.analyzeTab.SuspendLayout();
 			this.analyzeCmdPanel.SuspendLayout();
+			this.toolsPage.SuspendLayout();
+			this.toolsCmdPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabs
@@ -91,6 +97,7 @@
 			this.tabs.Controls.Add(this.resxTab);
 			this.tabs.Controls.Add(this.textTab);
 			this.tabs.Controls.Add(this.analyzeTab);
+			this.tabs.Controls.Add(this.toolsPage);
 			resources.ApplyResources(this.tabs, "tabs");
 			this.tabs.Name = "tabs";
 			this.tabs.SelectedIndex = 0;
@@ -100,9 +107,7 @@
 			this.resxTab.Controls.Add(this.clearBox);
 			this.resxTab.Controls.Add(this.restartButton);
 			this.resxTab.Controls.Add(this.compareBox);
-			this.resxTab.Controls.Add(this.recommendationLabel);
-			this.resxTab.Controls.Add(this.delayBox);
-			this.resxTab.Controls.Add(this.delayLabel);
+			this.resxTab.Controls.Add(this.optionsLabel);
 			this.resxTab.Controls.Add(this.cancelButton);
 			this.resxTab.Controls.Add(this.sheetPanel);
 			this.resxTab.Controls.Add(this.estimationLabel);
@@ -146,36 +151,10 @@
 			this.compareBox.UseVisualStyleBackColor = true;
 			this.compareBox.CheckedChanged += new System.EventHandler(this.CompareChanged);
 			// 
-			// recommendationLabel
+			// optionsLabel
 			// 
-			resources.ApplyResources(this.recommendationLabel, "recommendationLabel");
-			this.recommendationLabel.Name = "recommendationLabel";
-			// 
-			// delayBox
-			// 
-			resources.ApplyResources(this.delayBox, "delayBox");
-			this.delayBox.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-			this.delayBox.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.delayBox.Name = "delayBox";
-			this.delayBox.Value = new decimal(new int[] {
-            11,
-            0,
-            0,
-            0});
-			this.delayBox.ValueChanged += new System.EventHandler(this.ChangedResxInput);
-			// 
-			// delayLabel
-			// 
-			resources.ApplyResources(this.delayLabel, "delayLabel");
-			this.delayLabel.Name = "delayLabel";
+			resources.ApplyResources(this.optionsLabel, "optionsLabel");
+			this.optionsLabel.Name = "optionsLabel";
 			// 
 			// cancelButton
 			// 
@@ -411,6 +390,55 @@
 			resources.ApplyResources(this.analyzeSourceLabel, "analyzeSourceLabel");
 			this.analyzeSourceLabel.Name = "analyzeSourceLabel";
 			// 
+			// toolsPage
+			// 
+			this.toolsPage.Controls.Add(this.toolsSortLabel);
+			this.toolsPage.Controls.Add(this.toolsSortButton);
+			this.toolsPage.Controls.Add(this.toolsCmdPanel);
+			resources.ApplyResources(this.toolsPage, "toolsPage");
+			this.toolsPage.Name = "toolsPage";
+			this.toolsPage.UseVisualStyleBackColor = true;
+			// 
+			// toolsSortLabel
+			// 
+			resources.ApplyResources(this.toolsSortLabel, "toolsSortLabel");
+			this.toolsSortLabel.Name = "toolsSortLabel";
+			// 
+			// toolsSortButton
+			// 
+			this.toolsSortButton.BackgroundImage = global::ResxTranslator.Properties.Resources.Sort;
+			resources.ApplyResources(this.toolsSortButton, "toolsSortButton");
+			this.toolsSortButton.Name = "toolsSortButton";
+			this.toolsSortButton.UseVisualStyleBackColor = true;
+			this.toolsSortButton.Click += new System.EventHandler(this.SortResources);
+			// 
+			// toolsCmdPanel
+			// 
+			resources.ApplyResources(this.toolsCmdPanel, "toolsCmdPanel");
+			this.toolsCmdPanel.Controls.Add(this.toolsSourceBox);
+			this.toolsCmdPanel.Controls.Add(this.toolsBrowseButton);
+			this.toolsCmdPanel.Controls.Add(this.toolsSourceLabel);
+			this.toolsCmdPanel.Name = "toolsCmdPanel";
+			// 
+			// toolsSourceBox
+			// 
+			resources.ApplyResources(this.toolsSourceBox, "toolsSourceBox");
+			this.toolsSourceBox.Name = "toolsSourceBox";
+			this.toolsSourceBox.TextChanged += new System.EventHandler(this.toolsSourceTextChanged);
+			// 
+			// toolsBrowseButton
+			// 
+			resources.ApplyResources(this.toolsBrowseButton, "toolsBrowseButton");
+			this.toolsBrowseButton.Name = "toolsBrowseButton";
+			this.toolTip.SetToolTip(this.toolsBrowseButton, resources.GetString("toolsBrowseButton.ToolTip"));
+			this.toolsBrowseButton.UseVisualStyleBackColor = true;
+			this.toolsBrowseButton.Click += new System.EventHandler(this.BrowseFiles);
+			// 
+			// toolsSourceLabel
+			// 
+			resources.ApplyResources(this.toolsSourceLabel, "toolsSourceLabel");
+			this.toolsSourceLabel.Name = "toolsSourceLabel";
+			// 
 			// openFileDialog
 			// 
 			this.openFileDialog.DefaultExt = "resx";
@@ -430,7 +458,6 @@
 			this.tabs.ResumeLayout(false);
 			this.resxTab.ResumeLayout(false);
 			this.resxTab.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.delayBox)).EndInit();
 			this.sheetPanel.ResumeLayout(false);
 			this.textTab.ResumeLayout(false);
 			this.textTab.PerformLayout();
@@ -440,6 +467,10 @@
 			this.analyzeTab.PerformLayout();
 			this.analyzeCmdPanel.ResumeLayout(false);
 			this.analyzeCmdPanel.PerformLayout();
+			this.toolsPage.ResumeLayout(false);
+			this.toolsPage.PerformLayout();
+			this.toolsCmdPanel.ResumeLayout(false);
+			this.toolsCmdPanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -475,9 +506,7 @@
 		private System.Windows.Forms.Label estimationLabel;
 		private System.Windows.Forms.Panel sheetPanel;
 		private System.Windows.Forms.Button cancelButton;
-		private System.Windows.Forms.NumericUpDown delayBox;
-		private System.Windows.Forms.Label delayLabel;
-		private System.Windows.Forms.Label recommendationLabel;
+		private System.Windows.Forms.Label optionsLabel;
 		private System.Windows.Forms.CheckBox compareBox;
 		private System.Windows.Forms.Button restartButton;
 		private System.Windows.Forms.ToolTip toolTip;
@@ -492,6 +521,13 @@
 		private System.Windows.Forms.Button analyzeBrowseButton;
 		private System.Windows.Forms.Label analyzeSourceLabel;
 		private System.Windows.Forms.Button analyzeButton;
+		private System.Windows.Forms.TabPage toolsPage;
+		private System.Windows.Forms.Panel toolsCmdPanel;
+		private System.Windows.Forms.TextBox toolsSourceBox;
+		private System.Windows.Forms.Button toolsBrowseButton;
+		private System.Windows.Forms.Label toolsSourceLabel;
+		private System.Windows.Forms.Button toolsSortButton;
+		private System.Windows.Forms.Label toolsSortLabel;
 	}
 }
 
