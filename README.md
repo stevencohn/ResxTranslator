@@ -1,15 +1,16 @@
 # ResxTranslator
 Translates entire resx files or individual bits of text to multiple languages.
 
-There are three main tabs
+There are four main tabs
 
 - Translate Resx file - translates a resx file to the specified languages, fully explained below.
 - Translate Text - translates a given text to a selected language. Use this for quick translations
 - Analyze - identifies duplicate words and phrases in the resx file, useful for consolidating and cleaning up resource strings
+- Tools - Additional resx management tools
 
 Inspired by https://github.com/salarcode/AutoResxTranslator
 
-### Translate Resx File
+## Translate Resx File
 Translates an entire .resx file to one or more languages.
 
 1. Choose a .resx file to translate. It will detect the language based on the language/culture
@@ -37,21 +38,21 @@ _Options_
   If translating one language at a time, enable this only when processing the last target file
   in your workflow, otherwise subsequent runs may not produce the correct results.
 
-#### Language Selections
+### Language Selections
 
 ![Translate Resx](Images/LanguagesScreen.png)
 
-#### Working
+### Working
 
 ![Translate Resx](Images/TranslateResxScreen.png)
 
-#### Skipping Resources
+### Skipping Resources
 
 If the resource file includes control or configuration entries that should not be translated
 then flag these by including the word **SKIP** in the entry's comment. It must be capitalized.
 The comment can include other text besides the word SKIP.
 
-#### Using an Override Hint File
+### Using an Override Hint File
 
 While Google translator is generally quite good, there are nuances in languages that it can't
 predict and may make a native speaker question the appropriateness of the translation. For each
@@ -89,12 +90,12 @@ Notice that the file includes a copy of the original source text. ResxTranslator
 detect if the source item has been updated since this hint was last created and display a warning
 that the hint may be out of date and needs correcting.
 
-### Translate Text
+## Translate Text
 Translate one string, phrase, or paragraph of text.
 
 ![Translate Text](Images/TranslateTextScreen.png)
 
-#### Inflation Detection
+### Inflation Detection
 
 The free Google translator will sometime add extra spaces around non-alphanumeric characters
 when translating. For example "x+1" may become "x + 1" (from no spaces around the plus sign,
@@ -106,15 +107,30 @@ exact context of the translation so it simply compares the number of spaces in t
 string and the output string. Most of the time, the translation is accurate and shouldn't
 need to be adjusted manually.
 
-### Analyze
+## Analyze
 
 The Analyze tab analyzes a resx file looking for duplicate uses of words and phrase.
 
 ![Analyze Resources](Images/AnalyzeScreen.png)
 
-#### Ignoring Known Duplicate
+### Ignoring Known Duplicate
 
 There will likely be legitimate cases where you want to use duplicates but in very
 different contexts. In these case, you can tag those resources with the NODUP keyword;
 the analyzer will ignore those resources and not report them as duplicates.
 
+## Tools
+
+The Tools tab contains operations that help maintain resx files.
+
+![Translate Text](Images/ToolsScreen.png)
+
+### Sort Data Items
+Alphabetically sorts the `<data>` items within a resx file. This makes it easier
+to find specific resources when viewing the file in a text editor.
+
+### Update Hint Sources
+Updates the values of the `<source>` elements within an override hints file. 
+This should be used when the original source text has changed so you can verify
+individual items. It can also be used to fill in any missing `<source>` elements or values
+or correct the case-sensitive resource name of each hint.

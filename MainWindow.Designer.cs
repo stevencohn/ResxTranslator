@@ -72,6 +72,9 @@
 			this.analyzeBrowseButton = new System.Windows.Forms.Button();
 			this.analyzeSourceLabel = new System.Windows.Forms.Label();
 			this.toolsPage = new System.Windows.Forms.TabPage();
+			this.toolsReportBox = new System.Windows.Forms.RichTextBox();
+			this.toolsUpdateLabel = new System.Windows.Forms.Label();
+			this.toolsUpdateButton = new System.Windows.Forms.Button();
 			this.toolsSortLabel = new System.Windows.Forms.Label();
 			this.toolsSortButton = new System.Windows.Forms.Button();
 			this.toolsCmdPanel = new System.Windows.Forms.Panel();
@@ -392,12 +395,33 @@
 			// 
 			// toolsPage
 			// 
+			this.toolsPage.Controls.Add(this.toolsReportBox);
+			this.toolsPage.Controls.Add(this.toolsUpdateLabel);
+			this.toolsPage.Controls.Add(this.toolsUpdateButton);
 			this.toolsPage.Controls.Add(this.toolsSortLabel);
 			this.toolsPage.Controls.Add(this.toolsSortButton);
 			this.toolsPage.Controls.Add(this.toolsCmdPanel);
 			resources.ApplyResources(this.toolsPage, "toolsPage");
 			this.toolsPage.Name = "toolsPage";
 			this.toolsPage.UseVisualStyleBackColor = true;
+			// 
+			// toolsReportBox
+			// 
+			resources.ApplyResources(this.toolsReportBox, "toolsReportBox");
+			this.toolsReportBox.Name = "toolsReportBox";
+			// 
+			// toolsUpdateLabel
+			// 
+			resources.ApplyResources(this.toolsUpdateLabel, "toolsUpdateLabel");
+			this.toolsUpdateLabel.Name = "toolsUpdateLabel";
+			// 
+			// toolsUpdateButton
+			// 
+			this.toolsUpdateButton.BackgroundImage = global::ResxTranslator.Properties.Resources.Update;
+			resources.ApplyResources(this.toolsUpdateButton, "toolsUpdateButton");
+			this.toolsUpdateButton.Name = "toolsUpdateButton";
+			this.toolsUpdateButton.UseVisualStyleBackColor = true;
+			this.toolsUpdateButton.Click += new System.EventHandler(this.UpdateHints);
 			// 
 			// toolsSortLabel
 			// 
@@ -410,7 +434,7 @@
 			resources.ApplyResources(this.toolsSortButton, "toolsSortButton");
 			this.toolsSortButton.Name = "toolsSortButton";
 			this.toolsSortButton.UseVisualStyleBackColor = true;
-			this.toolsSortButton.Click += new System.EventHandler(this.SortResources);
+			this.toolsSortButton.Click += new System.EventHandler(this.SortResx);
 			// 
 			// toolsCmdPanel
 			// 
@@ -424,7 +448,7 @@
 			// 
 			resources.ApplyResources(this.toolsSourceBox, "toolsSourceBox");
 			this.toolsSourceBox.Name = "toolsSourceBox";
-			this.toolsSourceBox.TextChanged += new System.EventHandler(this.toolsSourceTextChanged);
+			this.toolsSourceBox.TextChanged += new System.EventHandler(this.ToolsSourceBoxTextChanged);
 			// 
 			// toolsBrowseButton
 			// 
@@ -528,6 +552,9 @@
 		private System.Windows.Forms.Label toolsSourceLabel;
 		private System.Windows.Forms.Button toolsSortButton;
 		private System.Windows.Forms.Label toolsSortLabel;
+		private System.Windows.Forms.Label toolsUpdateLabel;
+		private System.Windows.Forms.Button toolsUpdateButton;
+		private System.Windows.Forms.RichTextBox toolsReportBox;
 	}
 }
 
