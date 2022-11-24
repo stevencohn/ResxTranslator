@@ -123,9 +123,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Cancel.png" />
     <Content Include="Images\Logo.ico" />
     <Content Include="Images\Open.png" />
+    <Content Include="Images\Restart.png" />
+    <Content Include="Images\Sort.png" />
     <Content Include="Images\Translate.png" />
+    <Content Include="Images\Update.png" />
     <Content Include="Properties\Resources.de-DE-hints.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

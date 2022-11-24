@@ -3,10 +3,6 @@
 //************************************************************************************************
 
 #pragma warning disable S125   // commented out code
-#pragma warning disable S1075  // hardcoded URLs or paths
-#pragma warning disable CA1031 // non-specific catch
-
-#define GTranslate
 
 namespace ResxTranslator
 {
@@ -170,21 +166,10 @@ namespace ResxTranslator
 			{ "su", "Sudanese" }
 		};
 
-		private const string GoogleOne =
-			"https://translate.googleapis.com/translate_a/single?" +
-			"client=gtx&sl={0}&tl={1}&hl=en&dt=t&dt=bd&dj=1&source=icon&tk={2}&q={3}";
-
-		private const string GoogleRun =
-			"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl={0}&tl={1}&dt=t&q={2}";
-
-		private const string ApiToken = "467103.467103";
 		private const string NL = "\n";
-
 		private const string InflationPattern = @"([^\s](?:[^\w\d\s\p{L}]))|((?:[^\w\d\s\p{L}])[^\s])";
 
 		private readonly Regex inflation = new Regex(InflationPattern);
-		private HttpClient client = null;
-
 		private XElement hints;
 
 
@@ -345,7 +330,6 @@ namespace ResxTranslator
 				return text;
 			}
 
-#if GTranslate
 			using (var translator = new AggregateTranslator())
 			{
 				if (fromCode == "auto")
@@ -357,93 +341,6 @@ namespace ResxTranslator
 				var result = await translator.TranslateAsync(text, toCode, fromCode);
 				return result.Translation;
 			}
-#else
-			if (client == null)
-			{
-				client = new HttpClient
-				{
-					Timeout = new TimeSpan(0, 0, 1000 * 20)
-				};
-			}
-
-			var response = await client.GetAsync(
-				string.Format(GoogleRun, fromCode, toCode, HttpUtility.UrlEncode(text)),
-				cancellation.Token);
-
-			if (response.IsSuccessStatusCode)
-			{
-				ParseJsonResult(await response.Content.ReadAsStringAsync(), out var result, logger);
-				if (!string.IsNullOrEmpty(result))
-				{
-					return result;
-				}
-
-				// fallback...
-				response = await client.GetAsync(
-					string.Format(GoogleOne, fromCode, toCode, ApiToken, HttpUtility.UrlEncode(text)),
-					cancellation.Token);
-
-				if (response.IsSuccessStatusCode)
-				{
-					ParseJsonResult(await response.Content.ReadAsStringAsync(), out result, logger);
-					return result;
-				}
-			}
-
-			var status = (int)response.StatusCode;
-			throw new HttpException(status, $"HTTP status {status}");
-		}
-
-
-		private void ParseJsonResult(string json, out string result, StatusCallback logger)
-		{
-			try
-			{
-				var doc = JsonDocument.Parse(json);
-
-				var builder = new StringBuilder();
-
-				if (doc.RootElement.ValueKind == JsonValueKind.Array)
-				{
-					// simple array of text
-					for (var i = 0; i < doc.RootElement.GetArrayLength(); i++)
-					{
-						builder.Append(doc.RootElement[i].GetString());
-					}
-				}
-				else
-				{
-					// sentence array
-					var sentences = doc.RootElement.GetProperty("sentences");
-
-					for (var i = 0; i < sentences.GetArrayLength(); i++)
-					{
-						// spaces between sentences are retained in the translations
-						// so no need to insert them manually
-						// also there may additional elements in the array beyond trans entries
-
-						if (sentences[i].TryGetProperty("trans", out var trans))
-						{
-							builder.Append(trans.GetString());
-						}
-					}
-				}
-
-				// escape Unicode \u0000 escape sequences to store in XML [<>&'"]
-				var text = builder.ToString();
-				result = Regex.Unescape(text).XmlEscape();
-			}
-			catch (Exception exc)
-			{
-				if (logger != null)
-				{
-					logger(exc.Message, Color.Red);
-					logger(json, Color.Brown);
-				}
-
-				result = string.Empty;
-			}
-#endif
 		}
 
 
@@ -490,12 +387,10 @@ namespace ResxTranslator
 		/// <param name="logger"></param>
 		/// <returns></returns>
 		public async Task<bool> TranslateResx(
-			List<XElement> data, string fromCode, string toCode, int delayInSecs,
+			List<XElement> data, string fromCode, string toCode,
 			CancellationTokenSource cancellation,
 			StatusCallback logger)
 		{
-			var delay = delayInSecs * 1000;
-
 			int index = 0;
 			int count = 1;
 			for (; index < data.Count && !cancellation.IsCancellationRequested; index++, count++)
@@ -545,15 +440,6 @@ namespace ResxTranslator
 								if (i < parts.Length - 1)
 									builder.Append(NL);
 							}
-
-#if !GTranslate
-							if ((i < parts.Length) && (index < (data.Count - 1)) &&
-								!cancellation.IsCancellationRequested)
-							{
-								// pause in between parts so we don't bump into 403
-								await Task.Delay(delay);
-							}
-#endif
 						}
 					}
 
@@ -605,49 +491,11 @@ namespace ResxTranslator
 			string text, string fromCode, string toCode,
 			CancellationTokenSource cancellation, StatusCallback logger)
 		{
-#if GTranslate
 			using (var translator = new AggregateTranslator())
 			{
 				var result = await translator.TranslateAsync(text, toCode, fromCode);
 				return result.Translation;
 			}
-#else
-			var retry = 0;
-			var minutes = 5;
-
-			// the reset window seems to be less than 24 hours but not sure how long...
-
-			while (retry < 24 * 3) // 1 day split up into 20 minute retries
-			{
-				try
-				{
-					var result = await Translate(text, fromCode, toCode, cancellation, logger);
-					return result;
-				}
-				catch (HttpException exc)
-				{
-					logger(
-						$"Retry {retry}/23, waiting {minutes} minutes, " +
-						$"starting at {DateTime.Now}; {exc.Message}" + NL,
-						Color.Red);
-
-					retry++;
-
-					await Task.Delay(new TimeSpan(0, minutes, 0), cancellation.Token);
-
-					if (minutes == 5)
-					{
-						minutes = 10;
-					}
-					else if (minutes < 30)
-					{
-						minutes += 10;
-					}
-				}
-			}
-
-			return null;
-#endif
 		}
 
 
