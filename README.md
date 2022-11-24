@@ -18,11 +18,7 @@ Translates an entire .resx file to one or more languages.
    translated.
 2. Choose the output directory where new .resx files should be stored. If this is left blank
    then new files are stored in the same directory as the source file.
-3. Adjust the number of seconds to wait between each string translation. A number too low
-   (somewhere less than 15 seconds) may cause Google to temporarily block with a 403 or 429
-   error. When that happens, the translator will pause for 5 seconds and retry. Then it will
-   pause for 10 seconds, 20, 30, 40, 50, and finally every 60 seconds for an hour before
-   giving up.
+3. Choose the target translation languages. 
 
 _Options_
 
