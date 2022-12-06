@@ -122,8 +122,8 @@ The Tools tab contains operations that help maintain resx files.
 ![Translate Text](Images/ToolsScreen.png)
 
 ### Sort Data Items
-Alphabetically sorts the `<data>` items within a resx file. This makes it easier
-to find specific resources when viewing the file in a text editor.
+Sorts the `<data>` items within a resx file alphabetically by resourceID.
+This makes it easier to find specific resources when viewing the file in a text editor.
 
 ### Update Hint Sources
 Updates the values of the `<source>` elements within an override hints file. 
