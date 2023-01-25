@@ -12,7 +12,6 @@ namespace ResxTranslator
 	using System.Globalization;
 	using System.IO;
 	using System.Linq;
-	using System.Net.Http;
 	using System.Text;
 	using System.Text.RegularExpressions;
 	using System.Threading;
@@ -74,7 +73,7 @@ namespace ResxTranslator
 			"ha",		// Hausa
 			"ht",		// Haitian Creole... not supported by Windows?
 			"haw",		// Hawaiian
-			"iw",		// Hebrew = he-IL
+			"he",		// Hebrew = he-IL
 			"hi",		// Hindi
 			"hmn",		// Hmong - (n/a)
 			"hu",		// Hungarian
