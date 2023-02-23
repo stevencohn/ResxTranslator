@@ -401,7 +401,9 @@ namespace ResxTranslator
 					continue;
 				}
 
-				var name = data[index].Element("comment")?.Value.Contains("EDIT") == true
+				var editing = data[index].Element("comment")?.Value.Contains("EDIT") == true;
+
+				var name = editing
 					? $"{data[index].Attribute("name").Value} (EDITED)"
 					: data[index].Attribute("name").Value;
 
@@ -414,6 +416,11 @@ namespace ResxTranslator
 
 					// 2192 is right-arrow
 					logger($" \u2192 using hint override '{hint}'" + NL, Color.SteelBlue);
+
+					if (editing)
+					{
+						logger("Hint override will likely need updating", Color.Red);
+					}
 				}
 				else
 				{
