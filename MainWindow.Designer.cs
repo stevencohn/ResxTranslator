@@ -84,6 +84,7 @@
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.sortBox = new System.Windows.Forms.CheckBox();
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
 			this.sheetPanel.SuspendLayout();
@@ -107,6 +108,7 @@
 			// 
 			// resxTab
 			// 
+			this.resxTab.Controls.Add(this.sortBox);
 			this.resxTab.Controls.Add(this.clearBox);
 			this.resxTab.Controls.Add(this.restartButton);
 			this.resxTab.Controls.Add(this.compareBox);
@@ -473,6 +475,14 @@
 			// 
 			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
 			// 
+			// sortBox
+			// 
+			resources.ApplyResources(this.sortBox, "sortBox");
+			this.sortBox.Checked = true;
+			this.sortBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.sortBox.Name = "sortBox";
+			this.sortBox.UseVisualStyleBackColor = true;
+			// 
 			// MainWindow
 			// 
 			resources.ApplyResources(this, "$this");
@@ -555,6 +565,7 @@
 		private System.Windows.Forms.Label toolsUpdateLabel;
 		private System.Windows.Forms.Button toolsUpdateButton;
 		private System.Windows.Forms.RichTextBox toolsReportBox;
+		private System.Windows.Forms.CheckBox sortBox;
 	}
 }
 

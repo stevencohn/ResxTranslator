@@ -376,6 +376,15 @@ namespace ResxTranslator
 				filepath = match.Groups["file"].Value;
 			}
 
+			if (sortBox.Checked)
+			{
+				var root = XElement.Load(inputPath);
+				var data = root.Elements("data").ToList();
+				data.ForEach(d => d.Remove());
+				root.Add(data.OrderBy(d => d.Attribute("name").Value));
+				root.Save(inputPath, SaveOptions.None);
+			}
+
 			var translator = new Translator();
 			cancellation = new CancellationTokenSource();
 
@@ -567,6 +576,14 @@ namespace ResxTranslator
 			});
 
 			deleted.Remove();
+
+			if (sortBox.Checked)
+			{
+				// sort all data elements
+				var datalist = root.Elements("data").ToList();
+				datalist.ForEach(d => d.Remove());
+				root.Add(datalist.OrderBy(d => d.Attribute("name").Value));
+			}
 
 			root.Save(outputFile);
 		}
