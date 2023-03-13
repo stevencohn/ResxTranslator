@@ -71,7 +71,6 @@ namespace ResxTranslator
 			{
 				inputBox.Text = inputPath;
 				analyzeSourceBox.Text = inputPath;
-				toolsSourceBox.Text = inputPath;
 			}
 		}
 
@@ -307,10 +306,6 @@ namespace ResxTranslator
 				if (sender == browseFileButton)
 				{
 					inputBox.Text = openFileDialog.FileName;
-				}
-				else if (sender == toolsBrowseButton)
-				{
-					toolsSourceBox.Text = openFileDialog.FileName;
 				}
 				else
 				{
@@ -693,164 +688,12 @@ namespace ResxTranslator
 			reportBox.SelectionColor = fore;
 		}
 
-
-
-		//========================================================================================
-		// Tools Tab...
-
-		private void ToolsSourceBoxTextChanged(object sender, EventArgs e)
+		private void PrepTabOnSelectedIndexChanged(object sender, EventArgs e)
 		{
-			var path = Environment.ExpandEnvironmentVariables(toolsSourceBox.Text.Trim());
-			if (path.Length > 0 && File.Exists(path))
+			if (tabs.SelectedIndex == 3)
 			{
-				var type = Path.GetExtension(path);
-				if (type.Equals(".resx", StringComparison.InvariantCultureIgnoreCase))
-				{
-					toolsSortButton.Enabled = toolsSortLabel.Enabled = true;
-					toolsUpdateButton.Enabled = toolsUpdateLabel.Enabled = false;
-				}
-				else
-				{
-					toolsSortButton.Enabled = toolsSortLabel.Enabled = false;
-					toolsUpdateButton.Enabled = toolsUpdateLabel.Enabled = true;
-				}
+				toolsControlPanel.SetFilePath(inputBox.Text);
 			}
-			else
-			{
-				toolsSortButton.Enabled = toolsSortLabel.Enabled = false;
-				toolsUpdateButton.Enabled = toolsUpdateLabel.Enabled = false;
-			}
-		}
-
-
-		private void SortResx(object sender, EventArgs e)
-		{
-			toolsReportBox.Clear();
-
-			var path = Environment.ExpandEnvironmentVariables(toolsSourceBox.Text);
-			if (File.Exists(path))
-			{
-				var root = XElement.Load(path);
-				ResxProvider.SortData(root);
-				root.Save(path, SaveOptions.None);
-				Logt($"{Path.GetFileName(path)} sorted and saved{NL}", Color.Green);
-			}
-		}
-
-
-		private void UpdateHints(object sender, EventArgs e)
-		{
-			toolsReportBox.Clear();
-
-			var path = Environment.ExpandEnvironmentVariables(toolsSourceBox.Text);
-			if (!File.Exists(path))
-			{
-				Logt($"could not find {path}{NL}", Color.Red);
-				return;
-			}
-
-			var xpath = Path.Combine(Path.GetDirectoryName(path), "Resources.resx");
-			if (!File.Exists(xpath))
-			{
-				Logt($"could not find {xpath}{NL}", Color.Red);
-				return;
-			}
-
-			var xroot = XElement.Load(xpath);
-			var hroot = XElement.Load(path);
-			var updated = 0;
-			var renamed = 0;
-			var errors = 0;
-
-			var hints = hroot.Elements("hint").ToList();
-
-			hints.ForEach(hint =>
-			{
-				hint.Remove();
-
-				var name = hint.Attribute("name").Value;
-				var data = xroot.Elements("data")
-					.FirstOrDefault(d => d.Attribute("name").Value.Equals(
-						name, StringComparison.InvariantCultureIgnoreCase));
-
-				if (data != null)
-				{
-					// should only be a case-difference
-					var dataname = data.Attribute("name").Value;
-					if (dataname != name)
-					{
-						Logt($"correcting name {dataname}{NL}");
-						hint.Attribute("name").Value = dataname;
-						renamed++;
-					}
-
-					var source = hint.Element("source");
-					if (source != null)
-					{
-						var value = data.Element("value").Value.Trim();
-						if (source.Value.Trim() != value)
-						{
-							Logt($"updating source for {name}{NL}");
-							source.Value = data.Element("value").Value;
-							updated++;
-						}
-					}
-					else
-					{
-						Logt($"adding missing source for {name}{NL}");
-						hint.AddFirst(new XElement("source", data.Element("value").Value));
-						updated++;
-					}
-				}
-				else
-				{
-					errors++;
-				}
-			});
-
-			Logt($"{NL}Summary{NL}", Color.DarkBlue);
-
-			if (updated == 0 && renamed == 0 && errors == 0)
-			{
-				Logt($"... No updates needed{NL}");
-				return;
-			}
-
-			if (updated > 0)
-			{
-				Logt($"... {updated} sources updated{NL}", Color.Blue);
-			}
-
-			if (renamed > 0)
-			{
-				Logt($"... {renamed} name corrections", Color.Blue);
-			}
-
-			if (errors > 0)
-			{
-				Logt($"... {errors} errors were found!", Color.Red);
-			}
-
-			if (updated > 0 || renamed > 0)
-			{
-				hroot.Add(hints.OrderBy(d => d.Attribute("name").Value));
-				hroot.Save(path, SaveOptions.None);
-			}
-		}
-
-
-		private void Logt(string message, Color? color = null)
-		{
-			if (color == null || color.Equals(Color.Black))
-			{
-				toolsReportBox.AppendText(message);
-				return;
-			}
-
-			var fore = logBox.SelectionColor;
-			toolsReportBox.SelectionColor = (Color)color;
-			toolsReportBox.AppendText(message);
-			toolsReportBox.SelectionColor = fore;
 		}
 	}
 }

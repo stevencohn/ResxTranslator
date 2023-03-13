@@ -32,6 +32,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.resxTab = new System.Windows.Forms.TabPage();
+			this.sortBox = new System.Windows.Forms.CheckBox();
 			this.clearBox = new System.Windows.Forms.CheckBox();
 			this.restartButton = new System.Windows.Forms.Button();
 			this.compareBox = new System.Windows.Forms.CheckBox();
@@ -72,19 +73,10 @@
 			this.analyzeBrowseButton = new System.Windows.Forms.Button();
 			this.analyzeSourceLabel = new System.Windows.Forms.Label();
 			this.toolsPage = new System.Windows.Forms.TabPage();
-			this.toolsReportBox = new System.Windows.Forms.RichTextBox();
-			this.toolsUpdateLabel = new System.Windows.Forms.Label();
-			this.toolsUpdateButton = new System.Windows.Forms.Button();
-			this.toolsSortLabel = new System.Windows.Forms.Label();
-			this.toolsSortButton = new System.Windows.Forms.Button();
-			this.toolsCmdPanel = new System.Windows.Forms.Panel();
-			this.toolsSourceBox = new System.Windows.Forms.TextBox();
-			this.toolsBrowseButton = new System.Windows.Forms.Button();
-			this.toolsSourceLabel = new System.Windows.Forms.Label();
+			this.toolsControlPanel = new ResxTranslator.Panels.ToolsControlPanel();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.sortBox = new System.Windows.Forms.CheckBox();
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
 			this.sheetPanel.SuspendLayout();
@@ -93,7 +85,6 @@
 			this.analyzeTab.SuspendLayout();
 			this.analyzeCmdPanel.SuspendLayout();
 			this.toolsPage.SuspendLayout();
-			this.toolsCmdPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabs
@@ -105,6 +96,7 @@
 			resources.ApplyResources(this.tabs, "tabs");
 			this.tabs.Name = "tabs";
 			this.tabs.SelectedIndex = 0;
+			this.tabs.SelectedIndexChanged += new System.EventHandler(this.PrepTabOnSelectedIndexChanged);
 			// 
 			// resxTab
 			// 
@@ -130,6 +122,14 @@
 			resources.ApplyResources(this.resxTab, "resxTab");
 			this.resxTab.Name = "resxTab";
 			this.resxTab.UseVisualStyleBackColor = true;
+			// 
+			// sortBox
+			// 
+			resources.ApplyResources(this.sortBox, "sortBox");
+			this.sortBox.Checked = true;
+			this.sortBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.sortBox.Name = "sortBox";
+			this.sortBox.UseVisualStyleBackColor = true;
 			// 
 			// clearBox
 			// 
@@ -397,73 +397,15 @@
 			// 
 			// toolsPage
 			// 
-			this.toolsPage.Controls.Add(this.toolsReportBox);
-			this.toolsPage.Controls.Add(this.toolsUpdateLabel);
-			this.toolsPage.Controls.Add(this.toolsUpdateButton);
-			this.toolsPage.Controls.Add(this.toolsSortLabel);
-			this.toolsPage.Controls.Add(this.toolsSortButton);
-			this.toolsPage.Controls.Add(this.toolsCmdPanel);
+			this.toolsPage.Controls.Add(this.toolsControlPanel);
 			resources.ApplyResources(this.toolsPage, "toolsPage");
 			this.toolsPage.Name = "toolsPage";
 			this.toolsPage.UseVisualStyleBackColor = true;
 			// 
-			// toolsReportBox
+			// toolsControlPanel
 			// 
-			resources.ApplyResources(this.toolsReportBox, "toolsReportBox");
-			this.toolsReportBox.Name = "toolsReportBox";
-			// 
-			// toolsUpdateLabel
-			// 
-			resources.ApplyResources(this.toolsUpdateLabel, "toolsUpdateLabel");
-			this.toolsUpdateLabel.Name = "toolsUpdateLabel";
-			// 
-			// toolsUpdateButton
-			// 
-			this.toolsUpdateButton.BackgroundImage = global::ResxTranslator.Properties.Resources.Update;
-			resources.ApplyResources(this.toolsUpdateButton, "toolsUpdateButton");
-			this.toolsUpdateButton.Name = "toolsUpdateButton";
-			this.toolsUpdateButton.UseVisualStyleBackColor = true;
-			this.toolsUpdateButton.Click += new System.EventHandler(this.UpdateHints);
-			// 
-			// toolsSortLabel
-			// 
-			resources.ApplyResources(this.toolsSortLabel, "toolsSortLabel");
-			this.toolsSortLabel.Name = "toolsSortLabel";
-			// 
-			// toolsSortButton
-			// 
-			this.toolsSortButton.BackgroundImage = global::ResxTranslator.Properties.Resources.Sort;
-			resources.ApplyResources(this.toolsSortButton, "toolsSortButton");
-			this.toolsSortButton.Name = "toolsSortButton";
-			this.toolsSortButton.UseVisualStyleBackColor = true;
-			this.toolsSortButton.Click += new System.EventHandler(this.SortResx);
-			// 
-			// toolsCmdPanel
-			// 
-			resources.ApplyResources(this.toolsCmdPanel, "toolsCmdPanel");
-			this.toolsCmdPanel.Controls.Add(this.toolsSourceBox);
-			this.toolsCmdPanel.Controls.Add(this.toolsBrowseButton);
-			this.toolsCmdPanel.Controls.Add(this.toolsSourceLabel);
-			this.toolsCmdPanel.Name = "toolsCmdPanel";
-			// 
-			// toolsSourceBox
-			// 
-			resources.ApplyResources(this.toolsSourceBox, "toolsSourceBox");
-			this.toolsSourceBox.Name = "toolsSourceBox";
-			this.toolsSourceBox.TextChanged += new System.EventHandler(this.ToolsSourceBoxTextChanged);
-			// 
-			// toolsBrowseButton
-			// 
-			resources.ApplyResources(this.toolsBrowseButton, "toolsBrowseButton");
-			this.toolsBrowseButton.Name = "toolsBrowseButton";
-			this.toolTip.SetToolTip(this.toolsBrowseButton, resources.GetString("toolsBrowseButton.ToolTip"));
-			this.toolsBrowseButton.UseVisualStyleBackColor = true;
-			this.toolsBrowseButton.Click += new System.EventHandler(this.BrowseFiles);
-			// 
-			// toolsSourceLabel
-			// 
-			resources.ApplyResources(this.toolsSourceLabel, "toolsSourceLabel");
-			this.toolsSourceLabel.Name = "toolsSourceLabel";
+			resources.ApplyResources(this.toolsControlPanel, "toolsControlPanel");
+			this.toolsControlPanel.Name = "toolsControlPanel";
 			// 
 			// openFileDialog
 			// 
@@ -474,14 +416,6 @@
 			// folderBrowserDialog
 			// 
 			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
-			// 
-			// sortBox
-			// 
-			resources.ApplyResources(this.sortBox, "sortBox");
-			this.sortBox.Checked = true;
-			this.sortBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.sortBox.Name = "sortBox";
-			this.sortBox.UseVisualStyleBackColor = true;
 			// 
 			// MainWindow
 			// 
@@ -502,9 +436,6 @@
 			this.analyzeCmdPanel.ResumeLayout(false);
 			this.analyzeCmdPanel.PerformLayout();
 			this.toolsPage.ResumeLayout(false);
-			this.toolsPage.PerformLayout();
-			this.toolsCmdPanel.ResumeLayout(false);
-			this.toolsCmdPanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -556,16 +487,8 @@
 		private System.Windows.Forms.Label analyzeSourceLabel;
 		private System.Windows.Forms.Button analyzeButton;
 		private System.Windows.Forms.TabPage toolsPage;
-		private System.Windows.Forms.Panel toolsCmdPanel;
-		private System.Windows.Forms.TextBox toolsSourceBox;
-		private System.Windows.Forms.Button toolsBrowseButton;
-		private System.Windows.Forms.Label toolsSourceLabel;
-		private System.Windows.Forms.Button toolsSortButton;
-		private System.Windows.Forms.Label toolsSortLabel;
-		private System.Windows.Forms.Label toolsUpdateLabel;
-		private System.Windows.Forms.Button toolsUpdateButton;
-		private System.Windows.Forms.RichTextBox toolsReportBox;
 		private System.Windows.Forms.CheckBox sortBox;
+		private Panels.ToolsControlPanel toolsControlPanel;
 	}
 }
 

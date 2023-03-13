@@ -4,6 +4,7 @@
 
 namespace ResxTranslator
 {
+	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Xml.Linq;
@@ -90,7 +91,10 @@ namespace ResxTranslator
 				.OrderBy(e => e.Attribute("name").Value)
 				.ToList();
 
-			root.Add(strings);
+			if (strings.Any())
+			{
+				root.Add(strings);
+			}
 
 			// sort files by type, then directory path, then resource name...
 
@@ -103,7 +107,10 @@ namespace ResxTranslator
 				.Select(e => e.Element)
 				.ToList();
 
-			root.Add(files);
+			if (files.Any())
+			{
+				root.Add(files);
+			}
 		}
 	}
 }
