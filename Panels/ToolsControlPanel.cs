@@ -60,7 +60,7 @@ namespace ResxTranslator.Panels
 		}
 
 
-		private void BrowseFilesOnClick(object sender, EventArgs e)
+		private void BrowseOnClick(object sender, EventArgs e)
 		{
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{

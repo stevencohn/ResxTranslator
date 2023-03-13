@@ -70,7 +70,6 @@ namespace ResxTranslator
 			if (!string.IsNullOrEmpty(inputPath))
 			{
 				inputBox.Text = inputPath;
-				analyzeSourceBox.Text = inputPath;
 			}
 		}
 
@@ -306,10 +305,6 @@ namespace ResxTranslator
 				if (sender == browseFileButton)
 				{
 					inputBox.Text = openFileDialog.FileName;
-				}
-				else
-				{
-					analyzeSourceBox.Text = openFileDialog.FileName;
 				}
 			}
 		}
@@ -608,91 +603,12 @@ namespace ResxTranslator
 		}
 
 
-		//========================================================================================
-		// Analyze Tab...
-
-		private void AnalyzeBoxTextChanged(object sender, EventArgs e)
-		{
-			analyzeButton.Enabled =
-				analyzeSourceBox.Text.Length > 0 &&
-				File.Exists(analyzeSourceBox.Text);
-		}
-
-
-		private void AnalyzeButtonClick(object sender, EventArgs e)
-		{
-			reportBox.Clear();
-
-			var root = XElement.Load(analyzeSourceBox.Text);
-
-			var data = root.Elements("data")
-				.Where(d => d.Attribute("type") == null)
-				.Select(d => new
-				{
-					Data = d,
-					Comment = d.Element("comment")?.Value
-				})
-				.Where(a => string.IsNullOrWhiteSpace(a.Comment) ||
-					!(a.Comment.Contains("SKIP") || a.Comment.Contains("NODUP")))
-				.Select(d => d.Data);
-
-			Loga($"Resx contains {data.Count()} strings" + NL);
-
-			var groups = data.GroupBy(d => d.Element("value").Value);
-			Loga($"Found {groups.Count()} unique strings" + NL);
-
-			var unique = groups.Where(g => g.Count() > 1);
-			Loga($"Found {unique.Count()} duplicate strings" + NL + NL);
-
-			Loga(new String('=', 100) + NL);
-
-			var delims = new[] { ' ', '\n', '\r' };
-
-			var words = unique.Where(g => !delims.Any(d => g.Key.Contains(d)));
-			Loga($"found {words.Count()} single-word duplicates" + NL, Color.DarkRed);
-			foreach (var group in words.OrderBy(w => w.Key))
-			{
-				Loga(NL + group.Key + NL, Color.Red);
-				foreach (var item in group)
-				{
-					Loga($" . . . {item.Attribute("name").Value}" + NL);
-				}
-			}
-
-			Loga(NL + new String('=', 100) + NL);
-
-			var phrases = unique.Where(g => delims.Any(d => g.Key.Contains(d)));
-			Loga($"found {phrases.Count()} multi-word duplicate phrases" + NL, Color.DarkBlue);
-			foreach (var group in phrases.OrderBy(p => p.Key))
-			{
-				Loga(NL + group.Key + NL, Color.Blue);
-				foreach (var item in group)
-				{
-					Loga($" . . . {item.Attribute("name").Value}" + NL);
-				}
-			}
-		}
-
-
-		private void Loga(string message, Color? color = null)
-		{
-			if (color == null || color.Equals(Color.Black))
-			{
-				reportBox.AppendText(message);
-				return;
-			}
-
-			var fore = logBox.SelectionColor;
-			reportBox.SelectionColor = (Color)color;
-			reportBox.AppendText(message);
-			reportBox.SelectionColor = fore;
-		}
-
 		private void PrepTabOnSelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (tabs.SelectedIndex == 3)
+			switch (tabs.SelectedIndex)
 			{
-				toolsControlPanel.SetFilePath(inputBox.Text);
+				case 2: analyzeControlPanel.SetFilePath(inputBox.Text); break;
+				case 3: toolsControlPanel.SetFilePath(inputBox.Text); break;
 			}
 		}
 	}

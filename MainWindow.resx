@@ -241,6 +241,9 @@
   <data name="compareBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="compareBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="compareBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 103</value>
   </data>
@@ -424,6 +427,9 @@
   <data name="estimationLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="estimationLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="estimationLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>563, 107</value>
   </data>
@@ -456,6 +462,9 @@
   </data>
   <data name="statusLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="statusLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="statusLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>150, 691</value>
@@ -514,6 +523,9 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="translateButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="translateButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>868, 691</value>
   </data>
@@ -544,6 +556,9 @@
   <data name="progressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <data name="progressBar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 714</value>
   </data>
@@ -567,6 +582,9 @@
   </data>
   <data name="translationsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="translationsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="translationsLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 176</value>
@@ -608,6 +626,9 @@
         VcsDtPKU8qaQ99XLYsSzHGexBdxX/8hcOXhDzmp1CcAwrqvnosqo7hyfxVdAK1odgzGXSNuQufo4jvsA
         0HUdX3CSjgG1bUtN05Bloa5rEaqq2sTI7uN3yLwBpM724PGQQrAAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="browseFolderButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="browseFolderButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>958, 56</value>
@@ -663,6 +684,9 @@
   <data name="outputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="outputLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="outputLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 63</value>
   </data>
@@ -703,6 +727,9 @@
         VcsDtPKU8qaQ99XLYsSzHGexBdxX/8hcOXhDzmp1CcAwrqvnosqo7hyfxVdAK1odgzGXSNuQufo4jvsA
         0HUdX3CSjgG1bUtN05Bloa5rEaqq2sTI7uN3yLwBpM724PGQQrAAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="browseFileButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="browseFileButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>958, 18</value>
@@ -781,6 +808,9 @@
   </data>
   <data name="inputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="inputLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="inputLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 26</value>
@@ -868,6 +898,9 @@
   </data>
   <data name="resultsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="resultsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="resultsLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 311</value>
@@ -1010,6 +1043,9 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="translateTextButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="translateTextButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>789, 6</value>
   </data>
@@ -1033,6 +1069,9 @@
   </data>
   <data name="toCodeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="toCodeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="toCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>429, 15</value>
@@ -1102,6 +1141,9 @@
   </data>
   <data name="fromCodeLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="fromCodeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="fromCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 15</value>
@@ -1178,226 +1220,29 @@
   <data name="&gt;&gt;textTab.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="analyzeResultsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="analyzeControlPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="analyzeResultsLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="analyzeControlPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 20</value>
   </data>
-  <data name="analyzeResultsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="analyzeControlPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 721</value>
   </data>
-  <data name="analyzeResultsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 98</value>
-  </data>
-  <data name="analyzeResultsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>551, 20</value>
-  </data>
-  <data name="analyzeResultsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="analyzeResultsLabel.Text" xml:space="preserve">
-    <value>Results - entries with either NODUP or SKIP in their comments will be ignored</value>
-  </data>
-  <data name="&gt;&gt;analyzeResultsLabel.Name" xml:space="preserve">
-    <value>analyzeResultsLabel</value>
-  </data>
-  <data name="&gt;&gt;analyzeResultsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;analyzeResultsLabel.Parent" xml:space="preserve">
-    <value>analyzeTab</value>
-  </data>
-  <data name="&gt;&gt;analyzeResultsLabel.ZOrder" xml:space="preserve">
+  <data name="analyzeControlPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="reportBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="&gt;&gt;analyzeControlPanel.Name" xml:space="preserve">
+    <value>analyzeControlPanel</value>
   </data>
-  <data name="reportBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 118</value>
+  <data name="&gt;&gt;analyzeControlPanel.Type" xml:space="preserve">
+    <value>ResxTranslator.Panels.AnalyzeControlPanel, ResxTranslator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="reportBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="reportBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>996, 623</value>
-  </data>
-  <data name="reportBox.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="reportBox.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;reportBox.Name" xml:space="preserve">
-    <value>reportBox</value>
-  </data>
-  <data name="&gt;&gt;reportBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reportBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;analyzeControlPanel.Parent" xml:space="preserve">
     <value>analyzeTab</value>
   </data>
-  <data name="&gt;&gt;reportBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="analyzeCmdPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="analyzeButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="analyzeButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="analyzeButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="analyzeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="analyzeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>931, 5</value>
-  </data>
-  <data name="analyzeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 47</value>
-  </data>
-  <data name="analyzeButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;analyzeButton.Name" xml:space="preserve">
-    <value>analyzeButton</value>
-  </data>
-  <data name="&gt;&gt;analyzeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;analyzeButton.Parent" xml:space="preserve">
-    <value>analyzeCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;analyzeButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;analyzeControlPanel.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="analyzeSourceBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="analyzeSourceBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 15</value>
-  </data>
-  <data name="analyzeSourceBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 8</value>
-  </data>
-  <data name="analyzeSourceBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>740, 26</value>
-  </data>
-  <data name="analyzeSourceBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;analyzeSourceBox.Name" xml:space="preserve">
-    <value>analyzeSourceBox</value>
-  </data>
-  <data name="&gt;&gt;analyzeSourceBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;analyzeSourceBox.Parent" xml:space="preserve">
-    <value>analyzeCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;analyzeSourceBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="analyzeBrowseButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="analyzeBrowseButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="analyzeBrowseButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAAd0SU1FB9ULGg0YMGpJmnAAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAu
-        MjHxIGmVAAABBElEQVQ4T6WRsRGDMAxFPQU7ULtiCNbwCmxAnYo7j5AiDRMwgHsq5qBU9KUYGzDkcine
-        nbH9voRsiOgviptHlmWhYRgE7wNN00TrugpF4YhznkIIvNRvBM3zTNiX9NfzcSIXjuAMsgToZc/7EADW
-        /jYkyluASkkWgtt1lGbg+DyFZQG5rAElvgbgd0BePSd20ve9hGmAzCCJ2sEV2klgGUEpgMFaBpq1fMby
-        VcsDtPKU8qaQ99XLYsSzHGexBdxX/8hcOXhDzmp1CcAwrqvnosqo7hyfxVdAK1odgzGXSNuQufo4jvsA
-        0HUdX3CSjgG1bUtN05Bloa5rEaqq2sTI7uN3yLwBpM724PGQQrAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="analyzeBrowseButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="analyzeBrowseButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>865, 5</value>
-  </data>
-  <data name="analyzeBrowseButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 47</value>
-  </data>
-  <data name="analyzeBrowseButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="analyzeBrowseButton.ToolTip" xml:space="preserve">
-    <value>Browse for source resx file</value>
-  </data>
-  <data name="&gt;&gt;analyzeBrowseButton.Name" xml:space="preserve">
-    <value>analyzeBrowseButton</value>
-  </data>
-  <data name="&gt;&gt;analyzeBrowseButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;analyzeBrowseButton.Parent" xml:space="preserve">
-    <value>analyzeCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;analyzeBrowseButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="analyzeSourceLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="analyzeSourceLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="analyzeSourceLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 18</value>
-  </data>
-  <data name="analyzeSourceLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 20</value>
-  </data>
-  <data name="analyzeSourceLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="analyzeSourceLabel.Text" xml:space="preserve">
-    <value>Source Resx:</value>
-  </data>
-  <data name="&gt;&gt;analyzeSourceLabel.Name" xml:space="preserve">
-    <value>analyzeSourceLabel</value>
-  </data>
-  <data name="&gt;&gt;analyzeSourceLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;analyzeSourceLabel.Parent" xml:space="preserve">
-    <value>analyzeCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;analyzeSourceLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="analyzeCmdPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="analyzeCmdPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 55</value>
-  </data>
-  <data name="analyzeCmdPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;analyzeCmdPanel.Name" xml:space="preserve">
-    <value>analyzeCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;analyzeCmdPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;analyzeCmdPanel.Parent" xml:space="preserve">
-    <value>analyzeTab</value>
-  </data>
-  <data name="&gt;&gt;analyzeCmdPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="analyzeTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
@@ -3389,6 +3234,9 @@
         +cVbCXdHyiZuOLKvv8TRFKgIq9RFNa4/JCZ6FQRBEARBEARBEARBEARBEARBEARhMv4/JZuws5ddrSMA
         AAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>938, 582</value>

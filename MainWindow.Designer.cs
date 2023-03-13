@@ -65,25 +65,18 @@
 			this.fromCodeBox = new System.Windows.Forms.ComboBox();
 			this.fromCodeLabel = new System.Windows.Forms.Label();
 			this.analyzeTab = new System.Windows.Forms.TabPage();
-			this.analyzeResultsLabel = new System.Windows.Forms.Label();
-			this.reportBox = new System.Windows.Forms.RichTextBox();
-			this.analyzeCmdPanel = new System.Windows.Forms.Panel();
-			this.analyzeButton = new System.Windows.Forms.Button();
-			this.analyzeSourceBox = new System.Windows.Forms.TextBox();
-			this.analyzeBrowseButton = new System.Windows.Forms.Button();
-			this.analyzeSourceLabel = new System.Windows.Forms.Label();
 			this.toolsPage = new System.Windows.Forms.TabPage();
-			this.toolsControlPanel = new ResxTranslator.Panels.ToolsControlPanel();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.toolsControlPanel = new ResxTranslator.Panels.ToolsControlPanel();
+			this.analyzeControlPanel = new ResxTranslator.Panels.AnalyzeControlPanel();
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
 			this.sheetPanel.SuspendLayout();
 			this.textTab.SuspendLayout();
 			this.textCmdPanel.SuspendLayout();
 			this.analyzeTab.SuspendLayout();
-			this.analyzeCmdPanel.SuspendLayout();
 			this.toolsPage.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -342,58 +335,10 @@
 			// 
 			// analyzeTab
 			// 
-			this.analyzeTab.Controls.Add(this.analyzeResultsLabel);
-			this.analyzeTab.Controls.Add(this.reportBox);
-			this.analyzeTab.Controls.Add(this.analyzeCmdPanel);
+			this.analyzeTab.Controls.Add(this.analyzeControlPanel);
 			resources.ApplyResources(this.analyzeTab, "analyzeTab");
 			this.analyzeTab.Name = "analyzeTab";
 			this.analyzeTab.UseVisualStyleBackColor = true;
-			// 
-			// analyzeResultsLabel
-			// 
-			resources.ApplyResources(this.analyzeResultsLabel, "analyzeResultsLabel");
-			this.analyzeResultsLabel.Name = "analyzeResultsLabel";
-			// 
-			// reportBox
-			// 
-			resources.ApplyResources(this.reportBox, "reportBox");
-			this.reportBox.Name = "reportBox";
-			// 
-			// analyzeCmdPanel
-			// 
-			resources.ApplyResources(this.analyzeCmdPanel, "analyzeCmdPanel");
-			this.analyzeCmdPanel.Controls.Add(this.analyzeButton);
-			this.analyzeCmdPanel.Controls.Add(this.analyzeSourceBox);
-			this.analyzeCmdPanel.Controls.Add(this.analyzeBrowseButton);
-			this.analyzeCmdPanel.Controls.Add(this.analyzeSourceLabel);
-			this.analyzeCmdPanel.Name = "analyzeCmdPanel";
-			// 
-			// analyzeButton
-			// 
-			resources.ApplyResources(this.analyzeButton, "analyzeButton");
-			this.analyzeButton.BackgroundImage = global::ResxTranslator.Properties.Resources.Translate;
-			this.analyzeButton.Name = "analyzeButton";
-			this.analyzeButton.UseVisualStyleBackColor = true;
-			this.analyzeButton.Click += new System.EventHandler(this.AnalyzeButtonClick);
-			// 
-			// analyzeSourceBox
-			// 
-			resources.ApplyResources(this.analyzeSourceBox, "analyzeSourceBox");
-			this.analyzeSourceBox.Name = "analyzeSourceBox";
-			this.analyzeSourceBox.TextChanged += new System.EventHandler(this.AnalyzeBoxTextChanged);
-			// 
-			// analyzeBrowseButton
-			// 
-			resources.ApplyResources(this.analyzeBrowseButton, "analyzeBrowseButton");
-			this.analyzeBrowseButton.Name = "analyzeBrowseButton";
-			this.toolTip.SetToolTip(this.analyzeBrowseButton, resources.GetString("analyzeBrowseButton.ToolTip"));
-			this.analyzeBrowseButton.UseVisualStyleBackColor = true;
-			this.analyzeBrowseButton.Click += new System.EventHandler(this.BrowseFiles);
-			// 
-			// analyzeSourceLabel
-			// 
-			resources.ApplyResources(this.analyzeSourceLabel, "analyzeSourceLabel");
-			this.analyzeSourceLabel.Name = "analyzeSourceLabel";
 			// 
 			// toolsPage
 			// 
@@ -401,11 +346,6 @@
 			resources.ApplyResources(this.toolsPage, "toolsPage");
 			this.toolsPage.Name = "toolsPage";
 			this.toolsPage.UseVisualStyleBackColor = true;
-			// 
-			// toolsControlPanel
-			// 
-			resources.ApplyResources(this.toolsControlPanel, "toolsControlPanel");
-			this.toolsControlPanel.Name = "toolsControlPanel";
 			// 
 			// openFileDialog
 			// 
@@ -416,6 +356,16 @@
 			// folderBrowserDialog
 			// 
 			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
+			// 
+			// toolsControlPanel
+			// 
+			resources.ApplyResources(this.toolsControlPanel, "toolsControlPanel");
+			this.toolsControlPanel.Name = "toolsControlPanel";
+			// 
+			// analyzeControlPanel
+			// 
+			resources.ApplyResources(this.analyzeControlPanel, "analyzeControlPanel");
+			this.analyzeControlPanel.Name = "analyzeControlPanel";
 			// 
 			// MainWindow
 			// 
@@ -432,9 +382,6 @@
 			this.textCmdPanel.ResumeLayout(false);
 			this.textCmdPanel.PerformLayout();
 			this.analyzeTab.ResumeLayout(false);
-			this.analyzeTab.PerformLayout();
-			this.analyzeCmdPanel.ResumeLayout(false);
-			this.analyzeCmdPanel.PerformLayout();
 			this.toolsPage.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -479,16 +426,10 @@
 		private System.Windows.Forms.RichTextBox logBox;
 		private System.Windows.Forms.CheckBox clearBox;
 		private System.Windows.Forms.TabPage analyzeTab;
-		private System.Windows.Forms.Label analyzeResultsLabel;
-		private System.Windows.Forms.RichTextBox reportBox;
-		private System.Windows.Forms.Panel analyzeCmdPanel;
-		private System.Windows.Forms.TextBox analyzeSourceBox;
-		private System.Windows.Forms.Button analyzeBrowseButton;
-		private System.Windows.Forms.Label analyzeSourceLabel;
-		private System.Windows.Forms.Button analyzeButton;
 		private System.Windows.Forms.TabPage toolsPage;
 		private System.Windows.Forms.CheckBox sortBox;
 		private Panels.ToolsControlPanel toolsControlPanel;
+		private Panels.AnalyzeControlPanel analyzeControlPanel;
 	}
 }
 
