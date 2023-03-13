@@ -94,6 +94,15 @@
     <Compile Include="Panels\AnalyzeControlPanel.Designer.cs">
       <DependentUpon>AnalyzeControlPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Panels\LanguageComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\TextControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\TextControlPanel.Designer.cs">
+      <DependentUpon>TextControlPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panels\ToolsControlPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\AnalyzeControlPanel.resx">
       <DependentUpon>AnalyzeControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\TextControlPanel.resx">
+      <DependentUpon>TextControlPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ToolsControlPanel.resx">
       <DependentUpon>ToolsControlPanel.cs</DependentUpon>

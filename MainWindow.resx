@@ -863,335 +863,29 @@
   <data name="&gt;&gt;resxTab.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="textBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="textControlPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 89</value>
+  <data name="textControlPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 20</value>
   </data>
-  <data name="textBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 20</value>
+  <data name="textControlPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 721</value>
   </data>
-  <data name="textBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 202</value>
-  </data>
-  <data name="textBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="textControlPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;textBox.Name" xml:space="preserve">
-    <value>textBox</value>
+  <data name="&gt;&gt;textControlPanel.Name" xml:space="preserve">
+    <value>textControlPanel</value>
   </data>
-  <data name="&gt;&gt;textBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;textControlPanel.Type" xml:space="preserve">
+    <value>ResxTranslator.Panels.TextControlPanel, ResxTranslator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;textBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textControlPanel.Parent" xml:space="preserve">
     <value>textTab</value>
   </data>
-  <data name="&gt;&gt;textBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textControlPanel.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="resultsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="resultsLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="resultsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="resultsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 311</value>
-  </data>
-  <data name="resultsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 20</value>
-  </data>
-  <data name="resultsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="resultsLabel.Text" xml:space="preserve">
-    <value>Results</value>
-  </data>
-  <data name="&gt;&gt;resultsLabel.Name" xml:space="preserve">
-    <value>resultsLabel</value>
-  </data>
-  <data name="&gt;&gt;resultsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;resultsLabel.Parent" xml:space="preserve">
-    <value>textTab</value>
-  </data>
-  <data name="&gt;&gt;resultsLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="resultBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="resultBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 331</value>
-  </data>
-  <data name="resultBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="resultBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>996, 379</value>
-  </data>
-  <data name="resultBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="resultBox.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;resultBox.Name" xml:space="preserve">
-    <value>resultBox</value>
-  </data>
-  <data name="&gt;&gt;resultBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;resultBox.Parent" xml:space="preserve">
-    <value>textTab</value>
-  </data>
-  <data name="&gt;&gt;resultBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="textCmdPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="cancelOneButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="cancelOneButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cancelOneButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAixJREFUOE+Vks1rE0EYxvdfMGlDLR48VDx4KKgXoeCpUC9+IFhxt6bqwVxUbEVL
-        xRYqFNuq1KKk1A9QelAQTaEo6EXEbjZNTBs02qClS2k+mrTutkm7ybqbp7PZzSbbBMHDb5h553med3Z2
-        KAAWZGER8XfDCN+lEbjRDH/XEcwMXQI/+QLrqQ0iserNSV5OIzFxC1x7LabO7KgK69yLiGeCyLcF5LMC
-        +EcnwdK2qkYLdC1m3W4zpDCkJjtKZmYXOFfDNqMNXtc+eNsMDV2PsOdzIYRShe8IXHDoG0w9vr18CykW
-        ROjqHtPMXWlB6ncUy55rZiP24iGsxjZBCV/6SaLRiXFg5uEIJOkv5IQe4us4hlV+Bdod8Y9PlU6qneI9
-        Cyr+pNXoZEDbEXxwD1lZRS75C+vLItTcGvgxYi7XEaaHR0FFR1osxSKhp+NQVfKV+RyWxs9WmAv09IKK
-        uY9XbHCdJyAkJNJZgiwrUIQ5hLsbK3UD90GtfOwuK9rh62IgJiUomTgiA4fxdbAPG+ks1MwifvYeLNM6
-        EHr9AZQSn4LPadeLzt2Y/+SHnIlirr9Jr5E7mb59HWlxE2vcKLyMrmXPNyK58Ed/DNHnp0t/or0Bgc4D
-        +tzERv5GE3zn6vQ17cDss1f6O9AGNb2A8M39pZB/UgN/z+WC2QzQUMR5RIaayWurqWIyaKtDkNxJ0aNh
-        ToqIwTf4cecoWKbMSO9EoM+FJc5LJFa9ZfH/gNoC52604oOVNVUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="cancelOneButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="cancelOneButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>869, 6</value>
-  </data>
-  <data name="cancelOneButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 8, 3, 3</value>
-  </data>
-  <data name="cancelOneButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 46</value>
-  </data>
-  <data name="cancelOneButton.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="cancelOneButton.ToolTip" xml:space="preserve">
-    <value>Cancel translation</value>
-  </data>
-  <data name="cancelOneButton.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;cancelOneButton.Name" xml:space="preserve">
-    <value>cancelOneButton</value>
-  </data>
-  <data name="&gt;&gt;cancelOneButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cancelOneButton.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;cancelOneButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="translateTextButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="translateTextButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="translateTextButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAABCFJREFUSEudlG1MW1UYx/thZpl+1US3ROc+7bvyMnFuiW7qZJEQNVgMiLxFYcRO
-        IE4KbDSwiS4RCYaXZZsEwbFZ3gR5mRKTQkNbShF5K1D6etve9t4LKLDygb/nXNp6gdUhT/LLzT3nPP//
-        uc9zzpW53e53GYYxu1wubi84nU7KtN1uTzabzQdljwoibiJgJxaLBf39/SAiu+aC9BLDZ4MykYMsWqQJ
-        BoMBfX196O3tFWltbUV2djYaGxvDY5SJiQnRgHyFxuPxHAvKRA6yWDRoaGhAWloaUlJSRJKTk5GQkAC5
-        XB4eo6jV6v0Z0FKMj4/DZDKJjI2NQa/Xw2g0Ijc3FzU1NeLYwsLC/gxC6HQ6sSxWq1V8pwaZmZkYGBgA
-        KWd43b4NJicnxfJQE5vNhvr6eigUil3NdjicGpttHwaU9vZ2scG1tbXIy8tDR0cHEXRsWzNrcWr+mN2n
-        ATnjKCwsRGJiIlQqFbTGGXSPeNA+7A1zc8A7lVHLZZ2+wr8dXSzhiy2iin2vxirsh7YZ0BprtVqUlZUh
-        NTUV+fn5SP/4IpKuTSC+kse5L4UwZyr4QNxlwR1TIjijQxRvwxqt9NeFDeg9KC8vF49lRkaGeObn5uZw
-        q02PsyoGMSVL/x8lvx42GBoaQkFBAZqamrC4uBg+MT2kNPGVwsMF9kD4JlOm5hm0/O6FedEd7keP7uEG
-        J0qXUNTCoa6fQ3pd5A1Qg2EXEdJOeHDhJoeXLgtQ3PZDP7VlEsng/WoBf1p8WF5ioZvx4eSV7fMhZE6n
-        O14/zbQVfO+ZjCvhAqGJ4hZ2xDDN3P9h0Gs4e5VflybFkt1XdXNgvCwMsz4IPEs2x4fnpchIcx/rGrYf
-        OVliT38+x8a8ULS1MKna92Kb1n30kxt8MjktTmnS+a8E/GryieIXbvHwcyx+MfgQK1kTIngbZLLjeQvx
-        T6ZOO45kWRClFJBWxTxFx+XfLr9JymaXJuXd5mFxsvi6k8Mp1ZJoNu/w4b2q3aUUxWkc/9T61jMZM/an
-        06c3j+UsbH52j3+urhOP191fS1I0/e16OVhj+vyu1w9BYPGbyQ/1MOkX6YHXx6KijYts8EHj5hPNmrXq
-        LkNg5WfjBqR0jW5A2bqKV1TLOEcaTpvqcLMw232YDUL70a3348zV7V8RlN+K63fsh9Qja593jQbYnSZ3
-        tAG8880KLjbysLpYFP3Ik9ss4LUgFWqOGLLIIc2W9iIo/W9U9Wwe7DQG5J2jG3c7DIG7P+keDDdpHqxl
-        3fiLHOElfFTL41IzhzfI70K609evCVDd40gfHmFAY3AQB9pHVw83a1YPV3asf5hUvcLEEXGaQC8YJSQg
-        hW5g59yW4n/E+evLsSdKhXlp0l6JVvJCUCZynCrFAfJnLItWCv6YEn5jzygFJuoSJ/8HbVeAmG5aes4A
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="translateTextButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="translateTextButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 6</value>
-  </data>
-  <data name="translateTextButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 46</value>
-  </data>
-  <data name="translateTextButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;translateTextButton.Name" xml:space="preserve">
-    <value>translateTextButton</value>
-  </data>
-  <data name="&gt;&gt;translateTextButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;translateTextButton.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;translateTextButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="toCodeLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="toCodeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="toCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>429, 15</value>
-  </data>
-  <data name="toCodeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 20</value>
-  </data>
-  <data name="toCodeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="toCodeLabel.Text" xml:space="preserve">
-    <value>Translate to:</value>
-  </data>
-  <data name="&gt;&gt;toCodeLabel.Name" xml:space="preserve">
-    <value>toCodeLabel</value>
-  </data>
-  <data name="&gt;&gt;toCodeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toCodeLabel.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;toCodeLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="toCodeBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>532, 12</value>
-  </data>
-  <data name="toCodeBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 28</value>
-  </data>
-  <data name="toCodeBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;toCodeBox.Name" xml:space="preserve">
-    <value>toCodeBox</value>
-  </data>
-  <data name="&gt;&gt;toCodeBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toCodeBox.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;toCodeBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="fromCodeBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 12</value>
-  </data>
-  <data name="fromCodeBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 28</value>
-  </data>
-  <data name="fromCodeBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;fromCodeBox.Name" xml:space="preserve">
-    <value>fromCodeBox</value>
-  </data>
-  <data name="&gt;&gt;fromCodeBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fromCodeBox.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;fromCodeBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="fromCodeLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="fromCodeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="fromCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 15</value>
-  </data>
-  <data name="fromCodeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 20</value>
-  </data>
-  <data name="fromCodeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="fromCodeLabel.Text" xml:space="preserve">
-    <value>Source language:</value>
-  </data>
-  <data name="&gt;&gt;fromCodeLabel.Name" xml:space="preserve">
-    <value>fromCodeLabel</value>
-  </data>
-  <data name="&gt;&gt;fromCodeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fromCodeLabel.Parent" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;fromCodeLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="textCmdPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 23</value>
-  </data>
-  <data name="textCmdPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 9, 0, 9</value>
-  </data>
-  <data name="textCmdPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>994, 60</value>
-  </data>
-  <data name="textCmdPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;textCmdPanel.Name" xml:space="preserve">
-    <value>textCmdPanel</value>
-  </data>
-  <data name="&gt;&gt;textCmdPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textCmdPanel.Parent" xml:space="preserve">
-    <value>textTab</value>
-  </data>
-  <data name="&gt;&gt;textCmdPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="textTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
@@ -1345,6 +1039,96 @@
   </data>
   <data name="&gt;&gt;tabs.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="cancelOneButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="cancelOneButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="cancelOneButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cancelOneButton.Name" xml:space="preserve">
+    <value>cancelOneButton</value>
+  </data>
+  <data name="&gt;&gt;cancelOneButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="translateTextButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="translateTextButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="translateTextButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;translateTextButton.Name" xml:space="preserve">
+    <value>translateTextButton</value>
+  </data>
+  <data name="&gt;&gt;translateTextButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="toCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="toCodeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="toCodeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.Name" xml:space="preserve">
+    <value>toCodeLabel</value>
+  </data>
+  <data name="&gt;&gt;toCodeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="toCodeBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="toCodeBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 28</value>
+  </data>
+  <data name="toCodeBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.Name" xml:space="preserve">
+    <value>toCodeBox</value>
+  </data>
+  <data name="&gt;&gt;toCodeBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fromCodeBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="fromCodeBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 28</value>
+  </data>
+  <data name="fromCodeBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.Name" xml:space="preserve">
+    <value>fromCodeBox</value>
+  </data>
+  <data name="&gt;&gt;fromCodeBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fromCodeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="fromCodeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="fromCodeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.Name" xml:space="preserve">
+    <value>fromCodeLabel</value>
+  </data>
+  <data name="&gt;&gt;fromCodeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>165, 17</value>
@@ -3234,9 +3018,6 @@
         +cVbCXdHyiZuOLKvv8TRFKgIq9RFNa4/JCZ6FQRBEARBEARBEARBEARBEARBEARhMv4/JZuws5ddrSMA
         AAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>938, 582</value>

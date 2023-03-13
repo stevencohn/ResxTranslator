@@ -35,7 +35,7 @@
 			this.sortBox = new System.Windows.Forms.CheckBox();
 			this.clearBox = new System.Windows.Forms.CheckBox();
 			this.restartButton = new System.Windows.Forms.Button();
-			this.compareBox = new System.Windows.Forms.CheckBox();
+			this.newStringsBox = new System.Windows.Forms.CheckBox();
 			this.optionsLabel = new System.Windows.Forms.Label();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.sheetPanel = new System.Windows.Forms.Panel();
@@ -54,28 +54,18 @@
 			this.inputBox = new System.Windows.Forms.TextBox();
 			this.inputLabel = new System.Windows.Forms.Label();
 			this.textTab = new System.Windows.Forms.TabPage();
-			this.textBox = new System.Windows.Forms.TextBox();
-			this.resultsLabel = new System.Windows.Forms.Label();
-			this.resultBox = new System.Windows.Forms.RichTextBox();
-			this.textCmdPanel = new System.Windows.Forms.Panel();
-			this.cancelOneButton = new System.Windows.Forms.Button();
-			this.translateTextButton = new System.Windows.Forms.Button();
-			this.toCodeLabel = new System.Windows.Forms.Label();
-			this.toCodeBox = new System.Windows.Forms.ComboBox();
-			this.fromCodeBox = new System.Windows.Forms.ComboBox();
-			this.fromCodeLabel = new System.Windows.Forms.Label();
 			this.analyzeTab = new System.Windows.Forms.TabPage();
+			this.analyzeControlPanel = new ResxTranslator.Panels.AnalyzeControlPanel();
 			this.toolsPage = new System.Windows.Forms.TabPage();
+			this.toolsControlPanel = new ResxTranslator.Panels.ToolsControlPanel();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.toolsControlPanel = new ResxTranslator.Panels.ToolsControlPanel();
-			this.analyzeControlPanel = new ResxTranslator.Panels.AnalyzeControlPanel();
+			this.textControlPanel = new ResxTranslator.Panels.TextControlPanel();
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
 			this.sheetPanel.SuspendLayout();
 			this.textTab.SuspendLayout();
-			this.textCmdPanel.SuspendLayout();
 			this.analyzeTab.SuspendLayout();
 			this.toolsPage.SuspendLayout();
 			this.SuspendLayout();
@@ -96,7 +86,7 @@
 			this.resxTab.Controls.Add(this.sortBox);
 			this.resxTab.Controls.Add(this.clearBox);
 			this.resxTab.Controls.Add(this.restartButton);
-			this.resxTab.Controls.Add(this.compareBox);
+			this.resxTab.Controls.Add(this.newStringsBox);
 			this.resxTab.Controls.Add(this.optionsLabel);
 			this.resxTab.Controls.Add(this.cancelButton);
 			this.resxTab.Controls.Add(this.sheetPanel);
@@ -142,12 +132,12 @@
 			// 
 			// compareBox
 			// 
-			resources.ApplyResources(this.compareBox, "compareBox");
-			this.compareBox.Checked = true;
-			this.compareBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.compareBox.Name = "compareBox";
-			this.compareBox.UseVisualStyleBackColor = true;
-			this.compareBox.CheckedChanged += new System.EventHandler(this.CompareChanged);
+			resources.ApplyResources(this.newStringsBox, "compareBox");
+			this.newStringsBox.Checked = true;
+			this.newStringsBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.newStringsBox.Name = "compareBox";
+			this.newStringsBox.UseVisualStyleBackColor = true;
+			this.newStringsBox.CheckedChanged += new System.EventHandler(this.CompareChanged);
 			// 
 			// optionsLabel
 			// 
@@ -259,79 +249,10 @@
 			// 
 			// textTab
 			// 
-			this.textTab.Controls.Add(this.textBox);
-			this.textTab.Controls.Add(this.resultsLabel);
-			this.textTab.Controls.Add(this.resultBox);
-			this.textTab.Controls.Add(this.textCmdPanel);
+			this.textTab.Controls.Add(this.textControlPanel);
 			resources.ApplyResources(this.textTab, "textTab");
 			this.textTab.Name = "textTab";
 			this.textTab.UseVisualStyleBackColor = true;
-			// 
-			// textBox
-			// 
-			resources.ApplyResources(this.textBox, "textBox");
-			this.textBox.Name = "textBox";
-			this.textBox.TextChanged += new System.EventHandler(this.ChangeTransInput);
-			// 
-			// resultsLabel
-			// 
-			resources.ApplyResources(this.resultsLabel, "resultsLabel");
-			this.resultsLabel.Name = "resultsLabel";
-			// 
-			// resultBox
-			// 
-			resources.ApplyResources(this.resultBox, "resultBox");
-			this.resultBox.Name = "resultBox";
-			// 
-			// textCmdPanel
-			// 
-			resources.ApplyResources(this.textCmdPanel, "textCmdPanel");
-			this.textCmdPanel.Controls.Add(this.cancelOneButton);
-			this.textCmdPanel.Controls.Add(this.translateTextButton);
-			this.textCmdPanel.Controls.Add(this.toCodeLabel);
-			this.textCmdPanel.Controls.Add(this.toCodeBox);
-			this.textCmdPanel.Controls.Add(this.fromCodeBox);
-			this.textCmdPanel.Controls.Add(this.fromCodeLabel);
-			this.textCmdPanel.Name = "textCmdPanel";
-			// 
-			// cancelOneButton
-			// 
-			resources.ApplyResources(this.cancelOneButton, "cancelOneButton");
-			this.cancelOneButton.Name = "cancelOneButton";
-			this.toolTip.SetToolTip(this.cancelOneButton, resources.GetString("cancelOneButton.ToolTip"));
-			this.cancelOneButton.UseVisualStyleBackColor = true;
-			this.cancelOneButton.Click += new System.EventHandler(this.CancelTranslateOne);
-			// 
-			// translateTextButton
-			// 
-			resources.ApplyResources(this.translateTextButton, "translateTextButton");
-			this.translateTextButton.Name = "translateTextButton";
-			this.translateTextButton.UseVisualStyleBackColor = true;
-			this.translateTextButton.Click += new System.EventHandler(this.TranslateOne);
-			// 
-			// toCodeLabel
-			// 
-			resources.ApplyResources(this.toCodeLabel, "toCodeLabel");
-			this.toCodeLabel.Name = "toCodeLabel";
-			// 
-			// toCodeBox
-			// 
-			this.toCodeBox.FormattingEnabled = true;
-			resources.ApplyResources(this.toCodeBox, "toCodeBox");
-			this.toCodeBox.Name = "toCodeBox";
-			this.toCodeBox.SelectedIndexChanged += new System.EventHandler(this.ChangeTransInput);
-			// 
-			// fromCodeBox
-			// 
-			this.fromCodeBox.FormattingEnabled = true;
-			resources.ApplyResources(this.fromCodeBox, "fromCodeBox");
-			this.fromCodeBox.Name = "fromCodeBox";
-			this.fromCodeBox.SelectedIndexChanged += new System.EventHandler(this.ChangeTransInput);
-			// 
-			// fromCodeLabel
-			// 
-			resources.ApplyResources(this.fromCodeLabel, "fromCodeLabel");
-			this.fromCodeLabel.Name = "fromCodeLabel";
 			// 
 			// analyzeTab
 			// 
@@ -340,12 +261,22 @@
 			this.analyzeTab.Name = "analyzeTab";
 			this.analyzeTab.UseVisualStyleBackColor = true;
 			// 
+			// analyzeControlPanel
+			// 
+			resources.ApplyResources(this.analyzeControlPanel, "analyzeControlPanel");
+			this.analyzeControlPanel.Name = "analyzeControlPanel";
+			// 
 			// toolsPage
 			// 
 			this.toolsPage.Controls.Add(this.toolsControlPanel);
 			resources.ApplyResources(this.toolsPage, "toolsPage");
 			this.toolsPage.Name = "toolsPage";
 			this.toolsPage.UseVisualStyleBackColor = true;
+			// 
+			// toolsControlPanel
+			// 
+			resources.ApplyResources(this.toolsControlPanel, "toolsControlPanel");
+			this.toolsControlPanel.Name = "toolsControlPanel";
 			// 
 			// openFileDialog
 			// 
@@ -357,15 +288,10 @@
 			// 
 			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
 			// 
-			// toolsControlPanel
+			// textControlPanel
 			// 
-			resources.ApplyResources(this.toolsControlPanel, "toolsControlPanel");
-			this.toolsControlPanel.Name = "toolsControlPanel";
-			// 
-			// analyzeControlPanel
-			// 
-			resources.ApplyResources(this.analyzeControlPanel, "analyzeControlPanel");
-			this.analyzeControlPanel.Name = "analyzeControlPanel";
+			resources.ApplyResources(this.textControlPanel, "textControlPanel");
+			this.textControlPanel.Name = "textControlPanel";
 			// 
 			// MainWindow
 			// 
@@ -378,9 +304,6 @@
 			this.resxTab.PerformLayout();
 			this.sheetPanel.ResumeLayout(false);
 			this.textTab.ResumeLayout(false);
-			this.textTab.PerformLayout();
-			this.textCmdPanel.ResumeLayout(false);
-			this.textCmdPanel.PerformLayout();
 			this.analyzeTab.ResumeLayout(false);
 			this.toolsPage.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -391,16 +314,7 @@
 
 		private System.Windows.Forms.TabControl tabs;
 		private System.Windows.Forms.TabPage textTab;
-		private System.Windows.Forms.Panel textCmdPanel;
-		private System.Windows.Forms.Button translateTextButton;
-		private System.Windows.Forms.Label toCodeLabel;
-		private System.Windows.Forms.ComboBox toCodeBox;
-		private System.Windows.Forms.ComboBox fromCodeBox;
-		private System.Windows.Forms.Label fromCodeLabel;
 		private System.Windows.Forms.TabPage resxTab;
-		private System.Windows.Forms.TextBox textBox;
-		private System.Windows.Forms.Label resultsLabel;
-		private System.Windows.Forms.RichTextBox resultBox;
 		private System.Windows.Forms.Button translateButton;
 		private System.Windows.Forms.ProgressBar progressBar;
 		private System.Windows.Forms.ListView languageList;
@@ -419,10 +333,9 @@
 		private System.Windows.Forms.Panel sheetPanel;
 		private System.Windows.Forms.Button cancelButton;
 		private System.Windows.Forms.Label optionsLabel;
-		private System.Windows.Forms.CheckBox compareBox;
+		private System.Windows.Forms.CheckBox newStringsBox;
 		private System.Windows.Forms.Button restartButton;
 		private System.Windows.Forms.ToolTip toolTip;
-		private System.Windows.Forms.Button cancelOneButton;
 		private System.Windows.Forms.RichTextBox logBox;
 		private System.Windows.Forms.CheckBox clearBox;
 		private System.Windows.Forms.TabPage analyzeTab;
@@ -430,6 +343,7 @@
 		private System.Windows.Forms.CheckBox sortBox;
 		private Panels.ToolsControlPanel toolsControlPanel;
 		private Panels.AnalyzeControlPanel analyzeControlPanel;
+		private Panels.TextControlPanel textControlPanel;
 	}
 }
 

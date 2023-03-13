@@ -14,7 +14,6 @@ namespace ResxTranslator
 	using System.Linq;
 	using System.Text.RegularExpressions;
 	using System.Threading;
-	using System.Threading.Tasks;
 	using System.Web;
 	using System.Windows.Forms;
 	using System.Xml.Linq;
@@ -49,9 +48,6 @@ namespace ResxTranslator
 			restartButton.Top = translateButton.Top;
 			restartButton.Left = translateButton.Left;
 
-			cancelOneButton.Top = translateTextButton.Top;
-			cancelOneButton.Left = translateTextButton.Left;
-
 			var settings = new SettingsProvider();
 			var inputPath = settings.Get("inputPath");
 			if (string.IsNullOrEmpty(inputPath))
@@ -76,22 +72,13 @@ namespace ResxTranslator
 
 		private void PopulateLanguages()
 		{
-			fromCodeBox.Items.Add("auto (Detect)");
-
 			foreach (var code in Translator.Codes)
 			{
 				var name = Translator.GetDisplayName(code);
 
-				fromCodeBox.Items.Add(name);
-				toCodeBox.Items.Add(name);
 				codeBox.Items.Add($"{name} [{code}]");
 				languageList.Items.Add(name);
 			}
-
-			fromCodeBox.SelectedIndex = 0;
-
-			var index = Translator.Codes.IndexOf(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName);
-			toCodeBox.SelectedIndex = index < 0 ? Translator.Codes.IndexOf("en") : index;
 		}
 
 
@@ -103,111 +90,6 @@ namespace ResxTranslator
 				case 3: toolsControlPanel.SetFilePath(inputBox.Text); break;
 			}
 		}
-
-
-		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-		// Translate Text
-
-		private void ChangeTransInput(object sender, EventArgs e)
-		{
-			translateTextButton.Enabled =
-				fromCodeBox.SelectedIndex >= 0 &&
-				toCodeBox.SelectedIndex >= 0 &&
-				textBox.Text.Length > 0;
-		}
-
-
-		private async void TranslateOne(object sender, EventArgs e)
-		{
-			translateTextButton.Visible = false;
-			cancelOneButton.Visible = true;
-
-			resultBox.Clear();
-			resultBox.ForeColor = Color.Black;
-
-			var fromCode = fromCodeBox.SelectedIndex == 0
-				? "auto"
-				: Translator.Codes[fromCodeBox.SelectedIndex];
-
-			var toCode = Translator.Codes[toCodeBox.SelectedIndex];
-
-			var translator = new Translator();
-
-			var watch = new Stopwatch();
-			watch.Start();
-
-			try
-			{
-				using (cancellation = new CancellationTokenSource())
-				{
-					var parts = textBox.Text.Split('\n');
-					for (int i = 0; i < parts.Length; i++)
-					{
-						var result = await translator.Translate(
-							parts[i], fromCode, toCode, cancellation);
-
-						watch.Stop();
-
-						if (cancellation.IsCancellationRequested)
-						{
-							LogOne("Cancelled" + NL, Color.Red);
-							break;
-						}
-						else
-						{
-							LogOne(result + NL);
-
-							if (translator.Inflated(parts[i], result))
-							{
-								LogOne("*** possible inflation detected ***" + NL, Color.Maroon);
-							}
-
-							LogOne($"ellapsed time {watch.ElapsedMilliseconds}ms{NL}", Color.DarkCyan);
-						}
-					}
-				}
-			}
-			catch (TaskCanceledException)
-			{
-				LogOne("Cancelled" + NL, Color.DarkRed);
-			}
-			catch (HttpException exc)
-			{
-				LogOne(exc.Message + NL, Color.Red);
-			}
-			finally
-			{
-				if (watch.IsRunning)
-				{
-					watch.Stop();
-				}
-			}
-
-			cancelOneButton.Visible = false;
-			translateTextButton.Visible = true;
-		}
-
-
-		private void LogOne(string message, Color? color = null)
-		{
-			if (color == null || color.Equals(Color.Black))
-			{
-				resultBox.AppendText(message);
-				return;
-			}
-
-			var fore = logBox.SelectionColor;
-			resultBox.SelectionColor = (Color)color;
-			resultBox.AppendText(message);
-			resultBox.SelectionColor = fore;
-		}
-
-
-		private void CancelTranslateOne(object sender, EventArgs e)
-		{
-			cancellation.Cancel();
-		}
-
 
 
 		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -331,7 +213,7 @@ namespace ResxTranslator
 
 		private void CompareChanged(object sender, EventArgs e)
 		{
-			estimationLabel.ForeColor = compareBox.Checked ? Color.Gray : Color.Black;
+			estimationLabel.ForeColor = newStringsBox.Checked ? Color.Gray : Color.Black;
 		}
 
 
@@ -351,7 +233,7 @@ namespace ResxTranslator
 			translateButton.Visible = false;
 			cancelButton.Visible = true;
 
-			if (!compareBox.Checked)
+			if (!newStringsBox.Checked)
 			{
 				// this is an estimate
 				progressBar.Maximum = strings * languageList.CheckedIndices.Count;
@@ -405,7 +287,7 @@ namespace ResxTranslator
 
 				var data = ResxProvider.CollectStrings(root);
 
-				if (compareBox.Checked && File.Exists(outputFile))
+				if (newStringsBox.Checked && File.Exists(outputFile))
 				{
 					data = ResxProvider.CollectNewStrings(data, outputFile);
 					var span = new TimeSpan(0, 0, (int)(data.Count * 0.1));
@@ -494,7 +376,7 @@ namespace ResxTranslator
 			browseFileButton.Enabled = false;
 			outputBox.Enabled = false;
 			browseFolderButton.Enabled = false;
-			compareBox.Enabled = false;
+			newStringsBox.Enabled = false;
 			clearBox.Enabled = false;
 		}
 
@@ -519,7 +401,7 @@ namespace ResxTranslator
 		{
 			// add or update changes...
 
-			if (compareBox.Checked && File.Exists(outputFile))
+			if (newStringsBox.Checked && File.Exists(outputFile))
 			{
 				root = XElement.Load(outputFile);
 				foreach (var d in data)
@@ -598,7 +480,7 @@ namespace ResxTranslator
 			browseFileButton.Enabled = true;
 			outputBox.Enabled = true;
 			browseFolderButton.Enabled = true;
-			compareBox.Enabled = true;
+			newStringsBox.Enabled = true;
 			clearBox.Enabled = true;
 
 			languageList.Visible = true;
