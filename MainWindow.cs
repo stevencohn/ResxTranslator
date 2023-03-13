@@ -95,6 +95,16 @@ namespace ResxTranslator
 		}
 
 
+		private void PrepTabOnSelectedIndexChanged(object sender, EventArgs e)
+		{
+			switch (tabs.SelectedIndex)
+			{
+				case 2: analyzeControlPanel.SetFilePath(inputBox.Text); break;
+				case 3: toolsControlPanel.SetFilePath(inputBox.Text); break;
+			}
+		}
+
+
 		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 		// Translate Text
 
@@ -600,16 +610,6 @@ namespace ResxTranslator
 
 			restartButton.Visible = false;
 			translateButton.Visible = true;
-		}
-
-
-		private void PrepTabOnSelectedIndexChanged(object sender, EventArgs e)
-		{
-			switch (tabs.SelectedIndex)
-			{
-				case 2: analyzeControlPanel.SetFilePath(inputBox.Text); break;
-				case 3: toolsControlPanel.SetFilePath(inputBox.Text); break;
-			}
 		}
 	}
 }
