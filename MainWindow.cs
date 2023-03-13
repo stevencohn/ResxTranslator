@@ -379,9 +379,7 @@ namespace ResxTranslator
 			if (sortBox.Checked)
 			{
 				var root = XElement.Load(inputPath);
-				var data = root.Elements("data").ToList();
-				data.ForEach(d => d.Remove());
-				root.Add(data.OrderBy(d => d.Attribute("name").Value));
+				ResxProvider.SortData(root);
 				root.Save(inputPath, SaveOptions.None);
 			}
 
@@ -405,11 +403,11 @@ namespace ResxTranslator
 				// this will be translated in memory and stored for each language
 				var root = XElement.Load(inputPath);
 
-				var data = Translator.CollectData(root);
+				var data = ResxProvider.CollectStrings(root);
 
 				if (compareBox.Checked && File.Exists(outputFile))
 				{
-					data = Translator.FilterData(data, outputFile);
+					data = ResxProvider.CollectNewStrings(data, outputFile);
 					var span = new TimeSpan(0, 0, (int)(data.Count * 0.1));
 					estimationLabel.Text = $"{data.Count} {toCode} strings. Estimated completion in {span}";
 
@@ -579,10 +577,7 @@ namespace ResxTranslator
 
 			if (sortBox.Checked)
 			{
-				// sort all data elements
-				var datalist = root.Elements("data").ToList();
-				datalist.ForEach(d => d.Remove());
-				root.Add(datalist.OrderBy(d => d.Attribute("name").Value));
+				ResxProvider.SortData(root);
 			}
 
 			root.Save(outputFile);
@@ -736,12 +731,7 @@ namespace ResxTranslator
 			if (File.Exists(path))
 			{
 				var root = XElement.Load(path);
-
-				var data = root.Elements("data").ToList();
-				data.ForEach(d => d.Remove());
-
-				root.Add(data.OrderBy(d => d.Attribute("name").Value));
-
+				ResxProvider.SortData(root);
 				root.Save(path, SaveOptions.None);
 				Logt($"{Path.GetFileName(path)} sorted and saved{NL}", Color.Green);
 			}

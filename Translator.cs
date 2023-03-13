@@ -228,7 +228,7 @@ namespace ResxTranslator
 			try
 			{
 				var root = XElement.Load(path);
-				var data = CollectData(root);
+				var data = ResxProvider.CollectStrings(root);
 
 				strings = data.Count;
 				seconds = data.Count * delayInMs / 1000;
@@ -240,57 +240,6 @@ namespace ResxTranslator
 				strings = seconds = 0;
 				return false;
 			}
-		}
-
-
-		public static List<XElement> CollectData(XElement root)
-		{
-			/*
-			  <data name="DemoString" xml:space="preserve">
-				<value>Foobar</value>
-				<comment>NO</comment>
-			  </data>
-			*/
-			var xs = root.GetNamespaceOfPrefix("xml");
-
-			// this should filter out all non-string entries and leave only strings
-			return root.Elements("data")
-				.Where(e => e.Attribute(xs + "space") != null &&
-							e.Attribute("type") == null &&
-							e.Attribute("name")?.Value.StartsWith(">>") != true &&
-							// SKIP is a special flag indicating this entry should not be translated
-							e.Elements("comment").FirstOrDefault()?.Value.Contains("SKIP") != true)
-				.ToList();
-		}
-
-
-		/// <summary>
-		/// Filters the data list by keeping only items that don't exist in the
-		/// specified resx file. This find all new items that need to be translated
-		/// </summary>
-		/// <param name="data"></param>
-		/// <param name="path"></param>
-		/// <returns></returns>
-		public static List<XElement> FilterData(List<XElement> data, string path)
-		{
-			try
-			{
-				var root = XElement.Load(path);
-
-				return data.Where(d =>
-					// keep all edited entries
-					d.Element("comment")?.Value.Contains("EDIT") == true ||
-					// keep only entries that don't exist in target
-					!root.Elements("data")
-						.Any(e => e.Attribute("name")?.Value == d.Attribute("name").Value))
-					.ToList();
-			}
-			catch
-			{
-				//
-			}
-
-			return data;
 		}
 
 
