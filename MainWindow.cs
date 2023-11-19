@@ -323,8 +323,24 @@ namespace ResxTranslator
 
 					if (success)
 					{
-						SaveTranslations(root, data, inputPath, outputFile);
-						Log($"Saved {outputFile}{NL}", Color.Blue);
+						root = ApplyTranslations(root, data, inputPath, outputFile);
+
+						var hintCount = 0;
+						if (hintOverrideBox.Checked && translator.Hints.HasElements)
+						{
+							hintCount = ResxProvider.MergeHints(root, translator.Hints);
+							Log($"Merged {hintCount} hints{NL}", Color.Green);
+						}
+
+						if (data.Count > 0 || hintCount > 0)
+						{
+							root.Save(outputFile);
+							Log($"Saved {outputFile}{NL}", Color.Blue);
+						}
+						else
+						{
+							Log($"No changes{NL}", Color.Blue);
+						}
 					}
 				}
 				catch (HttpException exc)
@@ -396,7 +412,7 @@ namespace ResxTranslator
 		}
 
 
-		private void SaveTranslations(
+		private XElement ApplyTranslations(
 			XElement root, List<XElement> data, string inputPath, string outputFile)
 		{
 			// add or update changes...
@@ -462,7 +478,7 @@ namespace ResxTranslator
 				ResxProvider.SortData(root);
 			}
 
-			root.Save(outputFile);
+			return root;
 		}
 
 

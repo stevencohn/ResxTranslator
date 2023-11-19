@@ -4,7 +4,6 @@
 
 namespace ResxTranslator
 {
-	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Xml.Linq;
@@ -43,7 +42,7 @@ namespace ResxTranslator
 
 		/// <summary>
 		/// Filters the data list by keeping only items that don't exist in the
-		/// specified resx file. This find all new items that need to be translated
+		/// specified resx file. This finds all new items that need to be translated
 		/// </summary>
 		/// <param name="data"></param>
 		/// <param name="path"></param>
@@ -73,6 +72,37 @@ namespace ResxTranslator
 			}
 
 			return data;
+		}
+
+
+		/// <summary>
+		/// Force merge hints from the specified file into the data collection.
+		/// </summary>
+		/// <param name="data">The data collection to modify</param>
+		/// <param name="hintPath">The path of the hints file</param>
+		/// <returns>Count of hints applied</returns>
+		public static int MergeHints(XElement root, XElement hints)
+		{
+			var count = 0;
+            foreach (var hint in hints.Elements())
+            {
+				var preferred = hint.Element("preferred").Value;
+
+				var element = root.Elements("data").FirstOrDefault(e =>
+					e.Attribute("name").Value == hint.Attribute("name").Value &&
+					e.Element("value").Value != preferred);
+
+				if (element != null)
+				{
+					// if found here then we did not find the translated value in the EDIT
+					// values but found the named item in the root so overwrite...
+
+					element.Element("value").Value = preferred;
+					count++;
+				}
+			}
+
+            return count;
 		}
 
 

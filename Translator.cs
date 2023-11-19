@@ -169,7 +169,12 @@ namespace ResxTranslator
 		private const string InflationPattern = @"([^\s](?:[^\w\d\s\p{L}]))|((?:[^\w\d\s\p{L}])[^\s])";
 
 		private readonly Regex inflation = new Regex(InflationPattern);
-		private XElement hints;
+
+
+		/// <summary>
+		/// Hints root node
+		/// </summary>
+		public XElement Hints { get; private set; }
 
 
 		// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -313,7 +318,7 @@ namespace ResxTranslator
 			{
 				try
 				{
-					hints = XElement.Load(path);
+					Hints = XElement.Load(path);
 					return;
 				}
 				catch
@@ -322,7 +327,7 @@ namespace ResxTranslator
 				}
 			}
 
-			hints = new XElement("hints");
+			Hints = new XElement("hints");
 		}
 
 
@@ -425,7 +430,7 @@ namespace ResxTranslator
 		private string FindHint(XElement data, StatusCallback logger)
 		{
 			var name = data.Attribute("name").Value;
-			var hint = hints.Elements()
+			var hint = Hints.Elements()
 				.FirstOrDefault(e => e.Attribute("name").Value == name);
 
 			if (hint != null)

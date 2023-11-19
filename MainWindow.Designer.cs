@@ -32,6 +32,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.resxTab = new System.Windows.Forms.TabPage();
+			this.hintOverrideBox = new System.Windows.Forms.CheckBox();
 			this.sortBox = new System.Windows.Forms.CheckBox();
 			this.clearBox = new System.Windows.Forms.CheckBox();
 			this.restartButton = new System.Windows.Forms.Button();
@@ -54,6 +55,7 @@
 			this.inputBox = new System.Windows.Forms.TextBox();
 			this.inputLabel = new System.Windows.Forms.Label();
 			this.textTab = new System.Windows.Forms.TabPage();
+			this.textControlPanel = new ResxTranslator.Panels.TextControlPanel();
 			this.analyzeTab = new System.Windows.Forms.TabPage();
 			this.analyzeControlPanel = new ResxTranslator.Panels.AnalyzeControlPanel();
 			this.toolsPage = new System.Windows.Forms.TabPage();
@@ -61,7 +63,6 @@
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.textControlPanel = new ResxTranslator.Panels.TextControlPanel();
 			this.tabs.SuspendLayout();
 			this.resxTab.SuspendLayout();
 			this.sheetPanel.SuspendLayout();
@@ -83,6 +84,7 @@
 			// 
 			// resxTab
 			// 
+			this.resxTab.Controls.Add(this.hintOverrideBox);
 			this.resxTab.Controls.Add(this.sortBox);
 			this.resxTab.Controls.Add(this.clearBox);
 			this.resxTab.Controls.Add(this.restartButton);
@@ -105,6 +107,14 @@
 			resources.ApplyResources(this.resxTab, "resxTab");
 			this.resxTab.Name = "resxTab";
 			this.resxTab.UseVisualStyleBackColor = true;
+			// 
+			// hintOverrideBox
+			// 
+			resources.ApplyResources(this.hintOverrideBox, "hintOverrideBox");
+			this.hintOverrideBox.Checked = true;
+			this.hintOverrideBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.hintOverrideBox.Name = "hintOverrideBox";
+			this.hintOverrideBox.UseVisualStyleBackColor = true;
 			// 
 			// sortBox
 			// 
@@ -130,12 +140,12 @@
 			this.restartButton.UseVisualStyleBackColor = true;
 			this.restartButton.Click += new System.EventHandler(this.Restart);
 			// 
-			// compareBox
+			// newStringsBox
 			// 
-			resources.ApplyResources(this.newStringsBox, "compareBox");
+			resources.ApplyResources(this.newStringsBox, "newStringsBox");
 			this.newStringsBox.Checked = true;
 			this.newStringsBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.newStringsBox.Name = "compareBox";
+			this.newStringsBox.Name = "newStringsBox";
 			this.newStringsBox.UseVisualStyleBackColor = true;
 			this.newStringsBox.CheckedChanged += new System.EventHandler(this.CompareChanged);
 			// 
@@ -254,6 +264,11 @@
 			this.textTab.Name = "textTab";
 			this.textTab.UseVisualStyleBackColor = true;
 			// 
+			// textControlPanel
+			// 
+			resources.ApplyResources(this.textControlPanel, "textControlPanel");
+			this.textControlPanel.Name = "textControlPanel";
+			// 
 			// analyzeTab
 			// 
 			this.analyzeTab.Controls.Add(this.analyzeControlPanel);
@@ -287,11 +302,6 @@
 			// folderBrowserDialog
 			// 
 			resources.ApplyResources(this.folderBrowserDialog, "folderBrowserDialog");
-			// 
-			// textControlPanel
-			// 
-			resources.ApplyResources(this.textControlPanel, "textControlPanel");
-			this.textControlPanel.Name = "textControlPanel";
 			// 
 			// MainWindow
 			// 
@@ -344,6 +354,7 @@
 		private Panels.ToolsControlPanel toolsControlPanel;
 		private Panels.AnalyzeControlPanel analyzeControlPanel;
 		private Panels.TextControlPanel textControlPanel;
+		private System.Windows.Forms.CheckBox hintOverrideBox;
 	}
 }
 
