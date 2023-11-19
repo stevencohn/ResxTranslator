@@ -393,6 +393,8 @@ namespace ResxTranslator
 			outputBox.Enabled = false;
 			browseFolderButton.Enabled = false;
 			newStringsBox.Enabled = false;
+			hintOverrideBox.Enabled = false;
+			sortBox.Enabled = false;
 			clearBox.Enabled = false;
 		}
 
@@ -497,6 +499,8 @@ namespace ResxTranslator
 			outputBox.Enabled = true;
 			browseFolderButton.Enabled = true;
 			newStringsBox.Enabled = true;
+			hintOverrideBox.Enabled = true;
+			sortBox.Enabled = true;
 			clearBox.Enabled = true;
 
 			languageList.Visible = true;
