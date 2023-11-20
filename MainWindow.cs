@@ -323,7 +323,7 @@ namespace ResxTranslator
 
 					if (success)
 					{
-						root = ApplyTranslations(root, data, inputPath, outputFile);
+						root = ApplyTranslations(root, data, inputPath, outputFile, out var deleted);
 
 						var hintCount = 0;
 						if (hintOverrideBox.Checked && translator.Hints.HasElements)
@@ -332,7 +332,7 @@ namespace ResxTranslator
 							Log($"Merged {hintCount} hints{NL}", Color.Green);
 						}
 
-						if (data.Count > 0 || hintCount > 0)
+						if (data.Count > 0 || hintCount > 0 || deleted > 0)
 						{
 							root.Save(outputFile);
 							Log($"Saved {outputFile}{NL}", Color.Blue);
@@ -415,7 +415,8 @@ namespace ResxTranslator
 
 
 		private XElement ApplyTranslations(
-			XElement root, List<XElement> data, string inputPath, string outputFile)
+			XElement root, List<XElement> data, string inputPath, string outputFile,
+			out int deletedCount)
 		{
 			// add or update changes...
 
@@ -473,6 +474,7 @@ namespace ResxTranslator
 				Log($"Deleted {d.Attribute("name").Value}{NL}", Color.DarkRed);
 			});
 
+			deletedCount = deleted.Count;
 			deleted.Remove();
 
 			if (sortBox.Checked)
