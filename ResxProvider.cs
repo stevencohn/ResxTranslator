@@ -86,7 +86,7 @@ namespace ResxTranslator
 			var count = 0;
             foreach (var hint in hints.Elements())
             {
-				var preferred = hint.Element("preferred").Value;
+				var preferred = hint.Element("preferred").Value.Trim();
 
 				var element = root.Elements("data").FirstOrDefault(e =>
 					e.Attribute("name").Value == hint.Attribute("name").Value &&
