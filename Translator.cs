@@ -465,7 +465,7 @@ namespace ResxTranslator
 		/// <param name="data">A translation data element with a comment child</param>
 		public static string ClearMarker(string comment)
 		{
-			return Regex.Replace(comment, @"\s*EDIT\s*", string.Empty);
+			return Regex.Replace(comment, @"\bEDIT\b", string.Empty, RegexOptions.IgnoreCase);
 		}
 
 
