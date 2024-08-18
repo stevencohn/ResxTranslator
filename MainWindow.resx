@@ -981,7 +981,7 @@
     <value>2</value>
   </data>
   <data name="analyzeTab.Text" xml:space="preserve">
-    <value>Analyze</value>
+    <value>Find Duplicates</value>
   </data>
   <data name="&gt;&gt;analyzeTab.Name" xml:space="preserve">
     <value>analyzeTab</value>

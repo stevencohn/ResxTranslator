@@ -1,9 +1,10 @@
 ﻿//************************************************************************************************
-// Copyright © 2020 Steven M Cohn.  All rights reserved.
+// Copyright © 2020 Steven M Cohn. All rights reserved.
 //************************************************************************************************
 
 namespace ResxTranslator
 {
+	using System;
 	using System.Text;
 
 
@@ -24,6 +25,24 @@ namespace ResxTranslator
 		private static readonly char[] EscapeChars = new char[] { '<', '>', '&' };
 
 
+		/// <summary>
+		/// Compares a string against the given instance, as non-case-sensitive.
+		/// </summary>
+		/// <param name="s">The string instance</param>
+		/// <param name="value">The other string for comparison</param>
+		/// <returns>True if the instance contains at least one occurance of value</returns>
+		public static bool ContainsICIC(this string s, string value)
+		{
+			return s.IndexOf(value, StringComparison.InvariantCultureIgnoreCase) >= 0;
+		}
+
+
+		/// <summary>
+		/// Escapes special XML characters in the given text values so those characters
+		/// survive round-trips as user-input text
+		/// </summary>
+		/// <param name="str">The user input string</param>
+		/// <returns>The user string with special XML characters escaped</returns>
 		public static string XmlEscape(this string str)
 		{
 			if (str == null)

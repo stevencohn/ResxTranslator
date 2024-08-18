@@ -355,7 +355,7 @@ namespace ResxTranslator
 					continue;
 				}
 
-				var editing = data[index].Element("comment")?.Value.Contains("EDIT") == true;
+				var editing = data[index].Element("comment")?.Value.ContainsICIC("EDIT") == true;
 
 				var name = editing
 					? $"{data[index].Attribute("name").Value} (EDITED)"
@@ -478,7 +478,7 @@ namespace ResxTranslator
 		{
 			var root = XElement.Load(path);
 			var comments = root.Elements("data").Elements("comment")
-				.Where(e => e.Value.Contains("EDIT"));
+				.Where(e => e.Value.ContainsICIC("EDIT"));
 
 			if (comments.Any())
 			{

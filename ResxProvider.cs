@@ -35,7 +35,7 @@ namespace ResxTranslator
 					// TODO: what is this for?
 					e.Attribute("name")?.Value.StartsWith(">>") != true &&
 					// SKIP is a special flag indicating this entry should not be translated
-					e.Element("comment")?.Value.Contains("SKIP") != true)
+					e.Element("comment")?.Value.ContainsICIC("SKIP") != true)
 				.ToList();
 		}
 
@@ -59,7 +59,7 @@ namespace ResxTranslator
 					d.Attribute("type") == null &&
 					(
 						// collect all edited entries
-						d.Element("comment")?.Value.Contains("EDIT") == true ||
+						d.Element("comment")?.Value.ContainsICIC("EDIT") == true ||
 						// collect entries that don't exist in target
 						!target.Elements("data")
 							.Any(e => e.Attribute("name")?.Value == d.Attribute("name").Value)
@@ -84,8 +84,8 @@ namespace ResxTranslator
 		public static int MergeHints(XElement root, XElement hints)
 		{
 			var count = 0;
-            foreach (var hint in hints.Elements())
-            {
+			foreach (var hint in hints.Elements())
+			{
 				var preferred = hint.Element("preferred").Value.Trim();
 
 				var element = root.Elements("data").FirstOrDefault(e =>
@@ -102,7 +102,7 @@ namespace ResxTranslator
 				}
 			}
 
-            return count;
+			return count;
 		}
 
 
@@ -131,8 +131,8 @@ namespace ResxTranslator
 			var files = data
 				.Where(e => e.Attribute("type") != null)
 				.Select(e => new { Element = e, Values = e.Element("value").Value.Split(';') })
-				.OrderBy(e => e.Values[1])	// type
-				.ThenBy(e => e.Values[0])	// path
+				.OrderBy(e => e.Values[1])  // type
+				.ThenBy(e => e.Values[0])   // path
 				.ThenBy(e => e.Element.Attribute("name").Value)
 				.Select(e => e.Element)
 				.ToList();
