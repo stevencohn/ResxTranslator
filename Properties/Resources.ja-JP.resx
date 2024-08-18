@@ -123,15 +123,15 @@
     <comment>SKIP</comment>
   </data>
   <data name="DemoString" xml:space="preserve">
-    <value>Foobar</value>
+    <value>フーバー</value>
     <comment>The bar is fooed</comment>
   </data>
   <data name="OverrideMe" xml:space="preserve">
-    <value>This should be overriden in German</value>
+    <value>これはドイツ語でオーバーライドされる必要があります</value>
     <comment>override example</comment>
   </data>
   <data name="OverrideObsolete" xml:space="preserve">
-    <value>This will not use the hints file</value>
+    <value>これはヒントファイルを使用しません</value>
     <comment>obsolete override example</comment>
   </data>
   <data name="Sort" type="System.Resources.ResXFileRef, System.Windows.Forms">

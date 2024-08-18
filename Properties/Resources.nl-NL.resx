@@ -127,11 +127,11 @@
     <comment>The bar is fooed</comment>
   </data>
   <data name="OverrideMe" xml:space="preserve">
-    <value>This should be overriden in German</value>
+    <value>In het Duits zou dit moeten worden overschreven</value>
     <comment>override example</comment>
   </data>
   <data name="OverrideObsolete" xml:space="preserve">
-    <value>This will not use the hints file</value>
+    <value>Hierdoor wordt het hintbestand niet gebruikt</value>
     <comment>obsolete override example</comment>
   </data>
   <data name="Sort" type="System.Resources.ResXFileRef, System.Windows.Forms">
