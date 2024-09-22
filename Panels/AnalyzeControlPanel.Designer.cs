@@ -51,7 +51,7 @@
 			this.introLabel.Name = "introLabel";
 			this.introLabel.Size = new System.Drawing.Size(551, 20);
 			this.introLabel.TabIndex = 11;
-			this.introLabel.Text = "Results - entries with either NODUP or SKIP in their comments will be ignored";
+			this.introLabel.Text = "Results - entries with either !NODUP or !SKIP in their comments will be ignored";
 			// 
 			// logbox
 			// 

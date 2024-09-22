@@ -34,8 +34,8 @@ namespace ResxTranslator
 					e.Attribute("type") == null &&
 					// TODO: what is this for?
 					e.Attribute("name")?.Value.StartsWith(">>") != true &&
-					// SKIP is a special flag indicating this entry should not be translated
-					e.Element("comment")?.Value.ContainsICIC("SKIP") != true)
+					// !SKIP is a special flag indicating this entry should not be translated
+					e.Element("comment")?.Value.ContainsICIC("!SKIP") != true)
 				.ToList();
 		}
 
@@ -59,7 +59,7 @@ namespace ResxTranslator
 					d.Attribute("type") == null &&
 					(
 						// collect all edited entries
-						d.Element("comment")?.Value.ContainsICIC("EDIT") == true ||
+						d.Element("comment")?.Value.ContainsICIC("!EDIT") == true ||
 						// collect entries that don't exist in target
 						!target.Elements("data")
 							.Any(e => e.Attribute("name")?.Value == d.Attribute("name").Value)
@@ -94,7 +94,7 @@ namespace ResxTranslator
 
 				if (element != null)
 				{
-					// if found here then we did not find the translated value in the EDIT
+					// if found here then we did not find the translated value in the !EDIT
 					// values but found the named item in the root so overwrite...
 
 					element.Element("value").Value = preferred;

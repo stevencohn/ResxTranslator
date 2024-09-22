@@ -25,11 +25,11 @@ _Options_
 * Enable the _Translate only new strings_ checkbox to translate only new strings that were added
   to the source resx file that are not yet in the target resx file(s). It will detect entries
   that were deleted in the source file and remove them from the target files. It also detects
-  the keyword **EDIT** in the comment of each entry; if this keyword is found, it will translate
+  the keyword **!EDIT** in the comment of each entry; if this keyword is found, it will translate
   that entry and replace the value in all taret files; if this keyword is not found and the
   resource identifier exists in both the source and target file, that entry is left untouched.
 
-* Enable the _Clear markers_ checkbox to remove the EDIT keyword from all entires in the source
+* Enable the _Clear markers_ checkbox to remove the **!EDIT** keyword from all entires in the source
   resx file. If generating all languages in a single batch then you can safely enable this option.
   If translating one language at a time, enable this only when processing the last target file
   in your workflow, otherwise subsequent runs may not produce the correct results.
@@ -45,8 +45,8 @@ _Options_
 ### Skipping Resources
 
 If the resource file includes control or configuration entries that should not be translated
-then flag these by including the word **SKIP** in the entry's comment. It must be capitalized.
-The comment can include other text besides the word SKIP.
+then flag these by including the word **!SKIP** in the entry's comment. It must be capitalized.
+The comment can include other text besides the word **!SKIP**.
 
 ### Using an Override Hint File
 
@@ -95,7 +95,8 @@ Translate one string, phrase, or paragraph of text.
 
 The free Google translator will sometime add extra spaces around non-alphanumeric characters
 when translating. For example "x+1" may become "x + 1" (from no spaces around the plus sign,
-to spaces around the plus sign.) 
+to spaces around the plus sign.) x
+
 
 ResxTranslator attempts to detect this string *inflation* and displays a warning for each
 string that may need manual tuning. Of course, the program itself has no way of knowing the
@@ -112,7 +113,7 @@ The Analyze tab analyzes a resx file looking for duplicate uses of words and phr
 ### Ignoring Known Duplicate
 
 There will likely be legitimate cases where you want to use duplicates but in very
-different contexts. In these case, you can tag those resources with the NODUP keyword;
+different contexts. In these case, you can tag those resources with the **!NODUP** keyword;
 the analyzer will ignore those resources and not report them as duplicates.
 
 ## Tools

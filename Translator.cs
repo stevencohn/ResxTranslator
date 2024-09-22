@@ -355,7 +355,7 @@ namespace ResxTranslator
 					continue;
 				}
 
-				var editing = data[index].Element("comment")?.Value.ContainsICIC("EDIT") == true;
+				var editing = data[index].Element("comment")?.Value.ContainsICIC("!EDIT") == true;
 
 				var name = editing
 					? $"{data[index].Attribute("name").Value} (EDITED)"
@@ -460,17 +460,17 @@ namespace ResxTranslator
 
 
 		/// <summary>
-		/// Clear the EDIT marker in the given data element
+		/// Clear the !EDIT marker in the given data element
 		/// </summary>
 		/// <param name="data">A translation data element with a comment child</param>
 		public static string ClearMarker(string comment)
 		{
-			return Regex.Replace(comment, @"\bEDIT\b", string.Empty, RegexOptions.IgnoreCase);
+			return Regex.Replace(comment, @"\b!EDIT\b", string.Empty, RegexOptions.IgnoreCase);
 		}
 
 
 		/// <summary>
-		/// Remove the EDIT markers from the source file after we're done applying
+		/// Remove the !EDIT markers from the source file after we're done applying
 		/// the changes to all output files
 		/// </summary>
 		/// <param name="path"></param>
@@ -478,7 +478,7 @@ namespace ResxTranslator
 		{
 			var root = XElement.Load(path);
 			var comments = root.Elements("data").Elements("comment")
-				.Where(e => e.Value.ContainsICIC("EDIT"));
+				.Where(e => e.Value.ContainsICIC("!EDIT"));
 
 			if (comments.Any())
 			{

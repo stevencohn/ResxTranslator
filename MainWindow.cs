@@ -351,10 +351,10 @@ namespace ResxTranslator
 
 			if (clearBox.Checked && !cancellation.IsCancellationRequested)
 			{
-				// we're done with this file so clear the EDIT markers
+				// we're done with this file so clear the !EDIT markers
 				var count = Translator.ClearMarkers(inputPath);
 				if (count > 0)
-					Log($"Cleared {count} EDIT markers{NL}");
+					Log($"Cleared {count} !EDIT markers{NL}");
 			}
 
 			cancelButton.Visible = false;
