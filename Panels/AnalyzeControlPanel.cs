@@ -64,7 +64,9 @@ namespace ResxTranslator.Panels
 					Comment = d.Element("comment")?.Value
 				})
 				.Where(a => string.IsNullOrWhiteSpace(a.Comment) ||
-					!(a.Comment.ContainsICIC("!SKIP") || a.Comment.ContainsICIC("!NODUP")))
+					!(a.Comment.ContainsICIC(Translator.SkipMarker) || 
+					  a.Comment.ContainsICIC(Translator.NoDupMarker)
+					  ))
 				.Select(d => d.Data);
 
 			Log($"Resx contains {data.Count()} strings" + NL);

@@ -35,7 +35,7 @@ namespace ResxTranslator
 					// TODO: what is this for?
 					e.Attribute("name")?.Value.StartsWith(">>") != true &&
 					// !SKIP is a special flag indicating this entry should not be translated
-					e.Element("comment")?.Value.ContainsICIC("!SKIP") != true)
+					e.Element("comment")?.Value.ContainsICIC(Translator.SkipMarker) != true)
 				.ToList();
 		}
 
@@ -59,7 +59,7 @@ namespace ResxTranslator
 					d.Attribute("type") == null &&
 					(
 						// collect all edited entries
-						d.Element("comment")?.Value.ContainsICIC("!EDIT") == true ||
+						d.Element("comment")?.Value.ContainsICIC(Translator.EditMarker) == true ||
 						// collect entries that don't exist in target
 						!target.Elements("data")
 							.Any(e => e.Attribute("name")?.Value == d.Attribute("name").Value)

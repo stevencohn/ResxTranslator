@@ -33,6 +33,10 @@ namespace ResxTranslator
 		//private const int PerEstimate = 1250;
 		private const int PerEstimate = 100;
 
+		public const string EditMarker = "!EDIT";
+		public const string SkipMarker = "!SKIP";
+		public const string NoDupMarker = "!NODUP";
+
 
 		public static readonly List<string> Codes = new List<string>
 		{
@@ -355,7 +359,7 @@ namespace ResxTranslator
 					continue;
 				}
 
-				var editing = data[index].Element("comment")?.Value.ContainsICIC("!EDIT") == true;
+				var editing = data[index].Element("comment")?.Value.ContainsICIC(EditMarker) == true;
 
 				var name = editing
 					? $"{data[index].Attribute("name").Value} (EDITED)"
@@ -465,7 +469,7 @@ namespace ResxTranslator
 		/// <param name="data">A translation data element with a comment child</param>
 		public static string ClearMarker(string comment)
 		{
-			return Regex.Replace(comment, @"\b!EDIT\b", string.Empty, RegexOptions.IgnoreCase);
+			return Regex.Replace(comment, @"\b[^!]!EDIT\b", string.Empty, RegexOptions.IgnoreCase);
 		}
 
 
@@ -478,7 +482,7 @@ namespace ResxTranslator
 		{
 			var root = XElement.Load(path);
 			var comments = root.Elements("data").Elements("comment")
-				.Where(e => e.Value.ContainsICIC("!EDIT"));
+				.Where(e => e.Value.ContainsICIC(EditMarker));
 
 			if (comments.Any())
 			{
