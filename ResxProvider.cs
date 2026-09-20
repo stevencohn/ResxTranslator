@@ -76,14 +76,15 @@ namespace ResxTranslator
 
 
 		/// <summary>
-		/// Force merge hints from the specified file into the data collection.
+		/// Finds the data elements whose values differ from the preferred hint value,
+		/// meaning they need to be updated with the hint's preferred value.
 		/// </summary>
-		/// <param name="data">The data collection to modify</param>
-		/// <param name="hintPath">The path of the hints file</param>
-		/// <returns>Count of hints applied</returns>
-		public static int MergeHints(XElement root, XElement hints)
+		/// <param name="root">An XElement of the root of a resx file</param>
+		/// <param name="hints">An XElement of the root of a hints file</param>
+		/// <returns>The set of matching (data, hint) element pairs</returns>
+		private static IEnumerable<(XElement Data, XElement Hint)> FindHintUpdates(
+			XElement root, XElement hints)
 		{
-			var count = 0;
 			foreach (var hint in hints.Elements())
 			{
 				var preferred = hint.Element("preferred").Value.Trim();
@@ -94,12 +95,43 @@ namespace ResxTranslator
 
 				if (element != null)
 				{
-					// if found here then we did not find the translated value in the !EDIT
-					// values but found the named item in the root so overwrite...
-
-					element.Element("value").Value = preferred;
-					count++;
+					yield return (element, hint);
 				}
+			}
+		}
+
+
+		/// <summary>
+		/// Gets the names of data entries whose hint needs to be updated, regardless of
+		/// whether those hints will actually be merged into the data collection.
+		/// </summary>
+		/// <param name="root">An XElement of the root of a resx file</param>
+		/// <param name="hints">An XElement of the root of a hints file</param>
+		/// <returns>The list of data entry names needing an updated hint</returns>
+		public static List<string> FindHintsNeedingUpdate(XElement root, XElement hints)
+		{
+			return FindHintUpdates(root, hints)
+				.Select(m => m.Data.Attribute("name").Value)
+				.ToList();
+		}
+
+
+		/// <summary>
+		/// Force merge hints from the specified file into the data collection.
+		/// </summary>
+		/// <param name="data">The data collection to modify</param>
+		/// <param name="hintPath">The path of the hints file</param>
+		/// <returns>Count of hints applied</returns>
+		public static int MergeHints(XElement root, XElement hints)
+		{
+			var count = 0;
+			foreach (var (data, hint) in FindHintUpdates(root, hints).ToList())
+			{
+				// if found here then we did not find the translated value in the !EDIT
+				// values but found the named item in the root so overwrite...
+
+				data.Element("value").Value = hint.Element("preferred").Value.Trim();
+				count++;
 			}
 
 			return count;

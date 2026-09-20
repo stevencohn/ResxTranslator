@@ -325,6 +325,14 @@ namespace ResxTranslator
 					{
 						root = ApplyTranslations(root, data, inputPath, outputFile, out var deleted);
 
+						if (translator.Hints.HasElements)
+						{
+							foreach (var name in ResxProvider.FindHintsNeedingUpdate(root, translator.Hints))
+							{
+								Log($"WARNING >>> hint for '{name}' needs to be updated{NL}", Color.DarkOrange);
+							}
+						}
+
 						var hintCount = 0;
 						if (hintOverrideBox.Checked && translator.Hints.HasElements)
 						{
